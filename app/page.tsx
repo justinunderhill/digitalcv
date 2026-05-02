@@ -107,11 +107,16 @@ const journey = [
 ];
 
 const certifications = [
-  "Prompt Engineering for Business",
+  "AI Change Management: Leading the Transformation",
+  "AI Change Management: Understanding Drivers and Impact",
   "GenAI Academy: White Belt",
-  "Project Management Essentials Certified (PMEC)",
-  "Scrum Fundamentals Certified",
-  "Digital Marketing Certification",
+  "GenAI Academy: Yellow Belt Level 1",
+  "GenAI Academy: Yellow Belt Level 2 for Consultants",
+  "Generative AI for Project Managers",
+  "Generative AI Overview for Project Managers",
+  "Exploring Prompt Engineering Techniques",
+  "Prompt Engineering for Business",
+  "Responsible Use of AI",
 ];
 
 const education = [
@@ -390,8 +395,8 @@ export default function Home() {
               <h2>Certifications</h2>
             </div>
             <p className="credential-note">
-              Selected credentials are shown here. The full certification archive lives on
-              LinkedIn and can be opened as the complete source of record.
+              Ten AI-focused credentials are shown here. The full certification archive
+              lives on LinkedIn and can be opened as the complete source of record.
             </p>
             <ul className="tag-list">
               {certifications.map((item) => (

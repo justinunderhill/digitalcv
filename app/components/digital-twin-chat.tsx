@@ -136,79 +136,130 @@ export function DigitalTwinChat() {
   }
 
   return (
-    <div className="twin-chat">
-      <div className="twin-head">
-        <div>
-          <p className="twin-head-label">Digital Twin Chat</p>
-          <p className="twin-head-subtitle">Ask career questions in natural language</p>
+    <div className="twin-arcade">
+      <aside className="twin-sidekick" aria-hidden="true">
+        <div className="robot-unit">
+          <div className="robot-antenna" />
+          <div className="robot-head">
+            <span className="robot-eye" />
+            <span className="robot-eye" />
+            <span className="robot-mouth" />
+          </div>
+          <div className="robot-body">
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="robot-shadow" />
         </div>
-        <p
-          className={`twin-mode ${
-            mode === "openai" ? "is-openai" : mode === "fallback" ? "is-fallback" : "is-checking"
-          }`}
-        >
-          {mode === "openai" ? "OpenAI Live" : mode === "fallback" ? "Profile Fallback" : "Status Pending"}
-        </p>
-      </div>
+        <div className="robot-card">
+          <span>Player 2</span>
+          <strong>JU-Bot</strong>
+          <small>Career signal online</small>
+        </div>
+      </aside>
 
-      {statusNote ? <p className="twin-warning">{statusNote}</p> : null}
+      <div className="twin-chat">
+        <div className="arcade-marquee">
+          <span>Career Twin</span>
+          <strong>Ask Justin</strong>
+          <span>AI Cabinet</span>
+        </div>
 
-      <div className="twin-messages" aria-live="polite" ref={scrollRef}>
-        {messages.map((message) => (
-          <article
-            className={`twin-message ${message.role === "assistant" ? "is-assistant" : "is-user"}`}
-            key={message.id}
+        <div className="twin-head">
+          <div>
+            <p className="twin-head-label">Digital Twin Chat</p>
+            <p className="twin-head-subtitle">Career console / AI profile mode</p>
+          </div>
+          <p
+            className={`twin-mode ${
+              mode === "openai" ? "is-openai" : mode === "fallback" ? "is-fallback" : "is-checking"
+            }`}
           >
-            <span className="twin-avatar">{message.role === "assistant" ? "JT" : "You"}</span>
-            <div className="twin-bubble">
-              <p>{message.content}</p>
-            </div>
-          </article>
-        ))}
-        {isSending ? (
-          <article className="twin-message is-assistant is-thinking">
-            <span className="twin-avatar">JT</span>
-            <div className="twin-bubble">
-              <p>Thinking...</p>
-            </div>
-          </article>
-        ) : null}
-      </div>
+            {mode === "openai"
+              ? "OpenAI Live"
+              : mode === "fallback"
+                ? "Profile Fallback"
+                : "Status Pending"}
+          </p>
+        </div>
 
-      <div className="twin-prompts">
-        {starterPrompts.map((prompt) => (
-          <button
-            className="twin-chip"
-            key={prompt}
-            onClick={() => void sendMessage(prompt)}
-            type="button"
+        {statusNote ? <p className="twin-warning">{statusNote}</p> : null}
+
+        <div className="arcade-screen">
+          <div className="screen-bezel">
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="twin-messages" aria-live="polite" ref={scrollRef}>
+            {messages.map((message) => (
+              <article
+                className={`twin-message ${
+                  message.role === "assistant" ? "is-assistant" : "is-user"
+                }`}
+                key={message.id}
+              >
+                <span className="twin-avatar">{message.role === "assistant" ? "JT" : "You"}</span>
+                <div className="twin-bubble">
+                  <p>{message.content}</p>
+                </div>
+              </article>
+            ))}
+            {isSending ? (
+              <article className="twin-message is-assistant is-thinking">
+                <span className="twin-avatar">JT</span>
+                <div className="twin-bubble">
+                  <p>Thinking...</p>
+                </div>
+              </article>
+            ) : null}
+          </div>
+        </div>
+
+        <div className="arcade-controls" aria-hidden="true">
+          <span className="joystick" />
+          <span className="control-button is-magenta" />
+          <span className="control-button is-cyan" />
+          <span className="control-button is-amber" />
+          <span className="coin-slot">Credits 01</span>
+        </div>
+
+        <div className="twin-prompts">
+          {starterPrompts.map((prompt) => (
+            <button
+              className="twin-chip"
+              key={prompt}
+              onClick={() => void sendMessage(prompt)}
+              type="button"
+              disabled={isSending}
+            >
+              {prompt}
+            </button>
+          ))}
+        </div>
+
+        <form className="twin-form" onSubmit={handleSubmit}>
+          <label className="sr-only" htmlFor="twin-input">
+            Ask Justin&apos;s digital twin
+          </label>
+          <textarea
+            id="twin-input"
+            value={input}
+            onChange={(event) => setInput(event.target.value)}
+            onKeyDown={handleInputKeyDown}
+            placeholder="Ask about career history, AI projects, leadership, or certifications..."
+            rows={3}
             disabled={isSending}
-          >
-            {prompt}
+            required
+          />
+          <button className="button button-primary" type="submit" disabled={isSending}>
+            {isSending ? "Sending..." : "Ask Digital Twin"}
           </button>
-        ))}
+        </form>
+
+        {error ? <p className="twin-error">Connection note: {error}</p> : null}
       </div>
-
-      <form className="twin-form" onSubmit={handleSubmit}>
-        <label className="sr-only" htmlFor="twin-input">
-          Ask Justin&apos;s digital twin
-        </label>
-        <textarea
-          id="twin-input"
-          value={input}
-          onChange={(event) => setInput(event.target.value)}
-          onKeyDown={handleInputKeyDown}
-          placeholder="Ask about career history, AI projects, leadership, or certifications..."
-          rows={3}
-          disabled={isSending}
-          required
-        />
-        <button className="button button-primary" type="submit" disabled={isSending}>
-          {isSending ? "Sending..." : "Ask Digital Twin"}
-        </button>
-      </form>
-
-      {error ? <p className="twin-error">Connection note: {error}</p> : null}
     </div>
   );
 }

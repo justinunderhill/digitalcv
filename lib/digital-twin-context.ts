@@ -29,11 +29,27 @@ Top skills:
 - AI Engineer
 
 Certifications:
-- Digital Marketing Certification
-- Project Management Essentials Certified (PMEC)
+- AI Change Management: Leading the Transformation
+- AI Change Management: Understanding Drivers and Impact
+- AI in the Workplace
+- Creating documents efficiently with Copilot for Microsoft 365
+- Exploring Prompt Engineering Techniques
 - GenAI Academy: White Belt
+- GenAI Academy: Yellow Belt Level 1
+- GenAI Academy: Yellow Belt Level 2 for Consultants
+- Generative AI for Project Managers
+- Optimizing communication & information with Copilot for Microsoft 365
+- Responsible Use of AI
+- PRINCE2 Foundation Certification Training
+- Building an ICO-Formatted AI Prompt (Simulation)
 - Prompt Engineering for Business
+- Generative AI Overview for Project Managers
+- Practical Project Management
 - Scrum Fundamentals Certified
+- SEO Fundamentals
+- Lean Six Sigma White Belt Certification
+- Project Management Essentials Certified (PMEC)
+- Digital Marketing Certification
 
 Career timeline:
 - Merchants (Apr 2023 - Present): Project Manager
@@ -64,4 +80,3 @@ Education:
 - Stanford University: CS Online, Computer Science (2015)
 - Health & Fitness Professionals Association: Diploma in Exercise Science (2010 - 2012)
 `.trim();
-
