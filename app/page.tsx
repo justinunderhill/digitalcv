@@ -2,39 +2,45 @@ import Link from "next/link";
 import { DigitalTwinChat } from "./components/digital-twin-chat";
 
 const keyStats = [
-  { label: "Years In Digital & Delivery", value: "12+" },
-  { label: "Cross-Functional Roles", value: "10" },
-  { label: "Current Core Focus", value: "Agentic AI" },
-  { label: "Region", value: "Johannesburg" },
+  { label: "Years In Digital & Delivery", value: "12+", cue: "High score" },
+  { label: "Cross-Functional Roles", value: "10", cue: "Career tracks" },
+  { label: "Current Core Focus", value: "Agentic AI", cue: "Now playing" },
+  { label: "Region", value: "Johannesburg", cue: "Broadcast from" },
 ];
 
 const capabilities = [
   {
+    code: "01",
     title: "Agentic AI Systems",
     detail:
       "Designing multi-agent workflows and orchestration patterns that solve real operational problems.",
   },
   {
+    code: "02",
     title: "LLM Application Engineering",
     detail:
       "Building practical assistants and decision-support systems with reliable context handling and controlled outputs.",
   },
   {
+    code: "03",
     title: "AI Automation Architecture",
     detail:
       "Integrating automation layers into existing business workflows to improve speed, quality, and consistency.",
   },
   {
+    code: "04",
     title: "Project & Delivery Leadership",
     detail:
       "Leading full project lifecycles, stakeholder alignment, and handovers that keep strategy tied to execution.",
   },
   {
+    code: "05",
     title: "Data & Performance Thinking",
     detail:
       "Using analytics, reporting, and KPI frameworks to measure impact and continuously improve outcomes.",
   },
   {
+    code: "06",
     title: "Digital Product Foundations",
     detail:
       "Hands-on background in software and web development with strong full-stack and platform fundamentals.",
@@ -114,6 +120,9 @@ const education = [
   "HFPA - Diploma in Exercise Science (Personal Training)",
 ];
 
+const certificationArchiveUrl =
+  "https://www.linkedin.com/in/justinunderhill/details/certifications/";
+
 const portfolioRoadmap = [
   {
     title: "AI Workflow Blueprint",
@@ -129,37 +138,73 @@ const portfolioRoadmap = [
   },
 ];
 
+const broadcastItems = [
+  "VHS memory",
+  "Mixtape logic",
+  "Arcade focus",
+  "AI delivery",
+  "Johannesburg signal",
+];
+
+const calibrationNotes = [
+  {
+    label: "Movie Era",
+    title: "Cinematic framing",
+    copy:
+      "The layout uses posters, frames, tracking lines, and bold title treatments to make the first impression feel directed rather than templated.",
+  },
+  {
+    label: "Music Era",
+    title: "Mixtape structure",
+    copy:
+      "Expertise is arranged like a tracklist so the work feels curated, personal, and easy to scan without losing professional substance.",
+  },
+  {
+    label: "Tech Era",
+    title: "Terminal intelligence",
+    copy:
+      "The Digital Twin keeps the modern AI capability visible, but presents it through a retro terminal language that fits the story.",
+  },
+];
+
 export default function Home() {
   return (
-    <div className="site-shell">
-      <div className="ambient" aria-hidden="true" />
+    <div className="retro-shell">
+      <div className="vhs-noise" aria-hidden="true" />
+      <div className="scanlines" aria-hidden="true" />
 
       <header className="top-nav reveal">
-        <a className="brand" href="#home">
-          JU
-          <span>AI Systems Engineer</span>
+        <a className="brand" href="#home" aria-label="Justin Underhill homepage">
+          <span className="brand-mark">JU</span>
+          <span className="brand-copy">
+            <strong>1979 Signal</strong>
+            <small>AI systems engineer</small>
+          </span>
         </a>
 
-        <nav>
-          <a href="#about">About</a>
-          <a href="#journey">Journey</a>
-          <a href="#twin">Digital Twin</a>
-          <a href="#portfolio">Portfolio</a>
-          <a href="#contact">Contact</a>
+        <nav aria-label="Primary navigation">
+          <a href="#about">Liner Notes</a>
+          <a href="#tracks">Tracks</a>
+          <a href="#journey">Film Reel</a>
+          <a href="#twin">Twin</a>
+          <a href="#portfolio">Shelf</a>
         </nav>
       </header>
 
       <main>
-        <section className="hero panel reveal" id="home">
-          <div>
-            <p className="eyebrow">Enterprise delivery with an edge</p>
+        <section className="hero reveal" id="home">
+          <div className="hero-copy-panel">
+            <p className="eyebrow">Signal from 1979</p>
             <h1>Justin Underhill</h1>
             <p className="hero-title">
-              AI Systems Engineer | Agentic AI Developer | AI Automation Architect
+              Born analog. Raised on cinema, mixtapes, arcades, and early digital signals.
+              Building intelligent systems for the AI era.
             </p>
             <p className="hero-copy">
-              I design and deploy practical AI systems that fit inside real business environments.
-              My focus is turning AI from experimentation into dependable operational capability.
+              I design and deploy practical AI systems that fit inside real business
+              environments. The work is modern, but the operating style is shaped by an
+              era of bold interfaces, memorable soundtracks, and technology that felt
+              like discovery.
             </p>
 
             <div className="hero-actions">
@@ -172,73 +217,162 @@ export default function Home() {
                 View LinkedIn
               </a>
               <a className="button button-ghost" href="mailto:underhill.justin@gmail.com">
-                underhill.justin@gmail.com
+                Contact Justin
               </a>
             </div>
+
+            <dl className="hero-meta" aria-label="Profile signal details">
+              <div>
+                <dt>Origin year</dt>
+                <dd>1979</dd>
+              </div>
+              <div>
+                <dt>Format</dt>
+                <dd>Analog to AI</dd>
+              </div>
+              <div>
+                <dt>Signal</dt>
+                <dd>Human-led systems</dd>
+              </div>
+            </dl>
           </div>
 
-          <aside className="hero-focus">
-            <p className="focus-title">Current Focus</p>
-            <ul>
-              <li>Agentic AI systems and multi-agent workflows</li>
-              <li>Production-ready LLM applications</li>
-              <li>AI automation embedded in existing operations</li>
-              <li>Reliable, measurable delivery with human oversight</li>
-            </ul>
+          <aside className="signal-stack" aria-label="Current focus">
+            <div className="poster-card poster-card-primary">
+              <div className="poster-billing">
+                <span>Delivery</span>
+                <span>Automation</span>
+                <span>AI</span>
+              </div>
+              <span>Feature</span>
+              <strong>Agentic AI</strong>
+              <small>Now showing</small>
+            </div>
+            <div className="cassette">
+              <div className="cassette-label">
+                <span>Side A</span>
+                <strong>Systems</strong>
+              </div>
+              <div className="cassette-window" aria-hidden="true">
+                <span />
+                <span />
+              </div>
+              <p>Multi-agent workflows / LLM apps / automation architecture</p>
+            </div>
+            <div className="poster-row">
+              <div className="mini-poster">VHS</div>
+              <div className="mini-poster">CRT</div>
+              <div className="mini-poster">AI</div>
+            </div>
           </aside>
         </section>
 
-        <section className="stats reveal" aria-label="Key highlights">
+        <section className="broadcast-strip reveal" aria-label="Broadcast themes">
+          <span>On Air</span>
+          <div>
+            {[...broadcastItems, ...broadcastItems].map((item, index) => (
+              <strong key={`${item}-${index}`}>{item}</strong>
+            ))}
+          </div>
+        </section>
+
+        <section className="scoreboard reveal" aria-label="Key highlights">
           {keyStats.map((item, index) => (
-            <article className="stat-card" key={item.label} style={{ animationDelay: `${index * 80}ms` }}>
-              <p className="stat-value">{item.value}</p>
-              <p className="stat-label">{item.label}</p>
+            <article
+              className="score-card"
+              key={item.label}
+              style={{ animationDelay: `${index * 80}ms` }}
+            >
+              <p className="score-cue">{item.cue}</p>
+              <p className="score-value">{item.value}</p>
+              <p className="score-label">{item.label}</p>
             </article>
           ))}
         </section>
 
-        <section className="panel reveal" id="about">
+        <section className="panel liner-notes reveal" id="about">
           <div className="section-head">
-            <p className="eyebrow">About Me</p>
-            <h2>Engineering AI that delivers in the real world</h2>
+            <p className="eyebrow">Liner Notes</p>
+            <h2>The analog-to-AI arc</h2>
           </div>
-          <p>
-            My approach combines systems thinking, structured delivery, and modern AI engineering.
-            I believe AI initiatives succeed when they are treated as engineered systems with clear
-            reliability standards, governance, and operational fit.
-          </p>
-          <p>
-            With a background spanning software development, digital strategy, and enterprise
-            project leadership, I bridge technical depth with practical execution to create solutions
-            that teams can adopt, trust, and scale.
-          </p>
+
+          <div className="side-grid">
+            <article>
+              <p className="side-label">Side A</p>
+              <h3>Digital craft and delivery</h3>
+              <p>
+                My background spans software development, digital strategy, reporting,
+                performance thinking, and enterprise project leadership. That range lets
+                me move between technical detail and operational reality without losing
+                the thread.
+              </p>
+            </article>
+            <article>
+              <p className="side-label">Side B</p>
+              <h3>AI systems that can be trusted</h3>
+              <p>
+                I believe AI initiatives succeed when they are treated as engineered
+                systems with clear reliability standards, governance, human oversight,
+                and measurable adoption inside the business.
+              </p>
+            </article>
+          </div>
         </section>
 
-        <section className="panel reveal">
+        <section className="panel calibration reveal">
           <div className="section-head">
-            <p className="eyebrow">Core Expertise</p>
-            <h2>Where I create the most impact</h2>
+            <p className="eyebrow">Signal Calibration</p>
+            <h2>How the era shows up in the interface</h2>
           </div>
 
-          <div className="card-grid">
-            {capabilities.map((item, index) => (
-              <article className="info-card" key={item.title} style={{ animationDelay: `${index * 70}ms` }}>
+          <div className="calibration-grid">
+            {calibrationNotes.map((item) => (
+              <article className="calibration-card" key={item.title}>
+                <p>{item.label}</p>
                 <h3>{item.title}</h3>
-                <p>{item.detail}</p>
+                <span aria-hidden="true" />
+                <small>{item.copy}</small>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="panel reveal" id="journey">
+        <section className="panel mixtape reveal" id="tracks">
           <div className="section-head">
-            <p className="eyebrow">Career Journey</p>
-            <h2>Built across delivery, digital, and engineering</h2>
+            <p className="eyebrow">Mixtape</p>
+            <h2>Core expertise, track by track</h2>
+          </div>
+
+          <div className="track-list">
+            {capabilities.map((item, index) => (
+              <article
+                className="track"
+                key={item.title}
+                style={{ animationDelay: `${index * 70}ms` }}
+              >
+                <span className="track-code">{item.code}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.detail}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="panel film-reel reveal" id="journey">
+          <div className="section-head">
+            <p className="eyebrow">Film Reel</p>
+            <h2>Scenes from the career archive</h2>
           </div>
 
           <div className="timeline">
             {journey.map((item, index) => (
-              <article className="timeline-item" key={`${item.role}-${item.period}`} style={{ animationDelay: `${index * 70}ms` }}>
+              <article
+                className="timeline-item"
+                key={`${item.role}-${item.period}`}
+                style={{ animationDelay: `${index * 70}ms` }}
+              >
                 <p className="timeline-period">{item.period}</p>
                 <h3>
                   {item.role} <span>@ {item.company}</span>
@@ -250,22 +384,34 @@ export default function Home() {
         </section>
 
         <section className="split reveal">
-          <article className="panel">
+          <article className="panel sleeve-panel">
             <div className="section-head">
-              <p className="eyebrow">Credentials</p>
+              <p className="eyebrow">Credits</p>
               <h2>Certifications</h2>
             </div>
+            <p className="credential-note">
+              Selected credentials are shown here. The full certification archive lives on
+              LinkedIn and can be opened as the complete source of record.
+            </p>
             <ul className="tag-list">
               {certifications.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
+            <a
+              className="archive-link"
+              href={certificationArchiveUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Full credential archive
+            </a>
           </article>
 
-          <article className="panel">
+          <article className="panel sleeve-panel">
             <div className="section-head">
-              <p className="eyebrow">Education</p>
-              <h2>Academic Foundations</h2>
+              <p className="eyebrow">Archive</p>
+              <h2>Education</h2>
             </div>
             <ul className="tag-list">
               {education.map((item) => (
@@ -275,28 +421,33 @@ export default function Home() {
           </article>
         </section>
 
-        <section className="panel reveal" id="twin">
+        <section className="panel terminal-panel reveal" id="twin">
           <div className="section-head">
-            <p className="eyebrow">AI Digital Twin</p>
+            <p className="eyebrow">Retro Terminal</p>
             <h2>Chat with Justin&apos;s career twin</h2>
           </div>
           <p className="twin-intro">
-            This assistant is powered by OpenAI and grounded in Justin&apos;s professional profile
-            so you can quickly explore his experience, strengths, and career journey.
+            A modern AI assistant presented like a late-night terminal: grounded in
+            Justin&apos;s professional profile and ready to answer questions about his
+            experience, strengths, and career journey.
           </p>
           <DigitalTwinChat />
         </section>
 
-        <section className="panel reveal" id="portfolio">
+        <section className="panel video-shelf reveal" id="portfolio">
           <div className="section-head">
-            <p className="eyebrow">Portfolio (In Progress)</p>
+            <p className="eyebrow">Video Shelf</p>
             <h2>Future case studies and build logs</h2>
           </div>
 
-          <div className="card-grid portfolio-grid">
+          <div className="shelf-grid">
             {portfolioRoadmap.map((item, index) => (
-              <article className="info-card portfolio-card" key={item.title} style={{ animationDelay: `${index * 70}ms` }}>
-                <p className="status-pill">Roadmap</p>
+              <article
+                className="case-tape"
+                key={item.title}
+                style={{ animationDelay: `${index * 70}ms` }}
+              >
+                <p className="status-pill">Coming Soon</p>
                 <h3>{item.title}</h3>
                 <p>{item.scope}</p>
               </article>
@@ -311,11 +462,11 @@ export default function Home() {
         </section>
 
         <section className="cta panel reveal" id="contact">
-          <p className="eyebrow">Let&apos;s Build</p>
+          <p className="eyebrow">Final Frame</p>
           <h2>Ready to turn AI capability into operational advantage?</h2>
           <p>
-            Based in Johannesburg and open to collaboration on AI systems, automation architecture,
-            and strategic delivery programs.
+            Based in Johannesburg and open to collaboration on AI systems,
+            automation architecture, and strategic delivery programs.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="mailto:underhill.justin@gmail.com">
@@ -327,6 +478,11 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      <a className="back-to-top" href="#home" aria-label="Back to top">
+        <span aria-hidden="true">▲</span>
+        Top
+      </a>
     </div>
   );
 }
