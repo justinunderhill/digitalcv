@@ -107,21 +107,16 @@ const journey = [
 ];
 
 const certifications = [
-  "AI Change Management: Leading the Transformation",
-  "AI Change Management: Understanding Drivers and Impact",
-  "GenAI Academy: White Belt",
-  "GenAI Academy: Yellow Belt Level 1",
-  "GenAI Academy: Yellow Belt Level 2 for Consultants",
+  "PRINCE2 Foundation Certification Training",
   "Generative AI for Project Managers",
-  "Generative AI Overview for Project Managers",
-  "Exploring Prompt Engineering Techniques",
-  "Prompt Engineering for Business",
+  "GenAI Academy: Yellow Belt Level 2 for Consultants",
+  "AI Change Management: Leading the Transformation",
   "Responsible Use of AI",
 ];
 
 const education = [
   "Stellenbosch University - Certificate in Digital Marketing",
-  "Stanford University - CS Online",
+  "Stanford Online - Computer Science coursework",
   "HFPA - Diploma in Exercise Science (Personal Training)",
 ];
 
@@ -188,11 +183,11 @@ export default function Home() {
         </a>
 
         <nav aria-label="Primary navigation">
-          <a href="#about">Liner Notes</a>
-          <a href="#tracks">Tracks</a>
-          <a href="#journey">Film Reel</a>
+          <a href="#about">About</a>
+          <a href="#tracks">Capabilities</a>
+          <a href="#journey">Experience</a>
           <a href="#twin">Twin</a>
-          <a href="#portfolio">Shelf</a>
+          <a href="#portfolio">Portfolio</a>
         </nav>
       </header>
 
@@ -395,7 +390,7 @@ export default function Home() {
               <h2>Certifications</h2>
             </div>
             <p className="credential-note">
-              Ten AI-focused credentials are shown here. The full certification archive
+              Selected credentials are shown here. The full certification archive
               lives on LinkedIn and can be opened as the complete source of record.
             </p>
             <ul className="tag-list">

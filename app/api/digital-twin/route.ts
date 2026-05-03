@@ -8,9 +8,10 @@ type ChatMessage = {
   content: string;
 };
 
-const MODEL_NAME = "GPT-5.3-Codex";
+const MODEL_NAME = process.env.OPENAI_MODEL ?? "gpt-4o-mini";
 const MAX_MESSAGES = 14;
 const MAX_MESSAGE_LENGTH = 1_500;
+const MAX_BODY_BYTES = 24_000;
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 8;
 
@@ -21,6 +22,8 @@ type RateLimitEntry = {
 
 const rateLimitStore = new Map<string, RateLimitEntry>();
 
+export const maxDuration = 20;
+
 function getClientId(request: Request): string {
   const forwardedFor = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
   const realIp = request.headers.get("x-real-ip")?.trim();
@@ -29,6 +32,13 @@ function getClientId(request: Request): string {
 
 function checkRateLimit(clientId: string) {
   const now = Date.now();
+
+  for (const [key, entry] of rateLimitStore) {
+    if (entry.resetAt <= now) {
+      rateLimitStore.delete(key);
+    }
+  }
+
   const existing = rateLimitStore.get(clientId);
 
   if (!existing || existing.resetAt <= now) {
@@ -70,6 +80,10 @@ function normalizeApiKey(rawKey: string | undefined): string {
   }
 
   return trimmed;
+}
+
+function hasPlausibleApiKeyFormat(apiKey: string): boolean {
+  return apiKey.startsWith("sk-") && apiKey.length > 20;
 }
 
 function sanitizeMessages(messages: unknown): ChatMessage[] {
@@ -134,6 +148,14 @@ export async function POST(request: Request) {
       );
     }
 
+    const contentLength = Number(request.headers.get("content-length") ?? 0);
+    if (contentLength > MAX_BODY_BYTES) {
+      return NextResponse.json(
+        { error: "Request body is too large. Please send a shorter conversation." },
+        { status: 413 },
+      );
+    }
+
     const body = await request.json();
     conversation = sanitizeMessages(body?.messages);
     if (conversation.length === 0) {
@@ -155,6 +177,16 @@ export async function POST(request: Request) {
       });
     }
 
+    if (!hasPlausibleApiKeyFormat(apiKey)) {
+      logFallback("invalid_api_key_format");
+      return NextResponse.json({
+        mode: "fallback",
+        warning:
+          "OpenAI key format looks invalid. Fallback mode is active until OPENAI_API_KEY is corrected.",
+        message: generateFallbackTwinAnswer(latestPrompt),
+      });
+    }
+
     const client = new OpenAI({ apiKey });
     const response = await client.responses.create({
       model: MODEL_NAME,
@@ -166,10 +198,8 @@ export async function POST(request: Request) {
         ...conversation.map((message) => ({
           role: message.role,
           content: message.content,
-          ...(message.role === "assistant" ? { phase: "final_answer" as const } : {}),
         })),
       ],
-      reasoning: { effort: "medium" },
     });
 
     const message = extractResponseText(response);
@@ -192,7 +222,7 @@ export async function POST(request: Request) {
           warning:
             "OpenAI authentication failed. Fallback mode is active. Update OPENAI_API_KEY and restart dev server to restore live model responses.",
           message: generateFallbackTwinAnswer(latestPrompt),
-        });
+        }, { status: 502 });
       }
 
       if (error.status === 404) {
@@ -200,9 +230,9 @@ export async function POST(request: Request) {
         return NextResponse.json({
           mode: "fallback",
           warning:
-            "Model access issue for 'GPT-5.3-Codex'. Fallback mode is active until model access is available.",
+            `Model access issue for '${MODEL_NAME}'. Fallback mode is active until model access is available.`,
           message: generateFallbackTwinAnswer(latestPrompt),
-        });
+        }, { status: 502 });
       }
 
       logFallback("openai_api_error", {
@@ -215,7 +245,7 @@ export async function POST(request: Request) {
           sanitizeOpenAIErrorMessage(error.message) ||
           "OpenAI request failed. Fallback mode is active.",
         message: generateFallbackTwinAnswer(latestPrompt),
-      });
+      }, { status: 502 });
     }
 
     logFallback("unexpected_error", error instanceof Error ? error.message : error);
@@ -223,6 +253,6 @@ export async function POST(request: Request) {
       mode: "fallback",
       warning: "Unexpected server error while contacting OpenAI. Fallback mode is active.",
       message: generateFallbackTwinAnswer(latestPrompt),
-    });
+    }, { status: 500 });
   }
 }

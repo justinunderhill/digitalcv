@@ -91,7 +91,9 @@ export function DigitalTwinChat() {
         warning?: string;
         mode?: TwinMode;
       };
-      if (!response.ok || !data.message) {
+      const hasFallbackMessage = data.mode === "fallback" && Boolean(data.message);
+
+      if ((!response.ok && !hasFallbackMessage) || !data.message) {
         throw new Error(data.error || "The assistant failed to respond.");
       }
 

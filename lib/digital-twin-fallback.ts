@@ -68,7 +68,7 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
     return [
       "My education includes:",
       "- Stellenbosch University: Certificate in Digital Marketing (2012)",
-      "- Stanford University: CS Online, Computer Science (2015)",
+      "- Stanford Online: Computer Science coursework (2015)",
       "- HFPA: Diploma in Exercise Science (2010-2012)",
     ].join("\n");
   }

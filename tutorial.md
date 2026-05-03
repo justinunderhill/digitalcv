@@ -43,7 +43,7 @@ Then open: `http://localhost:3000`
 
 ### OpenAI API
 - The server route `app/api/digital-twin/route.ts` sends chat prompts to OpenAI.
-- Model used: `GPT-5.3-Codex`.
+- Default model: `gpt-4o-mini`, overridable with `OPENAI_MODEL`.
 - If API auth/model access fails, route returns profile-grounded fallback answers.
 
 ---
@@ -249,16 +249,14 @@ OpenAI request:
 
 ```tsx
 const response = await client.responses.create({
-  model: "GPT-5.3-Codex",
+  model: process.env.OPENAI_MODEL ?? "gpt-4o-mini",
   input: [
     { role: "system", content: digitalTwinSystemPrompt },
     ...conversation.map((message) => ({
       role: message.role,
       content: message.content,
-      ...(message.role === "assistant" ? { phase: "final_answer" as const } : {}),
     })),
   ],
-  reasoning: { effort: "medium" },
 });
 ```
 
