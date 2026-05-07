@@ -1,37 +1,64 @@
 import Link from "next/link";
 
+const liveCaseStudies = [
+  {
+    title: "Finally",
+    url: "https://finally-beryl.vercel.app/",
+    detail: "Live deployed project hosted on Vercel.",
+  },
+];
+
+const queuedCaseStudies = [
+  "Agent-driven workflow blueprint with design rationale and implementation notes.",
+  "LLM assistant deployment with guardrails, context strategy, and QA outcomes.",
+  "Automation impact dashboards showing baseline-to-improvement metrics.",
+];
+
 export default function PortfolioPage() {
   return (
-    <div className="portfolio-page">
-      <section className="panel portfolio-hub reveal">
-        <p className="eyebrow">Video Shelf</p>
-        <h1>Case studies are being prepared.</h1>
-        <p>
-          This section will showcase production AI systems, automation
-          architecture decisions, and measurable delivery outcomes as a set of
-          release-ready build logs.
-        </p>
-
-        <ul>
-          <li>Agentic workflow blueprint with design rationale and implementation notes.</li>
-          <li>LLM assistant deployment case with guardrails, context strategy, and QA outcomes.</li>
-          <li>Automation impact dashboards showing baseline-to-improvement metrics.</li>
-        </ul>
-
-        <div className="hero-actions">
-          <Link className="button button-primary" href="/">
-            Back to homepage
-          </Link>
+    <main className="shell portfolio-shell">
+      <span className="label">{"// portfolio"}</span>
+      <h1>Case studies in development</h1>
+      <p>
+        This space will hold a small set of build logs covering production AI
+        systems, automation architecture, and measurable delivery outcomes —
+        each written as a release-ready post with design rationale, tradeoffs,
+        and results.
+      </p>
+      <div className="case-study-list">
+        {liveCaseStudies.map((item) => (
           <a
-            className="button button-ghost"
-            href="https://www.linkedin.com/in/justinunderhill"
+            className="case-study-link"
+            href={item.url}
+            key={item.url}
             target="_blank"
             rel="noreferrer"
           >
-            LinkedIn profile
+            <span className="case-study-kicker">live project</span>
+            <strong>{item.title}</strong>
+            <span>{item.detail}</span>
           </a>
-        </div>
-      </section>
-    </div>
+        ))}
+      </div>
+      <p className="portfolio-note portfolio-note-secondary">Queued case studies:</p>
+      <ul className="portfolio-queue">
+        {queuedCaseStudies.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <div className="hero-actions">
+        <Link className="button button-primary" href="/">
+          Back to home
+        </Link>
+        <a
+          className="button button-ghost"
+          href="https://www.linkedin.com/in/justinunderhill"
+          target="_blank"
+          rel="noreferrer"
+        >
+          LinkedIn profile
+        </a>
+      </div>
+    </main>
   );
 }

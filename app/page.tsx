@@ -1,47 +1,34 @@
 import Link from "next/link";
 import { DigitalTwinChat } from "./components/digital-twin-chat";
 
-const keyStats = [
-  { label: "Years In Digital & Delivery", value: "12+", cue: "High score" },
-  { label: "Cross-Functional Roles", value: "10", cue: "Career tracks" },
-  { label: "Current Core Focus", value: "Agentic AI", cue: "Now playing" },
-  { label: "Region", value: "Johannesburg", cue: "Broadcast from" },
-];
-
 const capabilities = [
   {
-    code: "01",
-    title: "Agentic AI Systems",
+    title: "Agentic AI systems",
     detail:
       "Designing multi-agent workflows and orchestration patterns that solve real operational problems.",
   },
   {
-    code: "02",
-    title: "LLM Application Engineering",
+    title: "LLM application engineering",
     detail:
       "Building practical assistants and decision-support systems with reliable context handling and controlled outputs.",
   },
   {
-    code: "03",
-    title: "AI Automation Architecture",
+    title: "AI automation architecture",
     detail:
       "Integrating automation layers into existing business workflows to improve speed, quality, and consistency.",
   },
   {
-    code: "04",
-    title: "Project & Delivery Leadership",
+    title: "Project & delivery leadership",
     detail:
       "Leading full project lifecycles, stakeholder alignment, and handovers that keep strategy tied to execution.",
   },
   {
-    code: "05",
-    title: "Data & Performance Thinking",
+    title: "Data & performance thinking",
     detail:
       "Using analytics, reporting, and KPI frameworks to measure impact and continuously improve outcomes.",
   },
   {
-    code: "06",
-    title: "Digital Product Foundations",
+    title: "Digital product foundations",
     detail:
       "Hands-on background in software and web development with strong full-stack and platform fundamentals.",
   },
@@ -49,65 +36,65 @@ const capabilities = [
 
 const journey = [
   {
-    period: "Apr 2023 - Present",
+    period: "Apr 2023 — Present",
     role: "Project Manager",
     company: "Merchants",
-    highlight:
+    detail:
       "Leading end-to-end delivery, stakeholder governance, and operational handovers across complex initiatives.",
   },
   {
-    period: "Aug 2022 - Mar 2023",
+    period: "Aug 2022 — Mar 2023",
     role: "Digital Project Manager",
     company: "Bottomline SA",
-    highlight:
+    detail:
       "Drove digital transitions with precise scheduling, budget control, and cross-team alignment.",
   },
   {
-    period: "May 2022 - Jul 2022",
+    period: "May 2022 — Jul 2022",
     role: "Reporting & Dashboard Specialist",
     company: "Wetpaint",
-    highlight:
+    detail:
       "Built reporting clarity and trained teams during new system rollouts.",
   },
   {
-    period: "Jan 2022 - Mar 2022",
+    period: "Jan 2022 — Mar 2022",
     role: "Digital & Tech Consultant",
     company: "Kadraa Recruitment",
-    highlight:
+    detail:
       "Facilitated technical workshops and strengthened hiring requirements for web-focused roles.",
   },
   {
-    period: "Nov 2018 - Oct 2021",
+    period: "Nov 2018 — Oct 2021",
     role: "Independent Digital Consultant",
     company: "NetSum",
-    highlight:
+    detail:
       "Delivered digital growth strategies through freelance consulting and omni-channel campaign execution.",
   },
   {
-    period: "2016 - 2018",
+    period: "2016 — 2018",
     role: "Digital Lead / Strategist",
     company: "Neapolitan Digital, BPD Advertising, Red September",
-    highlight:
+    detail:
       "Led channel strategy, social performance, and data-informed campaign execution across multiple organizations.",
   },
   {
-    period: "Nov 2015 - Oct 2016",
+    period: "Nov 2015 — Oct 2016",
     role: "Senior Software Developer",
     company: "Straight Twisted",
-    highlight:
+    detail:
       "Managed full-stack project delivery, team leadership, and quality assurance under demanding timelines.",
   },
   {
-    period: "Aug 2010 - Oct 2015",
+    period: "Aug 2010 — Oct 2015",
     role: "WordPress Developer",
     company: "Neapolitan Digital",
-    highlight:
+    detail:
       "Built custom websites, plugins, and client-ready digital platforms with strong UX and performance focus.",
   },
 ];
 
 const certifications = [
-  "PRINCE2 Foundation Certification Training",
+  "PRINCE2 Foundation",
   "Generative AI for Project Managers",
   "GenAI Academy: Yellow Belt Level 2 for Consultants",
   "AI Change Management: Leading the Transformation",
@@ -115,98 +102,64 @@ const certifications = [
 ];
 
 const education = [
-  "Stellenbosch University - Certificate in Digital Marketing",
-  "Stanford Online - Computer Science coursework",
-  "HFPA - Diploma in Exercise Science (Personal Training)",
+  { school: "Stellenbosch University", line: "Certificate in Digital Marketing" },
+  { school: "Stanford Online", line: "Computer Science coursework" },
+  { school: "HFPA", line: "Diploma in Exercise Science" },
 ];
 
 const certificationArchiveUrl =
   "https://www.linkedin.com/in/justinunderhill/details/certifications/";
 
-const portfolioRoadmap = [
+const liveCaseStudies = [
   {
-    title: "AI Workflow Blueprint",
-    scope: "Case study on agent-driven orchestration for operational teams.",
-  },
-  {
-    title: "LLM Assistant Framework",
-    scope: "A reusable architecture for enterprise-ready assistants.",
-  },
-  {
-    title: "Automation Impact Dashboard",
-    scope: "Before/after metrics pack showing AI adoption outcomes.",
+    title: "Finally",
+    url: "https://finally-beryl.vercel.app/",
+    detail: "Live deployed project hosted on Vercel.",
   },
 ];
 
-const broadcastItems = [
-  "VHS memory",
-  "Mixtape logic",
-  "Arcade focus",
-  "AI delivery",
-  "Johannesburg signal",
-];
-
-const calibrationNotes = [
-  {
-    label: "Movie Era",
-    title: "Cinematic framing",
-    copy:
-      "The layout uses posters, frames, tracking lines, and bold title treatments to make the first impression feel directed rather than templated.",
-  },
-  {
-    label: "Music Era",
-    title: "Mixtape structure",
-    copy:
-      "Expertise is arranged like a tracklist so the work feels curated, personal, and easy to scan without losing professional substance.",
-  },
-  {
-    label: "Tech Era",
-    title: "Terminal intelligence",
-    copy:
-      "The Digital Twin keeps the modern AI capability visible, but presents it through a retro terminal language that fits the story.",
-  },
+const portfolioQueue = [
+  "Agent-driven workflow blueprint with design rationale and implementation notes.",
+  "LLM assistant deployment with guardrails, context strategy, and QA outcomes.",
+  "Automation impact dashboards showing baseline-to-improvement metrics.",
 ];
 
 export default function Home() {
   return (
-    <div className="retro-shell">
-      <div className="vhs-noise" aria-hidden="true" />
-      <div className="scanlines" aria-hidden="true" />
-
-      <header className="top-nav reveal">
-        <a className="brand" href="#home" aria-label="Justin Underhill homepage">
-          <span className="brand-mark">JU</span>
-          <span className="brand-copy">
-            <strong>1979 Signal</strong>
-            <small>AI systems engineer</small>
-          </span>
-        </a>
-
-        <nav aria-label="Primary navigation">
-          <a href="#about">About</a>
-          <a href="#tracks">Capabilities</a>
-          <a href="#journey">Experience</a>
-          <a href="#twin">Twin</a>
-          <a href="#portfolio">Portfolio</a>
-        </nav>
+    <>
+      <header className="top-nav">
+        <div className="shell top-nav-inner">
+          <a className="brand" href="#top" aria-label="Justin Underhill homepage">
+            <span className="brand-mark">JU</span>
+            <span className="brand-name">Justin Underhill</span>
+          </a>
+          <nav aria-label="Primary">
+            <a href="#about">about</a>
+            <a href="#experience">experience</a>
+            <a href="#twin">twin</a>
+            <a href="#contact">contact</a>
+          </nav>
+        </div>
       </header>
 
-      <main>
-        <section className="hero reveal" id="home">
-          <div className="hero-copy-panel">
-            <p className="eyebrow">Signal from 1979</p>
-            <h1>Justin Underhill</h1>
-            <p className="hero-title">
-              Born analog. Raised on cinema, mixtapes, arcades, and early digital signals.
-              Building intelligent systems for the AI era.
+      <main className="shell" id="top">
+        <section className="hero" aria-labelledby="hero-name">
+          <div className="section-content">
+            <span className="label">{"// signal"}</span>
+            <h1 id="hero-name">Justin Underhill</h1>
+            <p className="hero-role">
+              AI systems engineer · agentic AI developer · automation architect
             </p>
-            <p className="hero-copy">
+            <p className="hero-lede">
               I design and deploy practical AI systems that fit inside real business
-              environments. The work is modern, but the operating style is shaped by an
-              era of bold interfaces, memorable soundtracks, and technology that felt
-              like discovery.
+              environments — agent-driven workflows, LLM-powered tools, and automation
+              layers that connect to existing processes.
             </p>
-
+            <p className="hero-detail">
+              Based in Johannesburg. Background spans software engineering, digital
+              strategy, and enterprise project delivery, now focused on operational AI
+              outcomes: reliability, controlled outputs, and sustainable cost.
+            </p>
             <div className="hero-actions">
               <a
                 className="button button-primary"
@@ -216,273 +169,199 @@ export default function Home() {
               >
                 View LinkedIn
               </a>
-              <a className="button button-ghost" href="mailto:underhill.justin@gmail.com">
-                Contact Justin
+              <a
+                className="button button-ghost"
+                href="mailto:underhill.justin@gmail.com"
+              >
+                Get in touch
               </a>
             </div>
-
-            <dl className="hero-meta" aria-label="Profile signal details">
-              <div>
-                <dt>Origin year</dt>
-                <dd>1979</dd>
-              </div>
-              <div>
-                <dt>Format</dt>
-                <dd>Analog to AI</dd>
-              </div>
-              <div>
-                <dt>Signal</dt>
-                <dd>Human-led systems</dd>
-              </div>
-            </dl>
-          </div>
-
-          <aside className="signal-stack" aria-label="Current focus">
-            <div className="poster-card poster-card-primary">
-              <div className="poster-billing">
-                <span>Delivery</span>
-                <span>Automation</span>
-                <span>AI</span>
-              </div>
-              <span>Feature</span>
-              <strong>Agentic AI</strong>
-              <small>Now showing</small>
-            </div>
-            <div className="cassette">
-              <div className="cassette-label">
-                <span>Side A</span>
-                <strong>Systems</strong>
-              </div>
-              <div className="cassette-window" aria-hidden="true">
-                <span />
-                <span />
-              </div>
-              <p>Multi-agent workflows / LLM apps / automation architecture</p>
-            </div>
-            <div className="poster-row">
-              <div className="mini-poster">VHS</div>
-              <div className="mini-poster">CRT</div>
-              <div className="mini-poster">AI</div>
-            </div>
-          </aside>
-        </section>
-
-        <section className="broadcast-strip reveal" aria-label="Broadcast themes">
-          <span>On Air</span>
-          <div>
-            {[...broadcastItems, ...broadcastItems].map((item, index) => (
-              <strong key={`${item}-${index}`}>{item}</strong>
-            ))}
           </div>
         </section>
 
-        <section className="scoreboard reveal" aria-label="Key highlights">
-          {keyStats.map((item, index) => (
-            <article
-              className="score-card"
-              key={item.label}
-              style={{ animationDelay: `${index * 80}ms` }}
-            >
-              <p className="score-cue">{item.cue}</p>
-              <p className="score-value">{item.value}</p>
-              <p className="score-label">{item.label}</p>
-            </article>
-          ))}
-        </section>
-
-        <section className="panel liner-notes reveal" id="about">
-          <div className="section-head">
-            <p className="eyebrow">Liner Notes</p>
-            <h2>The analog-to-AI arc</h2>
-          </div>
-
-          <div className="side-grid">
-            <article>
-              <p className="side-label">Side A</p>
-              <h3>Digital craft and delivery</h3>
-              <p>
-                My background spans software development, digital strategy, reporting,
-                performance thinking, and enterprise project leadership. That range lets
-                me move between technical detail and operational reality without losing
-                the thread.
-              </p>
-            </article>
-            <article>
-              <p className="side-label">Side B</p>
-              <h3>AI systems that can be trusted</h3>
-              <p>
-                I believe AI initiatives succeed when they are treated as engineered
-                systems with clear reliability standards, governance, human oversight,
-                and measurable adoption inside the business.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section className="panel calibration reveal">
-          <div className="section-head">
-            <p className="eyebrow">Signal Calibration</p>
-            <h2>How the era shows up in the interface</h2>
-          </div>
-
-          <div className="calibration-grid">
-            {calibrationNotes.map((item) => (
-              <article className="calibration-card" key={item.title}>
-                <p>{item.label}</p>
-                <h3>{item.title}</h3>
-                <span aria-hidden="true" />
-                <small>{item.copy}</small>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="panel mixtape reveal" id="tracks">
-          <div className="section-head">
-            <p className="eyebrow">Mixtape</p>
-            <h2>Core expertise, track by track</h2>
-          </div>
-
-          <div className="track-list">
-            {capabilities.map((item, index) => (
-              <article
-                className="track"
-                key={item.title}
-                style={{ animationDelay: `${index * 70}ms` }}
-              >
-                <span className="track-code">{item.code}</span>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.detail}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="panel film-reel reveal" id="journey">
-          <div className="section-head">
-            <p className="eyebrow">Film Reel</p>
-            <h2>Scenes from the career archive</h2>
-          </div>
-
-          <div className="timeline">
-            {journey.map((item, index) => (
-              <article
-                className="timeline-item"
-                key={`${item.role}-${item.period}`}
-                style={{ animationDelay: `${index * 70}ms` }}
-              >
-                <p className="timeline-period">{item.period}</p>
-                <h3>
-                  {item.role} <span>@ {item.company}</span>
-                </h3>
-                <p>{item.highlight}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="split reveal">
-          <article className="panel sleeve-panel">
-            <div className="section-head">
-              <p className="eyebrow">Credits</p>
-              <h2>Certifications</h2>
-            </div>
-            <p className="credential-note">
-              Selected credentials are shown here. The full certification archive
-              lives on LinkedIn and can be opened as the complete source of record.
+        <section id="about" aria-labelledby="about-heading">
+          <div className="section-content">
+            <span className="label">{"// about"}</span>
+            <h2 id="about-heading">From digital craft to AI systems</h2>
+            <p>
+              My background spans software development, digital strategy, reporting,
+              performance thinking, and enterprise project leadership. That range lets
+              me move between technical detail and operational reality without losing
+              the thread.
             </p>
-            <ul className="tag-list">
-              {certifications.map((item) => (
-                <li key={item}>{item}</li>
+            <p>
+              I treat AI initiatives as engineered systems — with reliability standards,
+              governance, human oversight, and measurable adoption inside the business.
+              The interesting work is rarely the model itself; it&apos;s the surrounding
+              architecture that makes the model dependable.
+            </p>
+          </div>
+        </section>
+
+        <section id="capabilities" aria-labelledby="capabilities-heading">
+          <div className="section-content">
+            <span className="label">{"// capabilities"}</span>
+            <h2 id="capabilities-heading">Where I focus</h2>
+            <ul className="list-clean">
+              {capabilities.map((item, index) => (
+                <li className="capability" key={item.title}>
+                  <span className="capability-index">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3>{item.title}</h3>
+                    <p>{item.detail}</p>
+                  </div>
+                </li>
               ))}
             </ul>
-            <a
-              className="archive-link"
-              href={certificationArchiveUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Full credential archive
-            </a>
-          </article>
+          </div>
+        </section>
 
-          <article className="panel sleeve-panel">
-            <div className="section-head">
-              <p className="eyebrow">Archive</p>
-              <h2>Education</h2>
+        <section id="experience" aria-labelledby="experience-heading">
+          <div className="section-content">
+            <span className="label">{"// experience"}</span>
+            <h2 id="experience-heading">Career timeline</h2>
+            <div className="timeline">
+              {journey.map((item) => (
+                <article className="timeline-item" key={`${item.role}-${item.period}`}>
+                  <span className="timeline-period">{item.period}</span>
+                  <div>
+                    <h3>
+                      {item.role} <span className="at">· {item.company}</span>
+                    </h3>
+                    <p>{item.detail}</p>
+                  </div>
+                </article>
+              ))}
             </div>
-            <ul className="tag-list">
-              {education.map((item) => (
+          </div>
+        </section>
+
+        <section id="twin" aria-labelledby="twin-heading">
+          <div className="section-content">
+            <span className="label">{"// digital twin"}</span>
+            <h2 id="twin-heading">Ask my career twin</h2>
+            <p>
+              An assistant grounded in my professional profile. Ask about experience,
+              focus areas, certifications, or how I approach AI delivery.
+            </p>
+            <DigitalTwinChat />
+          </div>
+        </section>
+
+        <section id="portfolio" aria-labelledby="portfolio-heading">
+          <div className="section-content">
+            <span className="label">{"// portfolio"}</span>
+            <h2 id="portfolio-heading">Case studies in development</h2>
+            <p className="portfolio-note">
+              I&apos;m preparing a small set of build logs covering production AI work,
+              automation architecture decisions, and measurable delivery outcomes.
+            </p>
+            <div className="case-study-list">
+              {liveCaseStudies.map((item) => (
+                <a
+                  className="case-study-link"
+                  href={item.url}
+                  key={item.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="case-study-kicker">live project</span>
+                  <strong>{item.title}</strong>
+                  <span>{item.detail}</span>
+                </a>
+              ))}
+            </div>
+            <p className="portfolio-note portfolio-note-secondary">Queued case studies:</p>
+            <ul className="portfolio-queue">
+              {portfolioQueue.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
-          </article>
-        </section>
-
-        <section className="panel terminal-panel reveal" id="twin">
-          <div className="section-head">
-            <p className="eyebrow">Retro Terminal</p>
-            <h2>Chat with Justin&apos;s career twin</h2>
-          </div>
-          <p className="twin-intro">
-            A modern AI assistant presented like a late-night terminal: grounded in
-            Justin&apos;s professional profile and ready to answer questions about his
-            experience, strengths, and career journey.
-          </p>
-          <DigitalTwinChat />
-        </section>
-
-        <section className="panel video-shelf reveal" id="portfolio">
-          <div className="section-head">
-            <p className="eyebrow">Video Shelf</p>
-            <h2>Future case studies and build logs</h2>
-          </div>
-
-          <div className="shelf-grid">
-            {portfolioRoadmap.map((item, index) => (
-              <article
-                className="case-tape"
-                key={item.title}
-                style={{ animationDelay: `${index * 70}ms` }}
-              >
-                <p className="status-pill">Coming Soon</p>
-                <h3>{item.title}</h3>
-                <p>{item.scope}</p>
-              </article>
-            ))}
-          </div>
-
-          <div className="portfolio-actions">
-            <Link className="button button-secondary" href="/portfolio">
-              Open Portfolio Hub
+            <Link className="archive-link" href="/portfolio">
+              Open portfolio hub →
             </Link>
           </div>
         </section>
 
-        <section className="cta panel reveal" id="contact">
-          <p className="eyebrow">Final Frame</p>
-          <h2>Ready to turn AI capability into operational advantage?</h2>
-          <p>
-            Based in Johannesburg and open to collaboration on AI systems,
-            automation architecture, and strategic delivery programs.
-          </p>
-          <div className="hero-actions">
-            <a className="button button-primary" href="mailto:underhill.justin@gmail.com">
-              Start a conversation
-            </a>
-            <a className="button button-ghost" href="tel:+27814812165">
-              +27 81 481 2165
-            </a>
+        <section id="credentials" aria-labelledby="credentials-heading">
+          <div className="section-content">
+            <span className="label">{"// credentials"}</span>
+            <h2 id="credentials-heading">Education & certifications</h2>
+            <div className="split">
+              <div>
+                <h3>Education</h3>
+                <ul className="compact-list">
+                  {education.map((item) => (
+                    <li key={item.school}>
+                      <strong>{item.school}</strong>
+                      <br />
+                      {item.line}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3>Selected certifications</h3>
+                <ul className="compact-list">
+                  {certifications.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <a
+                  className="archive-link"
+                  href={certificationArchiveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Full archive on LinkedIn →
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" aria-labelledby="contact-heading">
+          <div className="section-content contact">
+            <span className="label">{"// contact"}</span>
+            <h2 id="contact-heading">Open to AI systems and delivery work</h2>
+            <p>
+              Based in Johannesburg, available for collaboration on AI systems,
+              automation architecture, and strategic delivery programs.
+            </p>
+            <div className="contact-grid">
+              <div className="contact-item">
+                <span className="contact-item-label">email</span>
+                <a href="mailto:underhill.justin@gmail.com">
+                  underhill.justin@gmail.com
+                </a>
+              </div>
+              <div className="contact-item">
+                <span className="contact-item-label">phone</span>
+                <a href="tel:+27814812165">+27 81 481 2165</a>
+              </div>
+              <div className="contact-item">
+                <span className="contact-item-label">linkedin</span>
+                <a
+                  href="https://www.linkedin.com/in/justinunderhill"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  justinunderhill
+                </a>
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
-      <a className="back-to-top" href="#home" aria-label="Back to top">
-        <span aria-hidden="true">▲</span>
-        Top
-      </a>
-    </div>
+      <footer>
+        <div className="shell footer-inner">
+          <span>{"// justinunderhill.com"}</span>
+          <span>Johannesburg · ZA</span>
+        </div>
+      </footer>
+    </>
   );
 }

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Justin Underhill portfolio social preview";
+export const alt = "Justin Underhill — AI systems engineer";
 export const size = {
   width: 1200,
   height: 630,
@@ -17,36 +17,31 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "64px",
-          background:
-            "linear-gradient(135deg, #1b1018 0%, #07070a 46%, #172016 100%)",
-          color: "#fff3c2",
+          padding: "72px",
+          background: "#0b0d10",
+          color: "#f4f4f3",
           fontFamily: "Arial",
         }}
       >
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            color: "#5df28c",
-            fontSize: 26,
-            letterSpacing: 4,
-            textTransform: "uppercase",
+            color: "#e9a23b",
+            fontSize: 22,
+            letterSpacing: 2,
           }}
         >
-          <span>Johannesburg Signal</span>
-          <span>AI Delivery</span>
+          {"// signal"}
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
           <div
             style={{
               display: "flex",
-              fontSize: 92,
-              fontWeight: 900,
-              lineHeight: 0.92,
-              textTransform: "uppercase",
+              fontSize: 96,
+              fontWeight: 700,
+              lineHeight: 1,
+              letterSpacing: -2,
             }}
           >
             Justin Underhill
@@ -54,33 +49,30 @@ export default function Image() {
           <div
             style={{
               display: "flex",
-              maxWidth: 860,
-              color: "#ffbd4a",
-              fontSize: 36,
-              fontWeight: 700,
-              lineHeight: 1.2,
+              maxWidth: 920,
+              color: "#a4a8af",
+              fontSize: 32,
+              fontWeight: 400,
+              lineHeight: 1.25,
             }}
           >
-            Practical AI systems, LLM assistants, and automation workflows for real
-            business environments.
+            Practical AI systems, LLM assistants, and automation workflows for
+            real business environments.
           </div>
         </div>
 
         <div
           style={{
             display: "flex",
-            gap: 18,
-            color: "#f8f0d8",
-            fontSize: 24,
-            letterSpacing: 2,
-            textTransform: "uppercase",
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            color: "#6b7280",
+            fontSize: 22,
+            letterSpacing: 1,
           }}
         >
-          <span>Delivery Leadership</span>
-          <span style={{ color: "#28d7d7" }}>/</span>
-          <span>LLM Applications</span>
-          <span style={{ color: "#28d7d7" }}>/</span>
-          <span>Automation Architecture</span>
+          <span style={{ color: "#e9a23b" }}>justinunderhill.com</span>
+          <span>Johannesburg · ZA</span>
         </div>
       </div>
     ),
