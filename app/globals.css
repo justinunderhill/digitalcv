@@ -507,11 +507,95 @@ footer {
 
 /* ---------- Digital Twin chat ---------- */
 
+.twin-hub-section {
+  margin: 3rem -1.5rem;
+  padding: 4rem 1.5rem;
+  border: 1px solid rgba(233, 162, 59, 0.22);
+  border-left: 0;
+  border-right: 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(233, 162, 59, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(233, 162, 59, 0.11), rgba(14, 17, 22, 0.55) 42%),
+    #10100d;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 -1px rgba(255, 255, 255, 0.04);
+}
+
+.twin-hub {
+  max-width: var(--container);
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.72fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.twin-hub-copy {
+  position: sticky;
+  top: 5.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.twin-hub-copy .label {
+  color: var(--accent);
+  margin-bottom: 0;
+}
+
+.twin-hub-copy h2 {
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.twin-hub-copy p {
+  max-width: 30rem;
+  color: rgba(244, 244, 243, 0.82);
+}
+
+.twin-hub-rail {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+}
+
+.twin-hub-rail span {
+  width: fit-content;
+  border: 1px solid rgba(233, 162, 59, 0.24);
+  border-radius: 999px;
+  background: rgba(233, 162, 59, 0.08);
+  color: rgba(244, 244, 243, 0.86);
+  padding: 0.35rem 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+}
+
 .twin-card {
-  margin-top: 1.75rem;
-  border: 1px solid var(--line-strong);
-  border-radius: var(--radius);
-  background: var(--bg-card);
+  position: relative;
+  margin-top: 0;
+  border: 1px solid rgba(233, 162, 59, 0.34);
+  border-radius: calc(var(--radius) + 4px);
+  background:
+    linear-gradient(180deg, rgba(233, 162, 59, 0.08), transparent 7rem),
+    #08090b;
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(233, 162, 59, 0.06),
+    0 0 44px rgba(233, 162, 59, 0.09);
+  overflow: hidden;
+}
+
+.twin-card::before {
+  content: "AI PROFILE HUB";
+  position: absolute;
+  top: 0.85rem;
+  left: 50%;
+  color: rgba(233, 162, 59, 0.22);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 
 .twin-head {
@@ -519,8 +603,11 @@ footer {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.85rem 1.1rem;
-  border-bottom: 1px solid var(--line);
+  padding: 1rem 1.15rem 0.9rem;
+  border-bottom: 1px solid rgba(233, 162, 59, 0.18);
+  background:
+    linear-gradient(90deg, rgba(233, 162, 59, 0.13), transparent 44%),
+    rgba(255, 255, 255, 0.018);
 }
 
 .twin-head-title {
@@ -529,13 +616,17 @@ footer {
   gap: 0.55rem;
   font-family: var(--font-mono);
   font-size: 0.82rem;
-  color: var(--ink);
+  color: var(--accent);
   letter-spacing: 0.01em;
 }
 
 .twin-head-title::before {
-  content: "›";
-  color: var(--accent);
+  content: "";
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(233, 162, 59, 0.72);
 }
 
 .twin-mode {
@@ -575,7 +666,7 @@ footer {
 .twin-warning {
   margin: 0;
   padding: 0.6rem 1.1rem;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(233, 162, 59, 0.18);
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--accent);
@@ -585,10 +676,14 @@ footer {
 .twin-messages {
   max-height: 26rem;
   overflow-y: auto;
-  padding: 1.1rem;
+  padding: 1.25rem;
   display: grid;
   gap: 0.9rem;
   scroll-behavior: smooth;
+  background:
+    linear-gradient(rgba(233, 162, 59, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(233, 162, 59, 0.025) 1px, transparent 1px);
+  background-size: 100% 2.6rem, 2.6rem 100%;
 }
 
 .twin-message {
@@ -605,20 +700,32 @@ footer {
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 50%;
-  border: 1px solid var(--line-strong);
+  border: 1px solid rgba(244, 244, 243, 0.16);
   font-family: var(--font-mono);
   font-size: 0.7rem;
   color: var(--ink-muted);
   letter-spacing: 0.04em;
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .twin-message.is-assistant .twin-avatar {
   border-color: var(--accent);
   color: var(--accent);
+  background: rgba(233, 162, 59, 0.08);
 }
 
 .twin-bubble {
-  padding-top: 0.4rem;
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid rgba(244, 244, 243, 0.1);
+  border-radius: var(--radius);
+  background: rgba(8, 9, 11, 0.74);
+  padding: 0.65rem 0.8rem;
+}
+
+.twin-message.is-assistant .twin-bubble {
+  border-color: rgba(233, 162, 59, 0.18);
+  background: rgba(233, 162, 59, 0.055);
 }
 
 .twin-bubble p {
@@ -638,16 +745,16 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  padding: 0 1.1rem 0.85rem;
+  padding: 0 1.25rem 1rem;
 }
 
 .twin-chip {
   height: 2.1rem;
   padding: 0 0.85rem;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(233, 162, 59, 0.2);
   border-radius: 999px;
-  background: transparent;
-  color: var(--ink-muted);
+  background: rgba(233, 162, 59, 0.045);
+  color: rgba(244, 244, 243, 0.76);
   font-size: 0.85rem;
   cursor: pointer;
   transition:
@@ -656,8 +763,9 @@ footer {
 }
 
 .twin-chip:hover:not(:disabled) {
-  border-color: var(--ink-muted);
+  border-color: rgba(233, 162, 59, 0.52);
   color: var(--ink);
+  background: rgba(233, 162, 59, 0.1);
 }
 
 .twin-chip:disabled {
@@ -669,8 +777,9 @@ footer {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.75rem;
-  padding: 0.85rem 1.1rem 1.1rem;
-  border-top: 1px solid var(--line);
+  padding: 1rem 1.25rem 1.25rem;
+  border-top: 1px solid rgba(233, 162, 59, 0.18);
+  background: rgba(255, 255, 255, 0.018);
 }
 
 .twin-input-wrap {
@@ -680,14 +789,17 @@ footer {
   align-items: start;
   gap: 0.4rem;
   padding: 0.7rem 0.85rem;
-  border: 1px solid var(--line-strong);
+  border: 1px solid rgba(233, 162, 59, 0.26);
   border-radius: var(--radius-sm);
-  background: var(--bg-elevated);
-  transition: border-color 0.15s ease;
+  background: rgba(0, 0, 0, 0.28);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .twin-input-wrap:focus-within {
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(233, 162, 59, 0.1);
 }
 
 .twin-input-prompt {
@@ -729,7 +841,7 @@ footer {
 }
 
 .twin-error {
-  margin: 0 1.1rem 1rem;
+  margin: 0 1.25rem 1rem;
   padding: 0.6rem 0.85rem;
   border: 1px solid rgba(248, 113, 113, 0.4);
   border-radius: var(--radius-sm);
@@ -797,6 +909,30 @@ footer {
 
   .top-nav nav a {
     font-size: 0.78rem;
+  }
+
+  .twin-hub-section {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .twin-hub {
+    grid-template-columns: 1fr;
+  }
+
+  .twin-hub-copy {
+    position: static;
+  }
+
+  .twin-hub-rail {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .twin-card::before {
+    display: none;
   }
 
   .twin-messages {

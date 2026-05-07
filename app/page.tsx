@@ -238,14 +238,22 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="twin" aria-labelledby="twin-heading">
-          <div className="section-content">
-            <span className="label">{"// digital twin"}</span>
-            <h2 id="twin-heading">Ask my career twin</h2>
-            <p>
-              An assistant grounded in my professional profile. Ask about experience,
-              focus areas, certifications, or how I approach AI delivery.
-            </p>
+        <section className="twin-hub-section" id="twin" aria-labelledby="twin-heading">
+          <div className="twin-hub">
+            <div className="twin-hub-copy">
+              <span className="label">{"// digital twin"}</span>
+              <h2 id="twin-heading">Ask my career twin</h2>
+              <p>
+                The interactive part of this site: a profile-grounded AI assistant
+                designed to answer questions about experience, focus areas,
+                certifications, and how I approach AI delivery.
+              </p>
+              <div className="twin-hub-rail" aria-label="Digital twin capabilities">
+                <span>profile-grounded</span>
+                <span>fallback-aware</span>
+                <span>live AI route</span>
+              </div>
+            </div>
             <DigitalTwinChat />
           </div>
         </section>
