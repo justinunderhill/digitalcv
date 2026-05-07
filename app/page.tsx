@@ -136,7 +136,7 @@ export default function Home() {
           <nav aria-label="Primary">
             <a href="#about">about</a>
             <a href="#experience">experience</a>
-            <a href="#twin">twin</a>
+            <a className="nav-feature" href="#twin">twin</a>
             <a href="#contact">contact</a>
           </nav>
         </div>

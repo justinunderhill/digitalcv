@@ -126,6 +126,9 @@ input {
 }
 
 .top-nav nav a {
+  min-height: 2rem;
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-mono);
   font-size: 0.82rem;
   color: var(--ink-muted);
@@ -133,6 +136,31 @@ input {
 }
 
 .top-nav nav a:hover {
+  color: var(--ink);
+}
+
+.top-nav nav a.nav-feature {
+  border: 1px solid rgba(233, 162, 59, 0.36);
+  border-radius: 999px;
+  background: rgba(233, 162, 59, 0.08);
+  color: var(--accent);
+  padding: 0 0.7rem;
+  box-shadow: 0 0 18px rgba(233, 162, 59, 0.08);
+}
+
+.top-nav nav a.nav-feature::before {
+  content: "";
+  width: 0.38rem;
+  height: 0.38rem;
+  margin-right: 0.45rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(233, 162, 59, 0.62);
+}
+
+.top-nav nav a.nav-feature:hover {
+  border-color: rgba(233, 162, 59, 0.68);
+  background: rgba(233, 162, 59, 0.14);
   color: var(--ink);
 }
 
