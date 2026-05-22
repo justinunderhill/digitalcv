@@ -28,7 +28,7 @@ export default function Image() {
             display: "flex",
             color: "#e9a23b",
             fontSize: 22,
-            letterSpacing: 2,
+            letterSpacing: 0,
           }}
         >
           {"// signal"}
@@ -41,7 +41,7 @@ export default function Image() {
               fontSize: 96,
               fontWeight: 700,
               lineHeight: 1,
-              letterSpacing: -2,
+              letterSpacing: 0,
             }}
           >
             Justin Underhill
@@ -68,10 +68,10 @@ export default function Image() {
             alignItems: "flex-end",
             color: "#6b7280",
             fontSize: 22,
-            letterSpacing: 1,
+            letterSpacing: 0,
           }}
         >
-          <span style={{ color: "#e9a23b" }}>justinunderhill.com</span>
+          <span style={{ color: "#e9a23b" }}>AI systems · delivery · automation</span>
           <span>Johannesburg · ZA</span>
         </div>
       </div>

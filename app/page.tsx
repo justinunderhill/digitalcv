@@ -242,16 +242,16 @@ export default function Home() {
           <div className="twin-hub">
             <div className="twin-hub-copy">
               <span className="label">{"// digital twin"}</span>
-              <h2 id="twin-heading">Ask my career twin</h2>
+              <h2 id="twin-heading">Talk to the version of me that never runs out of context</h2>
               <p>
-                The interactive part of this site: a profile-grounded AI assistant
-                designed to answer questions about experience, focus areas,
-                certifications, and how I approach AI delivery.
+                This is the part of the site with a pulse. Ask about how I think,
+                where I create value, what shaped my career, or how I would approach
+                an AI delivery problem.
               </p>
               <div className="twin-hub-rail" aria-label="Digital twin capabilities">
-                <span>profile-grounded</span>
-                <span>fallback-aware</span>
-                <span>live AI route</span>
+                <span>career memory</span>
+                <span>delivery instinct</span>
+                <span>AI systems lens</span>
               </div>
             </div>
             <DigitalTwinChat />
@@ -346,8 +346,24 @@ export default function Home() {
                 </a>
               </div>
               <div className="contact-item">
-                <span className="contact-item-label">phone</span>
-                <a href="tel:+27814812165">+27 81 481 2165</a>
+                <span className="contact-item-label">whatsapp</span>
+                <a
+                  className="whatsapp-contact-button"
+                  href="https://wa.me/27814812165"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Message Justin on WhatsApp"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="whatsapp-icon"
+                    viewBox="0 0 32 32"
+                    focusable="false"
+                  >
+                    <path d="M16.02 4.5c-6.33 0-11.47 5.03-11.47 11.22 0 2.18.64 4.22 1.75 5.94L4.5 27.5l6.06-1.88a11.7 11.7 0 0 0 5.46 1.34c6.33 0 11.48-5.03 11.48-11.24S22.35 4.5 16.02 4.5Zm0 20.56c-1.77 0-3.44-.49-4.88-1.35l-.35-.2-3.5 1.08 1.05-3.36-.23-.36a9.11 9.11 0 0 1-1.65-5.15c0-5.15 4.29-9.34 9.56-9.34s9.57 4.19 9.57 9.34-4.29 9.34-9.57 9.34Zm5.32-6.98c-.29-.14-1.72-.83-1.98-.92-.27-.1-.46-.14-.66.14-.19.28-.76.92-.93 1.11-.17.18-.34.21-.63.07-.29-.14-1.23-.44-2.34-1.41a8.66 8.66 0 0 1-1.62-1.97c-.17-.28-.02-.43.13-.57.13-.13.29-.34.43-.5.15-.16.2-.28.29-.47.1-.18.05-.35-.02-.49-.07-.14-.66-1.55-.9-2.13-.24-.56-.48-.48-.66-.49h-.56c-.19 0-.5.07-.76.35-.27.28-1 1-1 2.42s1.03 2.8 1.17 2.99c.15.18 2.03 3.03 4.92 4.25.69.29 1.22.46 1.64.59.69.21 1.31.18 1.8.11.55-.08 1.72-.68 1.96-1.35.24-.66.24-1.22.17-1.34-.07-.12-.26-.19-.55-.33Z" />
+                  </svg>
+                  <span>WhatsApp</span>
+                </a>
               </div>
               <div className="contact-item">
                 <span className="contact-item-label">linkedin</span>
@@ -366,8 +382,16 @@ export default function Home() {
 
       <footer>
         <div className="shell footer-inner">
-          <span>{"// justinunderhill.com"}</span>
-          <span>Johannesburg · ZA</span>
+          <span className="footer-location">
+            <span className="sa-flag" aria-hidden="true">
+              <span className="sa-flag-red" />
+              <span className="sa-flag-blue" />
+              <span className="sa-flag-green" />
+              <span className="sa-flag-gold" />
+              <span className="sa-flag-black" />
+            </span>
+            <span>Johannesburg · ZA</span>
+          </span>
         </div>
       </footer>
 

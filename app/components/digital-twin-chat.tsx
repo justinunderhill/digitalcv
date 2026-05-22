@@ -13,16 +13,16 @@ type Message = {
 type TwinMode = "checking" | "openai" | "fallback";
 
 const starterPrompts = [
-  "What is your current role and focus?",
-  "Walk me through your career journey.",
-  "Which AI and project delivery strengths stand out most?",
+  "What are you like to work with?",
+  "Where would you add value fastest?",
+  "How do you think about AI projects?",
 ];
 
 const initialMessage: Message = {
   id: "intro",
   role: "assistant",
   content:
-    "Hi, I'm Justin's digital twin. Ask me anything about his career, AI focus, certifications, or experience.",
+    "Hey, I'm Justin's digital twin. I know the career story, the AI focus, and the project delivery scars. Ask me like you would in a real conversation.",
 };
 
 function makeId() {
@@ -145,11 +145,20 @@ export function DigitalTwinChat() {
   return (
     <div className="twin-card">
       <div className="twin-head">
-        <span className="twin-head-title">digital-twin</span>
+        <div className="twin-title-group">
+          <span className="twin-kicker">profile signal</span>
+          <span className="twin-head-title">Justin, in conversation</span>
+        </div>
         <span className={`twin-mode is-${mode}`}>{modeLabel}</span>
       </div>
 
       {statusNote ? <p className="twin-warning">{statusNote}</p> : null}
+
+      <div className="twin-persona" aria-label="Digital twin persona">
+        <span>direct</span>
+        <span>practical</span>
+        <span>human</span>
+      </div>
 
       <div className="twin-messages" aria-live="polite" ref={scrollRef}>
         {messages.map((message) => (
@@ -206,7 +215,7 @@ export function DigitalTwinChat() {
             value={input}
             onChange={(event) => setInput(event.target.value)}
             onKeyDown={handleInputKeyDown}
-            placeholder="Ask about career history, AI projects, leadership, or certifications…"
+            placeholder="Ask me about Justin's judgement, work style, AI focus, or career story..."
             rows={2}
             disabled={isSending}
             maxLength={MAX_INPUT_LENGTH}
@@ -214,7 +223,7 @@ export function DigitalTwinChat() {
           />
         </div>
         <div className="twin-form-row">
-          <span className="twin-form-hint">enter to send · shift+enter for newline</span>
+          <span className="twin-form-hint">answers from Justin&apos;s profile</span>
           <button className="button button-primary" type="submit" disabled={isSending}>
             {isSending ? "Sending…" : "Send"}
           </button>
