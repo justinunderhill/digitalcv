@@ -116,6 +116,11 @@ const liveCaseStudies = [
     url: "https://finally-beryl.vercel.app/",
     detail: "Live deployed project hosted on Vercel.",
   },
+  {
+    title: "PreLegal",
+    url: "https://prelegal-zeta.vercel.app/login/",
+    detail: "Live deployed legal workflow project hosted on Vercel.",
+  },
 ];
 
 const portfolioQueue = [
