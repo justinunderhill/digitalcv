@@ -86,10 +86,11 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "the-abbotsford",
     title: "The Abbotsford",
     category: "Property showcase",
-    detail: "Property development showcase for exclusive duplex living.",
+    detail:
+      "Marketing site for a 16-unit Johannesburg duplex development — gallery, floor plans, unit pricing and availability, and a direct route to the sales agents.",
     liveUrl: "https://theabbotsford.vercel.app/",
     overview:
-      "A property-focused showcase designed around trust, clarity, and helping a visitor understand the value of a development quickly.",
+      "Marketing site for The Abbotsford, a Johannesburg development of 16 new duplex residences. The site walks a buyer from \"urban sanctuary\" positioning through gallery and amenities, into floor plans, unit availability and pricing, and out to the sales agents via a register-interest form and WhatsApp.",
     buildFocus: [
       "Creating a polished property presentation without overwhelming the visitor.",
       "Balancing premium positioning with practical information hierarchy.",
@@ -107,10 +108,10 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "RenoClean SA",
     category: "Specialist service",
     detail:
-      "Specialist service website demonstrating positioning, trust-building, and conversion flow.",
+      "Service site for a Cape Town post-renovation cleaning specialist — clear offer, trust signals, and a direct path to enquiry.",
     liveUrl: "https://renoclean-sa.vercel.app/",
     overview:
-      "A specialist service-business site built to make the offer easy to understand, credible, and action-oriented without exposing client contact details from the live site.",
+      "Service-business site for RenoClean SA, a Cape Town post-renovation and construction cleaning specialist. Built to make the offer clear, build trust quickly, and give visitors a direct path to enquiry without exposing client contact details from the live portfolio entry.",
     buildFocus: [
       "Clarifying the service offer for a specific customer need.",
       "Building trust through concise service framing and professional presentation.",
@@ -128,10 +129,10 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Clinical Emergencies",
     category: "Healthcare support",
     detail:
-      "Healthcare support website focused on clarity, urgency, and accessible service information.",
+      "Healthcare information site prioritising fast, clear access to urgent service details for South African families.",
     liveUrl: "https://clinical-emergencies-vert.vercel.app/",
     overview:
-      "A healthcare-support site where the core design problem is clarity under pressure: users need to understand the service, trust the offer, and find the right path quickly.",
+      "Healthcare-support site for urgent medical assistance and home medical equipment, aimed at South African families. The core design problem is clarity under pressure: a visitor needs to understand the service, trust the offer, and find the right path quickly.",
     buildFocus: [
       "Prioritising accessible, direct service information.",
       "Designing for users who may be making decisions under time pressure.",

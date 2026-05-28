@@ -720,6 +720,71 @@ p:last-child {
   font-size: 0.95rem;
 }
 
+.curriculum-block {
+  border: 1px solid rgba(15, 118, 110, 0.28);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: var(--shadow-sm);
+  padding: 1.4rem 1.4rem 1.2rem;
+  margin-bottom: 1.4rem;
+}
+
+.curriculum-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.curriculum-header h3 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.05rem;
+}
+
+.curriculum-source {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.curriculum-tracks {
+  list-style: none;
+  display: grid;
+  gap: 0.95rem;
+  margin: 0;
+  padding: 0;
+}
+
+.curriculum-tracks li {
+  border-left: 2px solid rgba(15, 118, 110, 0.28);
+  padding: 0.1rem 0 0.1rem 0.85rem;
+}
+
+.curriculum-tracks li strong {
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.curriculum-tracks li p {
+  margin: 0.35rem 0 0;
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.curriculum-note {
+  margin: 1.1rem 0 0;
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;

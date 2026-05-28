@@ -388,6 +388,37 @@ export default function Home() {
           <div className="section-content">
             <span className="label">{"// credentials"}</span>
             <h2 id="credentials-heading">Education & certifications</h2>
+            <div className="curriculum-block">
+              <div className="curriculum-header">
+                <h3>AI engineering curriculum</h3>
+                <span className="curriculum-source">Ed Donner</span>
+              </div>
+              <ul className="curriculum-tracks">
+                <li>
+                  <strong>AI Builder — Agents, Voice Agents & Automation (n8n)</strong>
+                  <p>
+                    Built autonomous agents, RAG-powered voice agents, and a
+                    multi-agent go-to-market system. Covered LLM integration
+                    (OpenAI, Gemini, Anthropic), Supabase vector RAG, MCP,
+                    webhooks, and JSON data pipelines.
+                  </p>
+                </li>
+                <li>
+                  <strong>AI Coder — Claude Code & Coding Agents</strong>
+                  <p>
+                    Shipped live products with agentic coding workflows —
+                    including this site and its digital twin, and the PreLegal
+                    assistant. Covered Claude Code, MCP, skills, sub-agents,
+                    multi-agent orchestration, and the Claude Agent SDK.
+                  </p>
+                </li>
+              </ul>
+              <p className="curriculum-note">
+                Two completed tracks of an applied AI engineering curriculum.
+                The FinAlly and PreLegal portfolio projects above were built as
+                part of it.
+              </p>
+            </div>
             <div className="split">
               <div>
                 <h3>Education</h3>
