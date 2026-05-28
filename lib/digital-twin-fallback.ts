@@ -100,11 +100,23 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
     return [
       "My portfolio is a mix of live product builds, service sites, workflow tools, and digital transformation work.",
       "",
-      "The current projects include FinAlly (a real-time AI trading workstation, course capstone), PreLegal (an AI legal document builder covering NDAs through HIPAA BAAs), The Abbotsford, RenoClean SA, and Clinical Emergencies. They cover applied AI products, property, specialist services, and medical support.",
+      "The public AI product case studies are FinAlly (a real-time AI trading workstation and AI Builder capstone) and PreLegal (an AI legal document builder built during the AI Coder track). The wider portfolio also includes The Abbotsford, RenoClean SA, and Clinical Emergencies across property, specialist services, and medical support.",
       "",
       "Each portfolio entry links to the live project and to a short write-up that walks through the problem, the approach, and the result.",
       "",
       "The thread across them is practical shipping: understand the user, shape the experience, build the thing, and keep the work grounded in what the business actually needs. The live project links are public, and I still avoid inventing or repeating private client details that are not part of the portfolio context.",
+    ].join("\n");
+  }
+
+  if (hasAny(prompt, ["curriculum", "ed donner", "ai builder", "ai coder", "training", "course", "courses"])) {
+    return [
+      "The strongest AI training signal is the applied AI engineering curriculum I completed through Ed Donner.",
+      "",
+      "I completed two tracks: AI Builder - Agents, Voice Agents & Automation (n8n), and AI Coder - Claude Code & Coding Agents. The AI Builder track covered autonomous agents, RAG-powered voice agents, a multi-agent go-to-market system, LLM integration, Supabase vector RAG, MCP, webhooks, and JSON data pipelines. FinAlly was the capstone build.",
+      "",
+      "The AI Coder track covered Claude Code, MCP, skills, sub-agents, multi-agent orchestration, and the Claude Agent SDK. Through that track I built and shipped live curriculum projects with agentic coding workflows, including this portfolio site and its digital twin, and the PreLegal assistant.",
+      "",
+      "I describe that honestly as curriculum and training-grade AI work, not as production-scale client AI deployments.",
     ].join("\n");
   }
 
@@ -198,7 +210,9 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
 
   if (hasAny(prompt, ["cert", "certificate", "qualification", "credential"])) {
     return [
-      "My highlighted certifications include:",
+      "My strongest applied AI training signal is the Ed Donner AI engineering curriculum: AI Builder - Agents, Voice Agents & Automation (n8n), and AI Coder - Claude Code & Coding Agents.",
+      "",
+      "My highlighted certifications also include:",
       "- PRINCE2 Foundation Certification Training",
       "- Generative AI for Project Managers",
       "- GenAI for Consultants — NTT DATA (applied GenAI for consulting engagements)",
