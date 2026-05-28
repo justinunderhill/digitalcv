@@ -341,18 +341,10 @@ export default function Home() {
           <div className="twin-hub">
             <div className="twin-hub-copy">
               <span className="label">{"// digital twin"}</span>
-              <h2 id="twin-heading">Talk to the version of me that never runs out of context</h2>
+              <h2 id="twin-heading">Step into the conversation</h2>
               <p>
-                This is the part of the site with a pulse. Ask about my CV,
-                developer skillset, portfolio projects, AI tooling, career path, or how I
-                would approach an AI delivery problem.
+                Ask about the work, the decisions, the skills, and the way I think.
               </p>
-              <div className="twin-hub-rail" aria-label="Digital twin capabilities">
-                <span>CV context</span>
-                <span>project memory</span>
-                <span>developer skillset</span>
-                <span>AI systems lens</span>
-              </div>
             </div>
             <DigitalTwinChat />
           </div>

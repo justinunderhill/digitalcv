@@ -13,17 +13,16 @@ type Message = {
 type TwinMode = "checking" | "openai" | "fallback";
 
 const starterPrompts = [
-  "Talk me through your CV.",
-  "What is your developer skillset?",
-  "Which projects show your work best?",
-  "How do you use Codex and Claude Code?",
+  "Your story",
+  "Your builds",
+  "Your AI lens",
 ];
 
 const initialMessage: Message = {
   id: "intro",
   role: "assistant",
   content:
-    "Hey, I'm Justin's digital twin. I know the career story, project work, developer skillset, AI focus, and delivery scars. Ask me like you would in a real conversation.",
+    "Hey, I'm Justin. Ask me about the work, the projects, or how I think through AI and delivery.",
 };
 
 function makeId() {
@@ -144,92 +143,86 @@ export function DigitalTwinChat() {
     mode === "openai" ? "live" : mode === "fallback" ? "fallback" : "checking";
 
   return (
-    <div className="twin-card">
-      <div className="twin-head">
-        <div className="twin-title-group">
-          <span className="twin-kicker">profile signal</span>
-          <span className="twin-head-title">Justin, in conversation</span>
-        </div>
-        <span className={`twin-mode is-${mode}`}>{modeLabel}</span>
-      </div>
-
-      {statusNote ? <p className="twin-warning">{statusNote}</p> : null}
-
-      <div className="twin-persona" aria-label="Digital twin persona">
-        <span>direct</span>
-        <span>practical</span>
-        <span>human</span>
-      </div>
-
-      <div className="twin-messages" aria-live="polite" ref={scrollRef}>
-        {messages.map((message) => (
-          <article
-            className={`twin-message ${
-              message.role === "assistant" ? "is-assistant" : "is-user"
-            }`}
-            key={message.id}
-          >
-            <span className="twin-avatar">
-              {message.role === "assistant" ? "JT" : "You"}
-            </span>
-            <div className="twin-bubble">
-              <p>{message.content}</p>
-            </div>
-          </article>
-        ))}
-        {isSending ? (
-          <article className="twin-message is-assistant is-thinking">
-            <span className="twin-avatar">JT</span>
-            <div className="twin-bubble">
-              <p>Thinking…</p>
-            </div>
-          </article>
-        ) : null}
-      </div>
-
-      <div className="twin-prompts">
-        {starterPrompts.map((prompt) => (
-          <button
-            className="twin-chip"
-            key={prompt}
-            onClick={() => void sendMessage(prompt)}
-            type="button"
-            disabled={isSending}
-          >
-            {prompt}
-          </button>
-        ))}
-      </div>
-
-      {error ? <p className="twin-error">Connection note: {error}</p> : null}
-
-      <form className="twin-form" onSubmit={handleSubmit}>
-        <label className="sr-only" htmlFor="twin-input">
-          Ask Justin&apos;s digital twin
-        </label>
-        <div className="twin-input-wrap">
-          <span className="twin-input-prompt" aria-hidden="true">
-            ›
+    <div className="twin-orbital">
+      <div className="twin-screen-glow" aria-hidden="true" />
+      <div className="twin-card">
+        <div className="twin-head">
+          <span className="twin-head-avatar" aria-hidden="true">
+            JU
           </span>
-          <textarea
-            id="twin-input"
-            value={input}
-            onChange={(event) => setInput(event.target.value)}
-            onKeyDown={handleInputKeyDown}
-            placeholder="Ask me about Justin's CV, skills, projects, AI focus, or work style..."
-            rows={2}
-            disabled={isSending}
-            maxLength={MAX_INPUT_LENGTH}
-            required
-          />
+          <div className="twin-title-group">
+            <span className="twin-head-title">Justin Underhill</span>
+            <span className="twin-kicker">Digital twin</span>
+          </div>
+          <span className={`twin-mode is-${mode}`}>{modeLabel}</span>
         </div>
-        <div className="twin-form-row">
-          <span className="twin-form-hint">answers from Justin&apos;s profile, CV, skills, and projects</span>
-          <button className="button button-primary" type="submit" disabled={isSending}>
-            {isSending ? "Sending…" : "Send"}
-          </button>
+
+        {statusNote ? <p className="twin-warning">{statusNote}</p> : null}
+
+        <div className="twin-messages" aria-live="polite" ref={scrollRef}>
+          {messages.map((message) => (
+            <article
+              className={`twin-message ${
+                message.role === "assistant" ? "is-assistant" : "is-user"
+              }`}
+              key={message.id}
+            >
+              <span className="twin-avatar">
+                {message.role === "assistant" ? "JT" : "You"}
+              </span>
+              <div className="twin-bubble">
+                <p>{message.content}</p>
+              </div>
+            </article>
+          ))}
+          {isSending ? (
+            <article className="twin-message is-assistant is-thinking">
+              <span className="twin-avatar">JT</span>
+              <div className="twin-bubble">
+                <p>Thinking…</p>
+              </div>
+            </article>
+          ) : null}
         </div>
-      </form>
+
+        <div className="twin-prompts">
+          {starterPrompts.map((prompt) => (
+            <button
+              className="twin-chip"
+              key={prompt}
+              onClick={() => void sendMessage(prompt)}
+              type="button"
+              disabled={isSending}
+            >
+              {prompt}
+            </button>
+          ))}
+        </div>
+
+        {error ? <p className="twin-error">Connection note: {error}</p> : null}
+
+        <form className="twin-form" onSubmit={handleSubmit}>
+          <label className="sr-only" htmlFor="twin-input">
+            Ask Justin&apos;s digital twin
+          </label>
+          <div className="twin-input-wrap">
+            <textarea
+              id="twin-input"
+              value={input}
+              onChange={(event) => setInput(event.target.value)}
+              onKeyDown={handleInputKeyDown}
+              placeholder="Ask Justin anything..."
+              rows={2}
+              disabled={isSending}
+              maxLength={MAX_INPUT_LENGTH}
+              required
+            />
+            <button className="button button-primary" type="submit" disabled={isSending}>
+              {isSending ? "Sending…" : "Send"}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
