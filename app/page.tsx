@@ -121,6 +121,26 @@ const liveCaseStudies = [
     url: "https://prelegal-zeta.vercel.app/login/",
     detail: "Live deployed legal workflow project hosted on Vercel.",
   },
+  {
+    title: "DCEE Digital Transformation",
+    url: "https://dcee-digital-transformation.vercel.app/",
+    detail: "Live deployed digital transformation project hosted on Vercel.",
+  },
+  {
+    title: "The Abbotsford",
+    url: "https://theabbotsford.vercel.app/",
+    detail: "Property development showcase for exclusive duplex living.",
+  },
+  {
+    title: "RenoClean SA",
+    url: "https://renoclean-sa.vercel.app/",
+    detail: "Post-renovation and construction cleaning service site for Cape Town.",
+  },
+  {
+    title: "Clinical Emergencies",
+    url: "https://clinical-emergencies-vert.vercel.app/",
+    detail: "Home medical equipment and support site for South African families.",
+  },
 ];
 
 const portfolioQueue = [
