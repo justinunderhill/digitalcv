@@ -83,33 +83,6 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
   },
   {
-    slug: "dcee-digital-transformation",
-    title: "DCEE — NGO digital showcase",
-    category: "NGO website build",
-    detail:
-      "A digital showcase site for DCEE, an NGO, structured around their mission, services, and stakeholder narrative.",
-    liveUrl: "https://dcee-digital-transformation.vercel.app/",
-    overview:
-      "A digital showcase site for DCEE, an NGO whose work needed a clear public-facing presence. The build is structured around the organisation's mission, services, and stakeholder narrative — translating their offer into a credible online presence.",
-    buildFocus: [
-      "Turning a transformation message into clear service architecture.",
-      "Presenting digital change in a way that feels practical and credible.",
-      "Supporting business positioning with structured content and clear calls to action.",
-    ],
-    skills: [
-      "Digital transformation",
-      "Content architecture",
-      "Stakeholder framing",
-      "Service positioning",
-      "Delivery planning",
-    ],
-    proofPoints: [
-      "Shows how strategic transformation work can be translated into a public-facing digital experience.",
-      "Demonstrates business communication, layout hierarchy, and delivery-aware positioning.",
-      "Reflects the bridge between technical build work and operational change.",
-    ],
-  },
-  {
     slug: "the-abbotsford",
     title: "The Abbotsford",
     category: "Property showcase",

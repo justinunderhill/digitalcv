@@ -67,11 +67,6 @@ const projectAnswers = [
       "PreLegal is a live AI legal document builder — a SaaS where you pick from eleven agreement types (NDAs, service contracts, GDPR DPA, HIPAA BAA, licensing, and more), or let the AI help you choose, and end up with a finished downloadable PDF.\n\nAn AI assistant guides document selection and walks the user through the fields. Behind that, an LLM with Structured Outputs (gpt-4.1) populates the template, renders a live preview, and outputs the final PDF. FastAPI, Docker, SQLite, auth. Features were specced in Jira and shipped via GitHub PRs through a 7-step process with unit and integration tests.\n\nIt is a useful example of where applied AI work meets a real operational pain: not 'AI that answers questions,' but 'AI that produces usable legal work.'\n\nLive site: https://prelegal-zeta.vercel.app/login/",
   },
   {
-    terms: ["dcee", "digital transformation"],
-    answer:
-      "DCEE is a live website I built for an NGO. The work was about translating their mission, services, and stakeholder narrative into a credible public-facing presence.\n\nThat kind of build sits comfortably in my background: digital delivery, stakeholder alignment, structuring how an organisation communicates online, and giving the team a digital surface that reflects what they actually do.\n\nLive site: https://dcee-digital-transformation.vercel.app/",
-  },
-  {
     terms: ["abbotsford"],
     answer:
       "The Abbotsford is a property development showcase for exclusive duplex living.\n\nFor me, it represents the kind of digital product work where presentation, clarity, and trust matter. A site like that needs to communicate the offer quickly and make the development feel tangible.\n\nLive site: https://theabbotsford.vercel.app/",
@@ -105,7 +100,7 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
     return [
       "My portfolio is a mix of live product builds, service sites, workflow tools, and digital transformation work.",
       "",
-      "The current projects include FinAlly (a real-time AI trading workstation, course capstone), PreLegal (an AI legal document builder covering NDAs through HIPAA BAAs), DCEE (an NGO digital showcase), The Abbotsford, RenoClean SA, and Clinical Emergencies. They cover applied AI products, NGO and service sites, property, specialist services, and medical support.",
+      "The current projects include FinAlly (a real-time AI trading workstation, course capstone), PreLegal (an AI legal document builder covering NDAs through HIPAA BAAs), The Abbotsford, RenoClean SA, and Clinical Emergencies. They cover applied AI products, property, specialist services, and medical support.",
       "",
       "Each portfolio entry links to the live project and to a short write-up that walks through the problem, the approach, and the result.",
       "",
