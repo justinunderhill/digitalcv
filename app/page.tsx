@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { portfolioProjects } from "@/lib/portfolio-projects";
 import { DigitalTwinChat } from "./components/digital-twin-chat";
 
 const capabilities = [
@@ -31,6 +32,84 @@ const capabilities = [
     title: "Digital product foundations",
     detail:
       "Hands-on background in software and web development with strong full-stack and platform fundamentals.",
+  },
+];
+
+const developerSkillsets = [
+  {
+    title: "Languages & UI",
+    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "Python", "React", "Next.js"],
+  },
+  {
+    title: "Backend & integration",
+    skills: [
+      "PHP",
+      "Node.js",
+      "Backend APIs",
+      "API integration",
+      "Database integration",
+      "Server integration",
+    ],
+  },
+  {
+    title: "WordPress engineering",
+    skills: [
+      "Custom themes",
+      "Custom plugins",
+      "Website architecture",
+      "Security updates",
+      "Content troubleshooting",
+    ],
+  },
+  {
+    title: "AI application builds",
+    skills: [
+      "LLM assistants",
+      "OpenAI API",
+      "Context strategy",
+      "Workflow automation",
+      "Guardrail design",
+    ],
+  },
+  {
+    title: "AI coding environments",
+    skills: [
+      "Claude Code",
+      "Codex",
+      "Prompt iteration",
+      "Repo-aware development",
+      "AI-assisted debugging",
+    ],
+  },
+  {
+    title: "Vibe engineering",
+    skills: [
+      "Rapid prototyping",
+      "Product shaping",
+      "AI pair programming",
+      "Iterative refinement",
+      "Human-in-the-loop QA",
+    ],
+  },
+  {
+    title: "Agentic engineering",
+    skills: [
+      "Agent workflows",
+      "Tool orchestration",
+      "Task decomposition",
+      "Memory/context design",
+      "Evaluation loops",
+    ],
+  },
+  {
+    title: "Delivery quality",
+    skills: [
+      "Performance testing",
+      "Quality control",
+      "Client handover",
+      "Technical training",
+      "Requirements workshops",
+    ],
   },
 ];
 
@@ -110,45 +189,6 @@ const education = [
 const certificationArchiveUrl =
   "https://www.linkedin.com/in/justinunderhill/details/certifications/";
 
-const liveCaseStudies = [
-  {
-    title: "Finally",
-    url: "https://finally-beryl.vercel.app/",
-    detail: "Live deployed project hosted on Vercel.",
-  },
-  {
-    title: "PreLegal",
-    url: "https://prelegal-zeta.vercel.app/login/",
-    detail: "Live deployed legal workflow project hosted on Vercel.",
-  },
-  {
-    title: "DCEE Digital Transformation",
-    url: "https://dcee-digital-transformation.vercel.app/",
-    detail: "Live deployed digital transformation project hosted on Vercel.",
-  },
-  {
-    title: "The Abbotsford",
-    url: "https://theabbotsford.vercel.app/",
-    detail: "Property development showcase for exclusive duplex living.",
-  },
-  {
-    title: "RenoClean SA",
-    url: "https://renoclean-sa.vercel.app/",
-    detail: "Post-renovation and construction cleaning service site for Cape Town.",
-  },
-  {
-    title: "Clinical Emergencies",
-    url: "https://clinical-emergencies-vert.vercel.app/",
-    detail: "Home medical equipment and support site for South African families.",
-  },
-];
-
-const portfolioQueue = [
-  "Agent-driven workflow blueprint with design rationale and implementation notes.",
-  "LLM assistant deployment with guardrails, context strategy, and QA outcomes.",
-  "Automation impact dashboards showing baseline-to-improvement metrics.",
-];
-
 export default function Home() {
   return (
     <>
@@ -160,7 +200,9 @@ export default function Home() {
           </a>
           <nav aria-label="Primary">
             <a href="#about">about</a>
+            <a href="#skills">skills</a>
             <a href="#experience">experience</a>
+            <a href="#portfolio">portfolio</a>
             <a className="nav-feature" href="#twin">twin</a>
             <a href="#contact">contact</a>
           </nav>
@@ -173,7 +215,8 @@ export default function Home() {
             <span className="label">{"// signal"}</span>
             <h1 id="hero-name">Justin Underhill</h1>
             <p className="hero-role">
-              AI systems engineer · agentic AI developer · automation architect
+              Applied AI & Automation Consultant · GenAI Workflow Builder ·
+              Digital Transformation Project Manager · Senior Software Developer
             </p>
             <p className="hero-lede">
               I design and deploy practical AI systems that fit inside real business
@@ -196,7 +239,7 @@ export default function Home() {
               </a>
               <a
                 className="button button-ghost"
-                href="mailto:underhill.justin@gmail.com"
+                href="#contact"
               >
                 Get in touch
               </a>
@@ -224,10 +267,10 @@ export default function Home() {
         </section>
 
         <section id="capabilities" aria-labelledby="capabilities-heading">
-          <div className="section-content">
+          <div className="section-content section-content-wide">
             <span className="label">{"// capabilities"}</span>
             <h2 id="capabilities-heading">Where I focus</h2>
-            <ul className="list-clean">
+            <ul className="list-clean capability-grid">
               {capabilities.map((item, index) => (
                 <li className="capability" key={item.title}>
                   <span className="capability-index">
@@ -243,11 +286,42 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="skills" aria-labelledby="skills-heading">
+          <div className="section-content section-content-wide">
+            <span className="label">{"// skillset"}</span>
+            <h2 id="skills-heading">Developer skillset</h2>
+            <p className="skillset-intro">
+              Hands-on development skills built across software delivery,
+              WordPress engineering, AI tooling, and production web projects.
+            </p>
+            <div className="skillset-grid">
+              {developerSkillsets.map((group) => (
+                <article className="skillset-card" key={group.title}>
+                  <h3>{group.title}</h3>
+                  <ul>
+                    {group.skills.map((skill) => (
+                      <li key={skill}>{skill}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="experience" aria-labelledby="experience-heading">
-          <div className="section-content">
+          <div className="section-content section-content-wide">
             <span className="label">{"// experience"}</span>
             <h2 id="experience-heading">Career timeline</h2>
             <div className="timeline">
+              <svg
+                aria-hidden="true"
+                className="timeline-road"
+                preserveAspectRatio="none"
+                viewBox="0 0 100 100"
+              >
+                <path d="M50 0 C8 12 92 24 50 36 C8 48 92 60 50 72 C18 82 82 91 50 100" />
+              </svg>
               {journey.map((item) => (
                 <article className="timeline-item" key={`${item.role}-${item.period}`}>
                   <span className="timeline-period">{item.period}</span>
@@ -269,13 +343,14 @@ export default function Home() {
               <span className="label">{"// digital twin"}</span>
               <h2 id="twin-heading">Talk to the version of me that never runs out of context</h2>
               <p>
-                This is the part of the site with a pulse. Ask about how I think,
-                where I create value, what shaped my career, or how I would approach
-                an AI delivery problem.
+                This is the part of the site with a pulse. Ask about my CV,
+                developer skillset, portfolio projects, AI tooling, career path, or how I
+                would approach an AI delivery problem.
               </p>
               <div className="twin-hub-rail" aria-label="Digital twin capabilities">
-                <span>career memory</span>
-                <span>delivery instinct</span>
+                <span>CV context</span>
+                <span>project memory</span>
+                <span>developer skillset</span>
                 <span>AI systems lens</span>
               </div>
             </div>
@@ -283,35 +358,53 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="portfolio" aria-labelledby="portfolio-heading">
-          <div className="section-content">
+        <section
+          className="portfolio-preview-section"
+          id="portfolio"
+          aria-labelledby="portfolio-heading"
+        >
+          <div className="section-content section-content-wide">
             <span className="label">{"// portfolio"}</span>
-            <h2 id="portfolio-heading">Case studies in development</h2>
+            <h2 id="portfolio-heading">Work that I do</h2>
             <p className="portfolio-note">
-              I&apos;m preparing a small set of build logs covering production AI work,
-              automation architecture decisions, and measurable delivery outcomes.
+              Live project work and capability snapshots across AI workflows,
+              legal tooling, property, specialist services, and medical support.
             </p>
             <div className="case-study-list">
-              {liveCaseStudies.map((item) => (
-                <a
+              {portfolioProjects.map((item, index) => (
+                <article
                   className="case-study-link"
-                  href={item.url}
-                  key={item.url}
-                  target="_blank"
-                  rel="noreferrer"
+                  key={item.title}
                 >
-                  <span className="case-study-kicker">live project</span>
-                  <strong>{item.title}</strong>
-                  <span>{item.detail}</span>
-                </a>
+                  <span className="case-study-topline">
+                    <span className="case-study-kicker">live project</span>
+                    <span className="case-study-number">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </span>
+                  <Link
+                    className="case-study-title-link"
+                    href={`/portfolio/${item.slug}`}
+                  >
+                    <strong>{item.title}</strong>
+                  </Link>
+                  <span className="case-study-detail">{item.detail}</span>
+                  <div className="case-study-actions">
+                    <Link className="case-study-cta" href={`/portfolio/${item.slug}`}>
+                      Open capability snapshot
+                    </Link>
+                    <a
+                      className="case-study-cta case-study-live"
+                      href={item.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Visit live site
+                    </a>
+                  </div>
+                </article>
               ))}
             </div>
-            <p className="portfolio-note portfolio-note-secondary">Queued case studies:</p>
-            <ul className="portfolio-queue">
-              {portfolioQueue.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
             <Link className="archive-link" href="/portfolio">
               Open portfolio hub →
             </Link>

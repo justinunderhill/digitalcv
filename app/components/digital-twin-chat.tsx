@@ -13,16 +13,17 @@ type Message = {
 type TwinMode = "checking" | "openai" | "fallback";
 
 const starterPrompts = [
-  "What are you like to work with?",
-  "Where would you add value fastest?",
-  "How do you think about AI projects?",
+  "Talk me through your CV.",
+  "What is your developer skillset?",
+  "Which projects show your work best?",
+  "How do you use Codex and Claude Code?",
 ];
 
 const initialMessage: Message = {
   id: "intro",
   role: "assistant",
   content:
-    "Hey, I'm Justin's digital twin. I know the career story, the AI focus, and the project delivery scars. Ask me like you would in a real conversation.",
+    "Hey, I'm Justin's digital twin. I know the career story, project work, developer skillset, AI focus, and delivery scars. Ask me like you would in a real conversation.",
 };
 
 function makeId() {
@@ -215,7 +216,7 @@ export function DigitalTwinChat() {
             value={input}
             onChange={(event) => setInput(event.target.value)}
             onKeyDown={handleInputKeyDown}
-            placeholder="Ask me about Justin's judgement, work style, AI focus, or career story..."
+            placeholder="Ask me about Justin's CV, skills, projects, AI focus, or work style..."
             rows={2}
             disabled={isSending}
             maxLength={MAX_INPUT_LENGTH}
@@ -223,7 +224,7 @@ export function DigitalTwinChat() {
           />
         </div>
         <div className="twin-form-row">
-          <span className="twin-form-hint">answers from Justin&apos;s profile</span>
+          <span className="twin-form-hint">answers from Justin&apos;s profile, CV, skills, and projects</span>
           <button className="button button-primary" type="submit" disabled={isSending}>
             {isSending ? "Sending…" : "Send"}
           </button>

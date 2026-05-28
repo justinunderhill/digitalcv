@@ -1,76 +1,53 @@
 import Link from "next/link";
-
-const liveCaseStudies = [
-  {
-    title: "Finally",
-    url: "https://finally-beryl.vercel.app/",
-    detail: "Live deployed project hosted on Vercel.",
-  },
-  {
-    title: "PreLegal",
-    url: "https://prelegal-zeta.vercel.app/login/",
-    detail: "Live deployed legal workflow project hosted on Vercel.",
-  },
-  {
-    title: "DCEE Digital Transformation",
-    url: "https://dcee-digital-transformation.vercel.app/",
-    detail: "Live deployed digital transformation project hosted on Vercel.",
-  },
-  {
-    title: "The Abbotsford",
-    url: "https://theabbotsford.vercel.app/",
-    detail: "Property development showcase for exclusive duplex living.",
-  },
-  {
-    title: "RenoClean SA",
-    url: "https://renoclean-sa.vercel.app/",
-    detail: "Post-renovation and construction cleaning service site for Cape Town.",
-  },
-  {
-    title: "Clinical Emergencies",
-    url: "https://clinical-emergencies-vert.vercel.app/",
-    detail: "Home medical equipment and support site for South African families.",
-  },
-];
-
-const queuedCaseStudies = [
-  "Agent-driven workflow blueprint with design rationale and implementation notes.",
-  "LLM assistant deployment with guardrails, context strategy, and QA outcomes.",
-  "Automation impact dashboards showing baseline-to-improvement metrics.",
-];
+import { portfolioProjects } from "@/lib/portfolio-projects";
 
 export default function PortfolioPage() {
   return (
     <main className="shell portfolio-shell">
-      <span className="label">{"// portfolio"}</span>
-      <h1>Case studies in development</h1>
-      <p>
-        This space will hold a small set of build logs covering production AI
-        systems, automation architecture, and measurable delivery outcomes —
-        each written as a release-ready post with design rationale, tradeoffs,
-        and results.
-      </p>
+      <div className="portfolio-hero">
+        <span className="label">{"// portfolio"}</span>
+        <h1>Work that I do</h1>
+        <p>
+          Live project work and capability snapshots across product builds,
+          service sites, and workflow tools in AI, legal, property, specialist
+          services, and medical support.
+        </p>
+      </div>
       <div className="case-study-list">
-        {liveCaseStudies.map((item) => (
-          <a
+        {portfolioProjects.map((item, index) => (
+          <article
             className="case-study-link"
-            href={item.url}
-            key={item.url}
-            target="_blank"
-            rel="noreferrer"
+            key={item.title}
           >
-            <span className="case-study-kicker">live project</span>
-            <strong>{item.title}</strong>
-            <span>{item.detail}</span>
-          </a>
+            <span className="case-study-topline">
+              <span className="case-study-kicker">live project</span>
+              <span className="case-study-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+            </span>
+            <Link
+              className="case-study-title-link"
+              href={`/portfolio/${item.slug}`}
+            >
+              <strong>{item.title}</strong>
+            </Link>
+            <span className="case-study-detail">{item.detail}</span>
+            <div className="case-study-actions">
+              <Link className="case-study-cta" href={`/portfolio/${item.slug}`}>
+                Open capability snapshot
+              </Link>
+              <a
+                className="case-study-cta case-study-live"
+                href={item.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Visit live site
+              </a>
+            </div>
+          </article>
         ))}
       </div>
-      <p className="portfolio-note portfolio-note-secondary">Queued case studies:</p>
-      <ul className="portfolio-queue">
-        {queuedCaseStudies.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
       <div className="hero-actions">
         <Link className="button button-primary" href="/">
           Back to home

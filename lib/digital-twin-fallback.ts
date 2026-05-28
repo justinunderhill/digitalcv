@@ -55,12 +55,62 @@ const workHistoryAnswers = [
   },
 ];
 
+const projectAnswers = [
+  {
+    terms: ["finally"],
+    answer:
+      "Finally is one of my live portfolio projects. I use it to show product build capability, structured UX thinking, deployment discipline, and practical web delivery.\n\nThe important signal is that it sits alongside my broader practical build work: taking an idea into a deployed digital product rather than leaving it as a concept.\n\nLive site: https://finally-beryl.vercel.app/",
+  },
+  {
+    terms: ["prelegal", "legal"],
+    answer:
+      "PreLegal is a live legal workflow project snapshot.\n\nIt is a useful example of where my interests meet: structured workflow thinking, practical digital tooling, and building something that can support a real operational process rather than just present information.\n\nLive site: https://prelegal-zeta.vercel.app/login/",
+  },
+  {
+    terms: ["dcee", "digital transformation"],
+    answer:
+      "DCEE Digital Transformation is a live digital transformation project snapshot.\n\nThat aligns closely with my background because I have spent a lot of my career between digital project delivery, technical implementation, stakeholder alignment, and helping businesses move from old processes into more useful digital systems.\n\nLive site: https://dcee-digital-transformation.vercel.app/",
+  },
+  {
+    terms: ["abbotsford"],
+    answer:
+      "The Abbotsford is a property development showcase for exclusive duplex living.\n\nFor me, it represents the kind of digital product work where presentation, clarity, and trust matter. A site like that needs to communicate the offer quickly and make the development feel tangible.\n\nLive site: https://theabbotsford.vercel.app/",
+  },
+  {
+    terms: ["renoclean", "cleaning"],
+    answer:
+      "RenoClean SA is a live service site for post-renovation and construction cleaning in Cape Town.\n\nIt is a good example of practical service positioning: make the offer clear, show who it is for, and help the user understand the value without making them work too hard.\n\nLive site: https://renoclean-sa.vercel.app/",
+  },
+  {
+    terms: ["clinical emergencies", "medical"],
+    answer:
+      "Clinical Emergencies is a live site for home medical equipment and support for South African families.\n\nThat kind of project needs clarity and trust. The user is likely solving a real and sometimes urgent problem, so the digital experience has to be straightforward and confidence-building.\n\nLive site: https://clinical-emergencies-vert.vercel.app/",
+  },
+];
+
 export function generateFallbackTwinAnswer(userPrompt: string): string {
   const prompt = userPrompt.toLowerCase();
 
   const roleMatch = workHistoryAnswers.find((item) => hasAny(prompt, item.terms));
   if (roleMatch) {
     return roleMatch.answer;
+  }
+
+  const projectMatch = projectAnswers.find((item) => hasAny(prompt, item.terms));
+  if (projectMatch) {
+    return projectMatch.answer;
+  }
+
+  if (hasAny(prompt, ["portfolio", "projects", "project work", "live work", "work that you do"])) {
+    return [
+      "My portfolio is a mix of live product builds, service sites, workflow tools, and digital transformation work.",
+      "",
+      "The current project snapshots include Finally, PreLegal, DCEE Digital Transformation, The Abbotsford, RenoClean SA, and Clinical Emergencies. They cover legal workflow tooling, digital transformation, property, specialist services, and medical support.",
+      "",
+      "The portfolio includes public live links for those projects, plus internal capability snapshots that explain what each build demonstrates.",
+      "",
+      "The thread across them is practical shipping: understand the user, shape the experience, build the thing, and keep the work grounded in what the business actually needs. The live project links are public, and I still avoid inventing or repeating private client details that are not part of the portfolio context.",
+    ].join("\n");
   }
 
   if (hasAny(prompt, ["work with", "working with", "personality", "style", "how are you", "what are you like"])) {
@@ -111,16 +161,43 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
     ].join("\n");
   }
 
-  if (hasAny(prompt, ["skill", "strength", "expertise", "specialize"])) {
+  if (hasAny(prompt, ["cv", "resume", "résumé"])) {
     return [
-      "My strongest value is connecting technical AI ideas to operational execution.",
+      "My CV reads as a blend of senior software development, digital transformation, project delivery, analytics, and applied AI.",
       "",
-      "- Agentic AI systems and automation architecture",
-      "- LLM application engineering and retrieval integration",
-      "- Project and delivery leadership in cross-functional teams",
-      "- Data-informed optimization and performance management",
+      "I started with hands-on web development: WordPress, front-end and back-end builds, custom themes and plugins, PHP, JavaScript, HTML, CSS, integrations, performance testing, troubleshooting, and client training. I then moved through senior software development, digital strategy, paid media, analytics/reporting, client relations, and project management.",
       "",
-      "I am comfortable going from a rough business problem to a structured delivery path: what to build, what to measure, where the risks are, and how to get people using it properly.",
+      "The current direction is Applied AI and Automation: GenAI workflows, agentic engineering, AI-assisted development with Claude Code and Codex, Next.js builds, Python, backend APIs, context strategy, guardrails, and practical automation that can survive inside real business operations.",
+    ].join("\n");
+  }
+
+  if (hasAny(prompt, ["skill", "strength", "expertise", "specialize", "tech stack", "technical skills", "developer skills"])) {
+    return [
+      "My skillset is strongest where development, AI workflow design, and delivery execution overlap.",
+      "",
+      "- Development: HTML, CSS, JavaScript, TypeScript, Python, React, Next.js, PHP, Node.js, WordPress, custom themes/plugins, backend APIs, database and server integration.",
+      "- AI and automation: Claude Code, Codex, OpenAI API, LLM assistants, prompt iteration, context strategy, guardrail design, workflow automation, and AI-assisted debugging.",
+      "- Agentic engineering: agent workflows, tool orchestration, task decomposition, memory and context design, evaluation loops, controlled outputs, and reliability thinking.",
+      "- Vibe engineering: rapid prototyping, product shaping, AI pair programming, iterative refinement, and human-in-the-loop QA.",
+      "- Delivery: requirements workshops, stakeholder alignment, project governance, risk management, quality control, handover, and training.",
+      "",
+      "The useful part is that I can move from a rough business problem into a working prototype, then shape it into something reliable enough to hand over and use.",
+    ].join("\n");
+  }
+
+  if (hasAny(prompt, ["agentic", "agent", "agents", "agent workflow", "tool orchestration"])) {
+    return [
+      "Agentic engineering, for me, is about designing the workflow around the model so it can do useful work with enough structure and control.",
+      "",
+      "That includes task decomposition, tool orchestration, memory and context design, evaluation loops, guardrails, controlled outputs, and deciding where a human should stay in the loop. I am interested in agents as operational systems, not just demos that look clever in isolation.",
+    ].join("\n");
+  }
+
+  if (hasAny(prompt, ["vibe", "vibe engineering", "vibe coding"])) {
+    return [
+      "Vibe engineering is a real part of how I work with AI coding tools: start with the product feel or workflow intent, prototype quickly, then keep tightening the result until it is usable, coherent, and technically sound.",
+      "",
+      "I use tools like Claude Code and Codex for AI pair programming, repo-aware iteration, debugging, refactoring, and fast product shaping. The important part is still judgement: checking the output, testing it, refining the interaction, and making sure the final product actually serves the user.",
     ].join("\n");
   }
 
@@ -159,6 +236,6 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
   return [
     "I can answer that best if we keep it tied to Justin's career, AI focus, delivery background, work style, certifications, or education.",
     "",
-    "The useful summary is this: Justin is an AI Systems Engineer and AI Automation Architect based in Johannesburg, currently working as a Project Manager at Merchants. His edge is the blend of software, digital strategy, project delivery, and practical AI implementation.",
+    "The useful summary is this: Justin is an Applied AI & Automation Consultant, GenAI Workflow Builder, Digital Transformation Project Manager, and Senior Software Developer based in Johannesburg. His edge is the blend of software development, backend/API experience, AI-assisted engineering with tools like Claude Code and Codex, digital strategy, project delivery, and practical AI implementation.",
   ].join("\n");
 }
