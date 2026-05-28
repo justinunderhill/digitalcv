@@ -34,6 +34,17 @@ next-dev.*.log
 # env files (can opt-in for committing if needed)
 .env*
 
+# secrets / private docs (must never be committed)
+Certs.txt
+Profile.pdf
+
+# local working notes (not for deploy)
+tutorial.md
+review.md
+claude_review.md
+workhistorycontext.md
+upgrade.md
+
 # vercel
 .vercel
 

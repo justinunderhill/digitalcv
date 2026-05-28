@@ -8,9 +8,9 @@ export default function PortfolioPage() {
         <span className="label">{"// portfolio"}</span>
         <h1>Work that I do</h1>
         <p>
-          Live project work and capability snapshots across product builds,
-          service sites, and workflow tools in AI, legal, property, specialist
-          services, and medical support.
+          Live project work across AI products, legal tooling, property,
+          specialist services, and medical support — each card opens a short
+          problem-to-result write-up alongside the live site.
         </p>
       </div>
       <div className="case-study-list">
@@ -34,7 +34,7 @@ export default function PortfolioPage() {
             <span className="case-study-detail">{item.detail}</span>
             <div className="case-study-actions">
               <Link className="case-study-cta" href={`/portfolio/${item.slug}`}>
-                Open capability snapshot
+                View project
               </Link>
               <a
                 className="case-study-cta case-study-live"

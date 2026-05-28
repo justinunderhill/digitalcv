@@ -1759,6 +1759,14 @@ footer {
   padding-left: 0.85rem;
 }
 
+.portfolio-process-note {
+  margin: 0;
+  border-left: 2px solid rgba(15, 118, 110, 0.28);
+  color: var(--ink-muted);
+  padding-left: 0.85rem;
+  line-height: 1.65;
+}
+
 .privacy-note {
   border: 1px solid rgba(200, 121, 18, 0.22);
   border-radius: var(--radius);

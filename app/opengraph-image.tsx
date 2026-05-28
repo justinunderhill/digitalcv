@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Justin Underhill — AI systems engineer";
+export const alt = "Justin Underhill — Applied AI & Automation Consultant";
 export const size = {
   width: 1200,
   height: 630,
@@ -56,8 +56,8 @@ export default function Image() {
               lineHeight: 1.25,
             }}
           >
-            Practical AI systems, LLM assistants, and automation workflows for
-            real business environments.
+            Applied AI & Automation Consultant — practical AI tools, agent
+            workflows, and automation for real business environments.
           </div>
         </div>
 
@@ -71,7 +71,7 @@ export default function Image() {
             letterSpacing: 0,
           }}
         >
-          <span style={{ color: "#e9a23b" }}>AI systems · delivery · automation</span>
+          <span style={{ color: "#e9a23b" }}>Applied AI · automation · delivery</span>
           <span>Johannesburg · ZA</span>
         </div>
       </div>

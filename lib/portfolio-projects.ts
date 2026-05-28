@@ -5,63 +5,92 @@ export type PortfolioProject = {
   detail: string;
   liveUrl: string;
   overview: string;
-  buildFocus: string[];
+  problem?: string;
+  approach?: string;
+  result?: string;
+  catalog?: string[];
+  processNote?: string;
+  buildFocus?: string[];
   skills: string[];
-  proofPoints: string[];
+  proofPoints?: string[];
 };
 
 export const portfolioProjects: PortfolioProject[] = [
   {
     slug: "finally",
-    title: "Finally",
-    category: "Product build",
+    title: "FinAlly",
+    category: "AI Trading Workstation",
     detail:
-      "Product build demonstrating structured UX, deployment discipline, and practical web delivery.",
+      "A real-time trading workstation where you manage a portfolio by talking to it.",
     liveUrl: "https://finally-beryl.vercel.app/",
     overview:
-      "A product snapshot focused on turning a digital concept into a usable shipped experience. The case study highlights product structure, interface clarity, and the delivery discipline needed to move from idea to working web application.",
-    buildFocus: [
-      "Structuring the product experience around clear user actions.",
-      "Designing a polished interface that feels complete rather than experimental.",
-      "Keeping implementation decisions aligned with deployment and maintainability.",
-    ],
-    skills: ["Product shaping", "UX structure", "Next.js", "React", "Deployment"],
-    proofPoints: [
-      "Shows the ability to frame a product idea into a coherent web experience.",
-      "Demonstrates front-end build discipline and responsive layout thinking.",
-      "Reflects practical deployment experience without exposing production internals.",
+      "A Bloomberg-style trading workstation that streams live prices and lets an LLM assistant analyse holdings and execute trades from natural-language instructions. Built as a course capstone, entirely via agentic coding workflows.",
+    problem:
+      "Trading interfaces are dense and intimidating, and the gap between 'seeing your positions' and 'acting on them' usually means menus, forms, and manual order entry.",
+    approach:
+      "Built a Bloomberg-style workstation that streams live prices over SSE, visualises a portfolio as a heatmap and P&L chart, and adds an LLM assistant that analyses holdings and executes trades from natural-language instructions — Next.js + FastAPI in a single Docker container, with structured-output LLM calls driving the trade logic.",
+    result:
+      "Demonstrates end-to-end agentic product delivery — real-time data streaming, a stateful simulated portfolio, and an LLM wired safely into actions rather than just chat. Built entirely via coding agents as a course capstone.",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "FastAPI",
+      "SQLite",
+      "SSE streaming",
+      "LiteLLM / OpenRouter",
+      "Docker",
+      "Structured-output LLM calls",
     ],
   },
   {
     slug: "prelegal",
     title: "PreLegal",
-    category: "Legal workflow",
+    category: "AI Legal Document Builder",
     detail:
-      "Legal workflow concept showing process design, task flow, and digital product thinking.",
+      "Pick from eleven agreement types, or let the AI help you choose, and get a finished downloadable contract.",
     liveUrl: "https://prelegal-zeta.vercel.app/login/",
     overview:
-      "A workflow-led legal tooling snapshot that demonstrates how structured information, task flow, and interface decisions can support a more usable operational process.",
-    buildFocus: [
-      "Mapping a complex professional process into clearer user steps.",
-      "Reducing friction around intake, review, and next-action decisions.",
-      "Designing for confidence in a domain where clarity and trust matter.",
+      "A SaaS document builder for routine legal agreements — NDAs, service contracts, GDPR DPAs, HIPAA BAAs, licensing, and more — where an AI assistant guides the user to the right document, fills the fields via structured generation, and outputs a finished PDF.",
+    problem:
+      "Routine legal documents — NDAs, service agreements, DPAs, HIPAA BAAs, licensing — are template-driven but still leave people unsure which document they need and how to complete it correctly. Slow, error-prone, and not worth a lawyer's hourly rate for standard agreements.",
+    approach:
+      "Built a SaaS document builder with a catalog of eleven agreement types spanning confidentiality, commercial services, data-protection compliance (GDPR DPA, HIPAA BAA), IP and licensing, and an AI-specific addendum. An AI assistant helps the user choose the right document and walks them through the fields, then an LLM with Structured Outputs populates the template, renders a live preview, and produces a downloadable PDF.",
+    result:
+      "A working multi-document legal-drafting product covering regulated domains end to end — catalog-driven, AI-guided selection, structured generation mapped to real contract fields, and a finished PDF deliverable. Proves the pattern that turns an LLM from \"answers questions\" into \"produces usable legal work.\"",
+    catalog: [
+      "Mutual NDA",
+      "Cloud Service Agreement",
+      "Data Processing Agreement (GDPR)",
+      "Professional Services Agreement",
+      "Service Level Agreement",
+      "Design Partner Agreement",
+      "Partnership Agreement",
+      "Pilot Agreement",
+      "Business Associate Agreement (HIPAA)",
+      "Software License Agreement",
+      "AI-Specific Addendum",
     ],
-    skills: ["Workflow design", "Information architecture", "React", "UX writing", "Process thinking"],
-    proofPoints: [
-      "Shows capability in translating a domain workflow into product structure.",
-      "Demonstrates judgement around forms, hierarchy, and user guidance.",
-      "Connects digital product execution with service process improvement.",
+    processNote:
+      "Built via an agentic coding workflow — features specced in Jira, developed through a 7-step process with unit and integration tests, and shipped via GitHub PRs.",
+    skills: [
+      "FastAPI",
+      "Docker",
+      "SQLite",
+      "OpenAI Structured Outputs (gpt-4.1)",
+      "PDF generation",
+      "Authentication",
     ],
   },
   {
     slug: "dcee-digital-transformation",
-    title: "DCEE Digital Transformation",
-    category: "Digital transformation",
+    title: "DCEE — NGO digital showcase",
+    category: "NGO website build",
     detail:
-      "Digital transformation showcase focused on business clarity, service structure, and execution.",
+      "A digital showcase site for DCEE, an NGO, structured around their mission, services, and stakeholder narrative.",
     liveUrl: "https://dcee-digital-transformation.vercel.app/",
     overview:
-      "A transformation-focused showcase that reflects Justin's background in delivery, stakeholder alignment, service structure, and digital enablement.",
+      "A digital showcase site for DCEE, an NGO whose work needed a clear public-facing presence. The build is structured around the organisation's mission, services, and stakeholder narrative — translating their offer into a credible online presence.",
     buildFocus: [
       "Turning a transformation message into clear service architecture.",
       "Presenting digital change in a way that feels practical and credible.",
@@ -108,7 +137,7 @@ export const portfolioProjects: PortfolioProject[] = [
       "Specialist service website demonstrating positioning, trust-building, and conversion flow.",
     liveUrl: "https://renoclean-sa.vercel.app/",
     overview:
-      "A service-business snapshot focused on making a specialist offer easy to understand, credible, and action-oriented without exposing client contact details from the live site.",
+      "A specialist service-business site built to make the offer easy to understand, credible, and action-oriented without exposing client contact details from the live site.",
     buildFocus: [
       "Clarifying the service offer for a specific customer need.",
       "Building trust through concise service framing and professional presentation.",
@@ -129,7 +158,7 @@ export const portfolioProjects: PortfolioProject[] = [
       "Healthcare support website focused on clarity, urgency, and accessible service information.",
     liveUrl: "https://clinical-emergencies-vert.vercel.app/",
     overview:
-      "A healthcare-support snapshot where the core design problem is clarity under pressure: users need to understand the service, trust the offer, and find the right path quickly.",
+      "A healthcare-support site where the core design problem is clarity under pressure: users need to understand the service, trust the offer, and find the right path quickly.",
     buildFocus: [
       "Prioritising accessible, direct service information.",
       "Designing for users who may be making decisions under time pressure.",

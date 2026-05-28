@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://justinunderhill.com";
-const title = "Justin Underhill | AI Delivery & Systems";
+const title = "Justin Underhill | Applied AI & Automation Consultant";
 const description =
-  "Johannesburg-based digital delivery leader building practical AI systems, LLM assistants, and automation workflows for business environments.";
+  "Johannesburg-based Applied AI & Automation Consultant building practical AI tools, agent workflows, and automation that connects to real business processes.";
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -19,13 +19,14 @@ const personJsonLd = {
     addressCountry: "ZA",
   },
   sameAs: ["https://www.linkedin.com/in/justinunderhill"],
-  jobTitle: "AI Delivery and Systems Practitioner",
+  jobTitle: "Applied AI & Automation Consultant",
   knowsAbout: [
+    "Applied AI",
     "AI automation",
     "LLM applications",
+    "Agent workflows",
     "Project delivery",
     "Digital strategy",
-    "Workflow orchestration",
   ],
 };
 
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Justin Underhill portfolio social preview",
+        alt: "Justin Underhill — Applied AI & Automation Consultant",
       },
     ],
   },

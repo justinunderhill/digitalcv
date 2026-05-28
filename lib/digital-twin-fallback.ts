@@ -57,19 +57,19 @@ const workHistoryAnswers = [
 
 const projectAnswers = [
   {
-    terms: ["finally"],
+    terms: ["finally", "finally", "trading", "stock"],
     answer:
-      "Finally is one of my live portfolio projects. I use it to show product build capability, structured UX thinking, deployment discipline, and practical web delivery.\n\nThe important signal is that it sits alongside my broader practical build work: taking an idea into a deployed digital product rather than leaving it as a concept.\n\nLive site: https://finally-beryl.vercel.app/",
+      "FinAlly is a real-time AI trading workstation — a Bloomberg-style portfolio screen where you manage holdings by talking to the system.\n\nIt streams live prices over SSE, visualises a portfolio as a heatmap and P&L chart, and adds an LLM assistant that analyses positions and executes simulated trades from natural-language instructions. Next.js and FastAPI run together in a single Docker container, with structured-output LLM calls driving the trade logic. Built as a course capstone, entirely via agentic coding workflows.\n\nThe useful signal is end-to-end agentic product delivery: real-time data, a stateful simulated portfolio, and an LLM wired safely into actions rather than just chat.\n\nLive site: https://finally-beryl.vercel.app/",
   },
   {
-    terms: ["prelegal", "legal"],
+    terms: ["prelegal", "legal", "contract", "nda"],
     answer:
-      "PreLegal is a live legal workflow project snapshot.\n\nIt is a useful example of where my interests meet: structured workflow thinking, practical digital tooling, and building something that can support a real operational process rather than just present information.\n\nLive site: https://prelegal-zeta.vercel.app/login/",
+      "PreLegal is a live AI legal document builder — a SaaS where you pick from eleven agreement types (NDAs, service contracts, GDPR DPA, HIPAA BAA, licensing, and more), or let the AI help you choose, and end up with a finished downloadable PDF.\n\nAn AI assistant guides document selection and walks the user through the fields. Behind that, an LLM with Structured Outputs (gpt-4.1) populates the template, renders a live preview, and outputs the final PDF. FastAPI, Docker, SQLite, auth. Features were specced in Jira and shipped via GitHub PRs through a 7-step process with unit and integration tests.\n\nIt is a useful example of where applied AI work meets a real operational pain: not 'AI that answers questions,' but 'AI that produces usable legal work.'\n\nLive site: https://prelegal-zeta.vercel.app/login/",
   },
   {
     terms: ["dcee", "digital transformation"],
     answer:
-      "DCEE Digital Transformation is a live digital transformation project snapshot.\n\nThat aligns closely with my background because I have spent a lot of my career between digital project delivery, technical implementation, stakeholder alignment, and helping businesses move from old processes into more useful digital systems.\n\nLive site: https://dcee-digital-transformation.vercel.app/",
+      "DCEE is a live website I built for an NGO. The work was about translating their mission, services, and stakeholder narrative into a credible public-facing presence.\n\nThat kind of build sits comfortably in my background: digital delivery, stakeholder alignment, structuring how an organisation communicates online, and giving the team a digital surface that reflects what they actually do.\n\nLive site: https://dcee-digital-transformation.vercel.app/",
   },
   {
     terms: ["abbotsford"],
@@ -105,9 +105,9 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
     return [
       "My portfolio is a mix of live product builds, service sites, workflow tools, and digital transformation work.",
       "",
-      "The current project snapshots include Finally, PreLegal, DCEE Digital Transformation, The Abbotsford, RenoClean SA, and Clinical Emergencies. They cover legal workflow tooling, digital transformation, property, specialist services, and medical support.",
+      "The current projects include FinAlly (a real-time AI trading workstation, course capstone), PreLegal (an AI legal document builder covering NDAs through HIPAA BAAs), DCEE (an NGO digital showcase), The Abbotsford, RenoClean SA, and Clinical Emergencies. They cover applied AI products, NGO and service sites, property, specialist services, and medical support.",
       "",
-      "The portfolio includes public live links for those projects, plus internal capability snapshots that explain what each build demonstrates.",
+      "Each portfolio entry links to the live project and to a short write-up that walks through the problem, the approach, and the result.",
       "",
       "The thread across them is practical shipping: understand the user, shape the experience, build the thing, and keep the work grounded in what the business actually needs. The live project links are public, and I still avoid inventing or repeating private client details that are not part of the portfolio context.",
     ].join("\n");
@@ -175,11 +175,11 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
     return [
       "My skillset is strongest where development, AI workflow design, and delivery execution overlap.",
       "",
-      "- Development: HTML, CSS, JavaScript, TypeScript, Python, React, Next.js, PHP, Node.js, WordPress, custom themes/plugins, backend APIs, database and server integration.",
-      "- AI and automation: Claude Code, Codex, OpenAI API, LLM assistants, prompt iteration, context strategy, guardrail design, workflow automation, and AI-assisted debugging.",
-      "- Agentic engineering: agent workflows, tool orchestration, task decomposition, memory and context design, evaluation loops, controlled outputs, and reliability thinking.",
-      "- Vibe engineering: rapid prototyping, product shaping, AI pair programming, iterative refinement, and human-in-the-loop QA.",
-      "- Delivery: requirements workshops, stakeholder alignment, project governance, risk management, quality control, handover, and training.",
+      "- AI application builds: LLM assistants, retrieval-augmented generation, OpenAI API, context strategy, guardrail design, and workflow automation.",
+      "- Agentic engineering: agent workflows, tool orchestration, task decomposition, memory and context design, evaluation loops, and reliability thinking.",
+      "- AI coding environments: Claude Code, Codex, repo-aware development, AI pair programming, prompt iteration, and AI-assisted debugging.",
+      "- Delivery and product shaping: rapid prototyping, product shaping, human-in-the-loop QA, requirements workshops, quality control, client handover and training.",
+      "- Engineering foundations: TypeScript and JavaScript, Python, React and Next.js, Node.js and backend APIs, database and server integration, WordPress (themes, plugins, architecture), HTML, CSS, and PHP.",
       "",
       "The useful part is that I can move from a rough business problem into a working prototype, then shape it into something reliable enough to hand over and use.",
     ].join("\n");
@@ -193,11 +193,11 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
     ].join("\n");
   }
 
-  if (hasAny(prompt, ["vibe", "vibe engineering", "vibe coding"])) {
+  if (hasAny(prompt, ["vibe", "vibe engineering", "vibe coding", "ai pair programming", "ai-assisted coding"])) {
     return [
-      "Vibe engineering is a real part of how I work with AI coding tools: start with the product feel or workflow intent, prototype quickly, then keep tightening the result until it is usable, coherent, and technically sound.",
+      "The way I actually work with AI coding tools: start with the product feel or workflow intent, prototype quickly with Claude Code or Codex, then keep tightening the result until it is usable, coherent, and technically sound.",
       "",
-      "I use tools like Claude Code and Codex for AI pair programming, repo-aware iteration, debugging, refactoring, and fast product shaping. The important part is still judgement: checking the output, testing it, refining the interaction, and making sure the final product actually serves the user.",
+      "I treat AI pair programming as a real part of the build loop — repo-aware iteration, debugging, refactoring, and fast product shaping. The important part is still judgement: checking the output, testing it, refining the interaction, and making sure the final product actually serves the user.",
     ].join("\n");
   }
 
@@ -206,7 +206,7 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
       "My highlighted certifications include:",
       "- PRINCE2 Foundation Certification Training",
       "- Generative AI for Project Managers",
-      "- GenAI Academy: Yellow Belt Level 2 for Consultants",
+      "- GenAI for Consultants — NTT DATA (applied GenAI for consulting engagements)",
       "- AI Change Management: Leading the Transformation",
       "- Responsible Use of AI",
       "",

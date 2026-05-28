@@ -4,19 +4,19 @@ import { DigitalTwinChat } from "./components/digital-twin-chat";
 
 const capabilities = [
   {
-    title: "Agentic AI systems",
+    title: "Agent workflows",
     detail:
-      "Designing multi-agent workflows and orchestration patterns that solve real operational problems.",
+      "Building AI agents that close the loop on a real task — combining LLM reasoning with tool use, retrieval, and execution behind a single surface.",
   },
   {
-    title: "LLM application engineering",
+    title: "LLM applications",
     detail:
-      "Building practical assistants and decision-support systems with reliable context handling and controlled outputs.",
+      "Practical assistants and decision-support tools with grounded context, retrieval where it matters, and outputs the user can trust.",
   },
   {
-    title: "AI automation architecture",
+    title: "AI automation",
     detail:
-      "Integrating automation layers into existing business workflows to improve speed, quality, and consistency.",
+      "Connecting AI into existing business workflows so they run faster, more consistently, and with less manual handling.",
   },
   {
     title: "Project & delivery leadership",
@@ -37,58 +37,14 @@ const capabilities = [
 
 const developerSkillsets = [
   {
-    title: "Languages & UI",
-    skills: ["HTML", "CSS", "JavaScript", "TypeScript", "Python", "React", "Next.js"],
-  },
-  {
-    title: "Backend & integration",
-    skills: [
-      "PHP",
-      "Node.js",
-      "Backend APIs",
-      "API integration",
-      "Database integration",
-      "Server integration",
-    ],
-  },
-  {
-    title: "WordPress engineering",
-    skills: [
-      "Custom themes",
-      "Custom plugins",
-      "Website architecture",
-      "Security updates",
-      "Content troubleshooting",
-    ],
-  },
-  {
     title: "AI application builds",
     skills: [
       "LLM assistants",
+      "Retrieval-augmented generation",
       "OpenAI API",
       "Context strategy",
-      "Workflow automation",
       "Guardrail design",
-    ],
-  },
-  {
-    title: "AI coding environments",
-    skills: [
-      "Claude Code",
-      "Codex",
-      "Prompt iteration",
-      "Repo-aware development",
-      "AI-assisted debugging",
-    ],
-  },
-  {
-    title: "Vibe engineering",
-    skills: [
-      "Rapid prototyping",
-      "Product shaping",
-      "AI pair programming",
-      "Iterative refinement",
-      "Human-in-the-loop QA",
+      "Workflow automation",
     ],
   },
   {
@@ -97,18 +53,42 @@ const developerSkillsets = [
       "Agent workflows",
       "Tool orchestration",
       "Task decomposition",
-      "Memory/context design",
+      "Memory & context design",
       "Evaluation loops",
     ],
   },
   {
-    title: "Delivery quality",
+    title: "AI coding environments",
     skills: [
-      "Performance testing",
-      "Quality control",
-      "Client handover",
-      "Technical training",
+      "Claude Code",
+      "Codex",
+      "Repo-aware development",
+      "AI pair programming",
+      "Prompt iteration",
+      "AI-assisted debugging",
+    ],
+  },
+  {
+    title: "Delivery & product shaping",
+    skills: [
+      "Rapid prototyping",
+      "Product shaping",
+      "Human-in-the-loop QA",
       "Requirements workshops",
+      "Quality control",
+      "Client handover & training",
+    ],
+  },
+  {
+    title: "Engineering foundations",
+    skills: [
+      "TypeScript / JavaScript",
+      "Python",
+      "React / Next.js",
+      "Node.js & backend APIs",
+      "Database & server integration",
+      "WordPress (themes, plugins, architecture)",
+      "HTML / CSS / PHP",
     ],
   },
 ];
@@ -175,7 +155,7 @@ const journey = [
 const certifications = [
   "PRINCE2 Foundation",
   "Generative AI for Project Managers",
-  "GenAI Academy: Yellow Belt Level 2 for Consultants",
+  "GenAI for Consultants — NTT DATA",
   "AI Change Management: Leading the Transformation",
   "Responsible Use of AI",
 ];
@@ -215,18 +195,18 @@ export default function Home() {
             <span className="label">{"// signal"}</span>
             <h1 id="hero-name">Justin Underhill</h1>
             <p className="hero-role">
-              Applied AI & Automation Consultant · GenAI Workflow Builder ·
-              Digital Transformation Project Manager · Senior Software Developer
+              Applied AI & Automation Consultant
             </p>
             <p className="hero-lede">
-              I design and deploy practical AI systems that fit inside real business
-              environments — agent-driven workflows, LLM-powered tools, and automation
-              layers that connect to existing processes.
+              I build practical AI tools and agent workflows that fit inside real
+              business environments — LLM applications, retrieval-backed assistants,
+              and automation that connects to existing processes.
             </p>
             <p className="hero-detail">
-              Based in Johannesburg. Background spans software engineering, digital
-              strategy, and enterprise project delivery, now focused on operational AI
-              outcomes: reliability, controlled outputs, and sustainable cost.
+              Based in Johannesburg. Background spans senior software development,
+              digital strategy, and enterprise project delivery, now focused on
+              applied AI: grounded outputs, sensible guardrails, and tools the
+              business will actually use.
             </p>
             <div className="hero-actions">
               <a
@@ -359,8 +339,9 @@ export default function Home() {
             <span className="label">{"// portfolio"}</span>
             <h2 id="portfolio-heading">Work that I do</h2>
             <p className="portfolio-note">
-              Live project work and capability snapshots across AI workflows,
-              legal tooling, property, specialist services, and medical support.
+              Live project work across AI products, legal tooling, property,
+              specialist services, and medical support — each opens a short
+              problem-to-result write-up alongside the live site.
             </p>
             <div className="case-study-list">
               {portfolioProjects.map((item, index) => (
@@ -383,7 +364,7 @@ export default function Home() {
                   <span className="case-study-detail">{item.detail}</span>
                   <div className="case-study-actions">
                     <Link className="case-study-cta" href={`/portfolio/${item.slug}`}>
-                      Open capability snapshot
+                      View project
                     </Link>
                     <a
                       className="case-study-cta case-study-live"
@@ -443,10 +424,10 @@ export default function Home() {
         <section id="contact" aria-labelledby="contact-heading">
           <div className="section-content contact">
             <span className="label">{"// contact"}</span>
-            <h2 id="contact-heading">Open to AI systems and delivery work</h2>
+            <h2 id="contact-heading">Available for AI and delivery engagements</h2>
             <p>
-              Based in Johannesburg, available for collaboration on AI systems,
-              automation architecture, and strategic delivery programs.
+              Based in Johannesburg, available for consulting engagements across
+              applied AI builds, automation workflows, and delivery-led programs.
             </p>
             <div className="contact-grid">
               <div className="contact-item">
