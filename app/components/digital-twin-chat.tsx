@@ -22,7 +22,7 @@ const initialMessage: Message = {
   id: "intro",
   role: "assistant",
   content:
-    "Hey, I'm Justin. Ask me about the work, the projects, or how I think through AI and delivery.",
+    "Hi, I'm Justin's Digital Twin. Ask me about the work, the projects, or how I think through AI and delivery.",
 };
 
 function makeId() {

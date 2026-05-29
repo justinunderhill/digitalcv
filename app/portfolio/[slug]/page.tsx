@@ -42,7 +42,7 @@ export default async function PortfolioProjectPage({ params }: ProjectPageProps)
   }
 
   return (
-    <main className="shell portfolio-detail-shell">
+    <main className="shell portfolio-detail-shell" id="top">
       <div className="portfolio-detail-hero">
         <Link className="archive-link" href="/portfolio">
           ← Back to portfolio

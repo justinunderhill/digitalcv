@@ -80,6 +80,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
         {children}
+        <a className="back-to-top" href="#top" aria-label="Back to top">
+          <span aria-hidden="true">↑</span>
+          <span>top</span>
+        </a>
       </body>
     </html>
   );

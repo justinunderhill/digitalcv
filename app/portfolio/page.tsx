@@ -3,7 +3,7 @@ import { portfolioProjects } from "@/lib/portfolio-projects";
 
 export default function PortfolioPage() {
   return (
-    <main className="shell portfolio-shell">
+    <main className="shell portfolio-shell" id="top">
       <div className="portfolio-hero">
         <span className="label">{"// portfolio"}</span>
         <h1>Work that I do</h1>
