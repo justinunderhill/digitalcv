@@ -40,6 +40,7 @@ html {
 
 body {
   min-height: 100vh;
+  overflow-x: clip;
   background:
     linear-gradient(118deg, rgba(15, 118, 110, 0.12), transparent 30rem),
     linear-gradient(302deg, rgba(36, 79, 143, 0.12), transparent 28rem),
@@ -193,11 +194,13 @@ input {
 }
 
 main {
+  min-width: 0;
   padding: 3.5rem 0 6rem;
 }
 
 section {
   position: relative;
+  min-width: 0;
   padding: 5rem 0;
   border-bottom: 1px solid rgba(16, 24, 32, 0.07);
   animation: reveal-up 0.65s ease both;
@@ -208,10 +211,14 @@ section:last-of-type {
 }
 
 .section-content {
+  width: 100%;
+  min-width: 0;
   max-width: var(--content);
 }
 
 .section-content-wide {
+  width: 100%;
+  min-width: 0;
   max-width: 100%;
 }
 
@@ -1991,13 +1998,13 @@ footer {
   }
 
   .twin-card {
-    min-height: 39rem;
-    border-radius: 2.2rem;
+    min-height: auto;
+    border-radius: 1.4rem;
   }
 
   .twin-card::before {
     inset: 0.65rem;
-    border-radius: 1.8rem;
+    border-radius: 1rem;
   }
 
   .twin-head,
@@ -2008,35 +2015,66 @@ footer {
     width: calc(100% - 2rem);
   }
 
+  .twin-head {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.65rem;
+  }
+
+  .twin-title-group {
+    min-width: 0;
+  }
+
+  .twin-head-title,
+  .twin-kicker,
+  .twin-mode {
+    white-space: nowrap;
+  }
+
   .twin-messages {
-    max-height: 22rem;
-    padding-left: 0;
-    padding-right: 0;
+    flex: initial;
+    min-height: 16rem;
+    max-height: none;
+    align-content: start;
+    overflow: visible;
+    gap: 0.75rem;
+    padding: 1rem 0 0.85rem;
   }
 
   .twin-message {
-    grid-template-columns: 2rem minmax(0, 1fr);
-    gap: 0.55rem;
+    display: flex;
+    min-width: 0;
   }
 
   .twin-message.is-user {
-    grid-template-columns: minmax(0, 1fr) 2rem;
+    justify-content: flex-end;
+  }
+
+  .twin-message.is-user .twin-bubble {
+    max-width: 92%;
   }
 
   .twin-avatar {
-    width: 1.9rem;
-    height: 1.9rem;
-    font-size: 0.62rem;
+    display: none;
   }
 
   .twin-bubble {
+    width: auto;
     max-width: 100%;
-    padding: 0.72rem 0.78rem;
+    min-width: 0;
+    border-radius: 1rem;
+    padding: 0.78rem 0.85rem;
+  }
+
+  .twin-message.is-assistant .twin-bubble {
+    width: 100%;
   }
 
   .twin-bubble p {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    max-width: 100%;
+    font-size: 0.94rem;
+    line-height: 1.55;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .twin-input-wrap {
