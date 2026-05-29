@@ -14,6 +14,8 @@ const MAX_MESSAGE_LENGTH = 1_500;
 const MAX_BODY_BYTES = 24_000;
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 8;
+const FALLBACK_WARNING =
+  "Using profile-grounded fallback responses while live AI is temporarily unavailable.";
 
 type RateLimitEntry = {
   count: number;
@@ -171,8 +173,7 @@ export async function POST(request: Request) {
       logFallback("missing_api_key");
       return NextResponse.json({
         mode: "fallback",
-        warning:
-          "OpenAI key is missing. Serving profile-grounded fallback responses until OPENAI_API_KEY is configured.",
+        warning: FALLBACK_WARNING,
         message: generateFallbackTwinAnswer(latestPrompt),
       });
     }
@@ -181,8 +182,7 @@ export async function POST(request: Request) {
       logFallback("invalid_api_key_format");
       return NextResponse.json({
         mode: "fallback",
-        warning:
-          "OpenAI key format looks invalid. Fallback mode is active until OPENAI_API_KEY is corrected.",
+        warning: FALLBACK_WARNING,
         message: generateFallbackTwinAnswer(latestPrompt),
       });
     }
@@ -219,8 +219,7 @@ export async function POST(request: Request) {
         logFallback("auth_failed", { status: error.status });
         return NextResponse.json({
           mode: "fallback",
-          warning:
-            "OpenAI authentication failed. Fallback mode is active. Update OPENAI_API_KEY and restart dev server to restore live model responses.",
+          warning: FALLBACK_WARNING,
           message: generateFallbackTwinAnswer(latestPrompt),
         }, { status: 502 });
       }
@@ -229,8 +228,7 @@ export async function POST(request: Request) {
         logFallback("model_access_issue", { status: error.status, model: MODEL_NAME });
         return NextResponse.json({
           mode: "fallback",
-          warning:
-            `Model access issue for '${MODEL_NAME}'. Fallback mode is active until model access is available.`,
+          warning: FALLBACK_WARNING,
           message: generateFallbackTwinAnswer(latestPrompt),
         }, { status: 502 });
       }
@@ -241,9 +239,7 @@ export async function POST(request: Request) {
       });
       return NextResponse.json({
         mode: "fallback",
-        warning:
-          sanitizeOpenAIErrorMessage(error.message) ||
-          "OpenAI request failed. Fallback mode is active.",
+        warning: FALLBACK_WARNING,
         message: generateFallbackTwinAnswer(latestPrompt),
       }, { status: 502 });
     }
@@ -251,7 +247,7 @@ export async function POST(request: Request) {
     logFallback("unexpected_error", error instanceof Error ? error.message : error);
     return NextResponse.json({
       mode: "fallback",
-      warning: "Unexpected server error while contacting OpenAI. Fallback mode is active.",
+      warning: FALLBACK_WARNING,
       message: generateFallbackTwinAnswer(latestPrompt),
     }, { status: 500 });
   }

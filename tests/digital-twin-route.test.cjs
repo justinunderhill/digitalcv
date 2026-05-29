@@ -149,6 +149,27 @@ test("POST returns profile fallback when OpenAI reports a model access issue", a
 
   assert.equal(response.status, 502);
   assert.equal(body.mode, "fallback");
-  assert.match(body.warning, /gpt-4o-mini/);
+  assert.equal(
+    body.warning,
+    "Using profile-grounded fallback responses while live AI is temporarily unavailable.",
+  );
+  assert.equal(body.message, "Fallback answer for: What is your background?");
+});
+
+test("POST does not expose missing environment variable details to visitors", async () => {
+  delete process.env.OPENAI_API_KEY;
+  const { POST } = loadRoute();
+
+  const response = await POST(
+    makeRequest([{ role: "user", content: "What is your background?" }], "missing-key"),
+  );
+  const body = await response.json();
+
+  assert.equal(response.status, 200);
+  assert.equal(body.mode, "fallback");
+  assert.equal(
+    body.warning,
+    "Using profile-grounded fallback responses while live AI is temporarily unavailable.",
+  );
   assert.equal(body.message, "Fallback answer for: What is your background?");
 });
