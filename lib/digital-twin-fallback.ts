@@ -69,17 +69,17 @@ const projectAnswers = [
   {
     terms: ["abbotsford"],
     answer:
-      "The Abbotsford is a property development showcase for exclusive duplex living.\n\nFor me, it represents the kind of digital product work where presentation, clarity, and trust matter. A site like that needs to communicate the offer quickly and make the development feel tangible.\n\nLive site: https://theabbotsford.vercel.app/",
+      "The Abbotsford is a property development showcase for exclusive duplex living.\n\nFor me, it represents the kind of digital product work where presentation, clarity, and trust matter. A site like that needs to communicate the offer quickly and make the development feel tangible.\n\nIt's also a complete lead-to-CRM sales system: the register-interest form pushes every enquiry into Zoho CRM as a structured sales lead via a custom Zoho CRM API integration — custom fields I built in Zoho, with the OAuth token flow set up in Postman.\n\nLive site: https://theabbotsford.vercel.app/",
   },
   {
     terms: ["renoclean", "cleaning"],
     answer:
-      "RenoClean SA is a live service site for post-renovation and construction cleaning in Cape Town.\n\nIt is a good example of practical service positioning: make the offer clear, show who it is for, and help the user understand the value without making them work too hard.\n\nLive site: https://renoclean-sa.vercel.app/",
+      "RenoClean SA is a live service site for post-renovation and construction cleaning in Cape Town.\n\nIt is a good example of practical service positioning: make the offer clear, show who it is for, and help the user understand the value without making them work too hard.\n\nLike The Abbotsford, it's a complete lead-to-CRM sales system — the enquiry form feeds every lead into Zoho CRM as a structured sales lead via a custom Zoho CRM API integration, with custom fields and an OAuth token flow I set up in Postman.\n\nLive site: https://renoclean-sa.vercel.app/",
   },
   {
     terms: ["clinical emergencies", "medical"],
     answer:
-      "Clinical Emergencies is a live site for home medical equipment and support for South African families.\n\nThat kind of project needs clarity and trust. The user is likely solving a real and sometimes urgent problem, so the digital experience has to be straightforward and confidence-building. Enquiries feed straight into Zoho CRM as structured leads — I built the custom fields and wired the form to the Zoho CRM API over an OAuth token flow I set up in Postman.\n\nLive site: https://clinical-emergencies.vercel.app/",
+      "Clinical Emergencies is a live site for home medical equipment and support for South African families.\n\nThat kind of project needs clarity and trust. The user is likely solving a real and sometimes urgent problem, so the digital experience has to be straightforward and confidence-building. It also runs a complete lead-to-CRM sales system — enquiries feed straight into Zoho CRM as structured leads, with custom fields I built and an OAuth token flow I set up in Postman against the Zoho CRM API.\n\nLive site: https://clinical-emergencies.vercel.app/",
   },
 ];
 

@@ -85,51 +85,74 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     slug: "the-abbotsford",
     title: "The Abbotsford",
-    category: "Property showcase",
+    category: "Property marketing + lead-to-CRM sales system",
     detail:
-      "Marketing site for a 16-unit Johannesburg duplex development — gallery, floor plans, unit pricing and availability, and a direct route to the sales agents.",
+      "Marketing site for a 16-unit Johannesburg duplex development — gallery, floor plans, unit pricing and availability, and a register-interest form that feeds every enquiry into Zoho CRM as a structured sales lead.",
     liveUrl: "https://theabbotsford.vercel.app/",
     overview:
-      "Marketing site for The Abbotsford, a Johannesburg development of 16 new duplex residences. The site walks a buyer from \"urban sanctuary\" positioning through gallery and amenities, into floor plans, unit availability and pricing, and out to the sales agents via a register-interest form and WhatsApp.",
+      "Marketing site for The Abbotsford, a Johannesburg development of 16 new duplex residences. The site walks a buyer from \"urban sanctuary\" positioning through gallery and amenities, into floor plans, unit availability and pricing, and out to the sales agents via a register-interest form and WhatsApp. That form is the front of a complete lead-to-CRM sales system: every enquiry is captured on site and pushed into Zoho CRM as a structured, qualified lead via a custom Zoho CRM API integration, so agents follow up from the CRM instead of chasing inbox messages.",
     buildFocus: [
       "Creating a polished property presentation without overwhelming the visitor.",
       "Balancing premium positioning with practical information hierarchy.",
       "Designing a visual flow that supports enquiry intent while protecting contact privacy here.",
+      "Routing every register-interest enquiry into Zoho CRM as a structured sales lead, mapped to custom fields built for the development.",
     ],
-    skills: ["Landing page design", "Visual hierarchy", "Responsive UI", "Conversion flow", "Content structure"],
+    processNote:
+      "Lead capture runs through a complete lead-to-CRM sales system: I built the custom lead fields in Zoho CRM, set up the OAuth client and self-client flow in Postman to mint the authorization and refresh tokens, and wired the register-interest form to post structured leads into the CRM via the Zoho CRM API.",
+    skills: [
+      "Landing page design",
+      "Visual hierarchy",
+      "Responsive UI",
+      "Conversion flow",
+      "Zoho CRM API",
+      "OAuth 2.0 token flow",
+      "Postman",
+      "Lead-capture integration",
+    ],
     proofPoints: [
       "Demonstrates ability to build a high-trust marketing experience.",
       "Shows judgement around product/place presentation and buyer intent.",
-      "Highlights design consistency across desktop and mobile layouts.",
+      "Delivers a working sales pipeline, not just a brochure — enquiries land in Zoho CRM ready for follow-up.",
     ],
   },
   {
     slug: "renoclean-sa",
     title: "RenoClean SA",
-    category: "Specialist service",
+    category: "Specialist service + lead-to-CRM sales system",
     detail:
-      "Service site for a Cape Town post-renovation cleaning specialist — clear offer, trust signals, and a direct path to enquiry.",
+      "Service site for a Cape Town post-renovation cleaning specialist — clear offer, trust signals, and an enquiry form that feeds every lead into Zoho CRM as a structured sales lead.",
     liveUrl: "https://renoclean-sa.vercel.app/",
     overview:
-      "Service-business site for RenoClean SA, a Cape Town post-renovation and construction cleaning specialist. Built to make the offer clear, build trust quickly, and give visitors a direct path to enquiry without exposing client contact details from the live portfolio entry.",
+      "Service-business site for RenoClean SA, a Cape Town post-renovation and construction cleaning specialist. Built to make the offer clear, build trust quickly, and give visitors a direct path to enquiry without exposing client contact details from the live portfolio entry. Enquiries flow through a complete lead-to-CRM sales system: each one is captured on site and pushed into Zoho CRM as a structured, qualified lead via a custom Zoho CRM API integration, ready for follow-up.",
     buildFocus: [
       "Clarifying the service offer for a specific customer need.",
       "Building trust through concise service framing and professional presentation.",
       "Creating a conversion-minded page flow that gives the live service site a clear commercial path.",
+      "Routing every enquiry into Zoho CRM as a structured sales lead via a custom API integration.",
     ],
-    skills: ["Service positioning", "Conversion UX", "Responsive design", "SEO fundamentals", "Trust signals"],
+    processNote:
+      "Lead capture runs through a complete lead-to-CRM sales system: custom lead fields built in Zoho CRM, the OAuth client and self-client flow set up in Postman to mint the authorization and refresh tokens, and the enquiry form wired to post structured leads into the CRM via the Zoho CRM API.",
+    skills: [
+      "Service positioning",
+      "Conversion UX",
+      "Responsive design",
+      "Zoho CRM API",
+      "OAuth 2.0 token flow",
+      "Postman",
+      "Lead-capture integration",
+    ],
     proofPoints: [
       "Shows practical small-business web delivery capability.",
       "Demonstrates service clarity and conversion-focused information hierarchy.",
-      "Connects digital marketing experience with front-end execution.",
+      "Delivers a working sales pipeline, not just a brochure — enquiries land in Zoho CRM ready for follow-up.",
     ],
   },
   {
     slug: "clinical-emergencies",
     title: "Clinical Emergencies",
-    category: "Healthcare support",
+    category: "Healthcare support + lead-to-CRM sales system",
     detail:
-      "Healthcare information site prioritising fast, clear access to urgent service details for South African families, with enquiries wired straight into a Zoho CRM lead pipeline.",
+      "Healthcare information site prioritising fast, clear access to urgent service details for South African families, with enquiries wired straight into a complete lead-to-CRM sales system on Zoho CRM.",
     liveUrl: "https://clinical-emergencies.vercel.app/",
     overview:
       "Healthcare-support site for urgent medical assistance and home medical equipment, aimed at South African families. The core design problem is clarity under pressure: a visitor needs to understand the service, trust the offer, and find the right path quickly. Enquiries don't just land in an inbox — they're pushed into Zoho CRM as structured leads so nothing slips between the website and follow-up.",
@@ -140,7 +163,7 @@ export const portfolioProjects: PortfolioProject[] = [
       "Capturing enquiries directly into Zoho CRM as qualified leads, mapped to custom fields built for this business.",
     ],
     processNote:
-      "Lead capture runs against the Zoho CRM API: I built the custom lead fields in Zoho, set up the OAuth client and self-client flow in Postman to mint the authorization and refresh tokens, and wired form submissions to post structured leads into the CRM via the API.",
+      "Lead capture runs through a complete lead-to-CRM sales system: I built the custom lead fields in Zoho CRM, set up the OAuth client and self-client flow in Postman to mint the authorization and refresh tokens, and wired form submissions to post structured leads into the CRM via the Zoho CRM API.",
     skills: [
       "UX clarity",
       "Healthcare service design",
