@@ -8,7 +8,7 @@ type ChatMessage = {
   content: string;
 };
 
-const MODEL_NAME = process.env.OPENAI_MODEL ?? "gpt-4o-mini";
+const MODEL_NAME = process.env.OPENAI_MODEL ?? "gpt-5.4-mini";
 const MAX_MESSAGES = 14;
 const MAX_MESSAGE_LENGTH = 1_500;
 const MAX_BODY_BYTES = 24_000;
