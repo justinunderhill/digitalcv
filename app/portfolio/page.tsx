@@ -13,6 +13,16 @@ export default function PortfolioPage() {
           problem-to-result write-up alongside the live site.
         </p>
       </div>
+      <aside className="portfolio-capability">
+        <span className="label">{"// capability"}</span>
+        <p>
+          Several of these are{" "}
+          <strong>complete lead-to-CRM sales systems</strong> — I wire the
+          marketing or service front end into a CRM (Zoho) through a custom API
+          integration, so every enquiry lands as a structured, qualified lead
+          ready for sales follow-up instead of a message lost in an inbox.
+        </p>
+      </aside>
       <div className="case-study-list">
         {portfolioProjects.map((item, index) => (
           <article

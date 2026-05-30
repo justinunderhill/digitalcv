@@ -1760,6 +1760,31 @@ footer {
   font-size: 3rem;
 }
 
+.portfolio-capability {
+  max-width: 52rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid rgba(16, 24, 32, 0.12);
+  border-left: 3px solid var(--accent-cool);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.portfolio-capability .label {
+  margin-bottom: 0.75rem;
+}
+
+.portfolio-capability p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.portfolio-capability strong {
+  color: var(--accent-cool);
+}
+
 .portfolio-detail-shell {
   padding: 5rem 1.5rem 6rem;
 }
