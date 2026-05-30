@@ -129,20 +129,32 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Clinical Emergencies",
     category: "Healthcare support",
     detail:
-      "Healthcare information site prioritising fast, clear access to urgent service details for South African families.",
-    liveUrl: "https://clinical-emergencies-vert.vercel.app/",
+      "Healthcare information site prioritising fast, clear access to urgent service details for South African families, with enquiries wired straight into a Zoho CRM lead pipeline.",
+    liveUrl: "https://clinical-emergencies.vercel.app/",
     overview:
-      "Healthcare-support site for urgent medical assistance and home medical equipment, aimed at South African families. The core design problem is clarity under pressure: a visitor needs to understand the service, trust the offer, and find the right path quickly.",
+      "Healthcare-support site for urgent medical assistance and home medical equipment, aimed at South African families. The core design problem is clarity under pressure: a visitor needs to understand the service, trust the offer, and find the right path quickly. Enquiries don't just land in an inbox — they're pushed into Zoho CRM as structured leads so nothing slips between the website and follow-up.",
     buildFocus: [
       "Prioritising accessible, direct service information.",
       "Designing for users who may be making decisions under time pressure.",
       "Balancing professional credibility with simple navigation and clear next steps.",
+      "Capturing enquiries directly into Zoho CRM as qualified leads, mapped to custom fields built for this business.",
     ],
-    skills: ["UX clarity", "Healthcare service design", "Information hierarchy", "Responsive UI", "Accessibility thinking"],
+    processNote:
+      "Lead capture runs against the Zoho CRM API: I built the custom lead fields in Zoho, set up the OAuth client and self-client flow in Postman to mint the authorization and refresh tokens, and wired form submissions to post structured leads into the CRM via the API.",
+    skills: [
+      "UX clarity",
+      "Healthcare service design",
+      "Information hierarchy",
+      "Responsive UI",
+      "Zoho CRM API",
+      "OAuth 2.0 token flow",
+      "Postman",
+      "Lead-capture integration",
+    ],
     proofPoints: [
       "Demonstrates sensitivity to high-trust, high-urgency user contexts.",
       "Shows ability to structure service information for fast comprehension.",
-      "Reflects practical judgement around tone, layout, and user confidence.",
+      "Connects a marketing front end to a real CRM lead pipeline via custom API integration.",
     ],
   },
 ];

@@ -79,7 +79,7 @@ const projectAnswers = [
   {
     terms: ["clinical emergencies", "medical"],
     answer:
-      "Clinical Emergencies is a live site for home medical equipment and support for South African families.\n\nThat kind of project needs clarity and trust. The user is likely solving a real and sometimes urgent problem, so the digital experience has to be straightforward and confidence-building.\n\nLive site: https://clinical-emergencies-vert.vercel.app/",
+      "Clinical Emergencies is a live site for home medical equipment and support for South African families.\n\nThat kind of project needs clarity and trust. The user is likely solving a real and sometimes urgent problem, so the digital experience has to be straightforward and confidence-building. Enquiries feed straight into Zoho CRM as structured leads — I built the custom fields and wired the form to the Zoho CRM API over an OAuth token flow I set up in Postman.\n\nLive site: https://clinical-emergencies.vercel.app/",
   },
 ];
 
