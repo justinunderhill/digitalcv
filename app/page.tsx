@@ -412,9 +412,20 @@ export default function Home() {
                     multi-agent orchestration, and the Claude Agent SDK.
                   </p>
                 </li>
+                <li>
+                  <strong>AI Leadership — Strategy, Decision-Making & Governance</strong>
+                  <p>
+                    Three-module workshop on leading AI initiatives with
+                    measurable commercial impact: strategy and investment
+                    frameworks, the scaling laws and cost/benefit of techniques
+                    from RAG to reasoning, the risks and opportunities of agentic
+                    AI, and AI architecture, org design, governance, and roadmap
+                    decisions from a commercial perspective.
+                  </p>
+                </li>
               </ul>
               <p className="curriculum-note">
-                Two completed tracks of an applied AI engineering curriculum.
+                Three completed tracks of an applied AI engineering curriculum.
                 The FinAlly and PreLegal portfolio projects above were built as
                 part of it.
               </p>
