@@ -17,6 +17,38 @@ export type PortfolioProject = {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    slug: "scamcheck",
+    title: "ScamCheck",
+    category: "AI Scam / Phishing Detector",
+    detail:
+      "Paste a suspicious link or message and ScamCheck tells you in plain language whether it's safe, suspicious, or dangerous — and why.",
+    liveUrl: "https://scamcheck-three.vercel.app/",
+    overview:
+      "A single-page web app where a non-technical person can paste a URL — or the whole message it arrived in — and get back a clear risk verdict with specific, plain-language reasons and a learning tip for each finding. It aggregates professional threat-intelligence sources, in-house heuristics, and an AI layer behind one calm, jargon-free interface, built for everyday people who have no fast way to sanity-check a link before clicking. A solo personal project, live in production.",
+    problem:
+      "Non-technical people get caught by phishing and scam links every day and have no trustworthy, fast way to verify a URL before clicking or handing over personal and payment details. Existing tools are either too technical or buried in security-vendor dashboards. ScamCheck gives a plain answer in seconds — and teaches users what makes a link suspicious so they get better at spotting scams themselves.",
+    approach:
+      "Three deterministic sources run concurrently and aggregate into a single 0–100 risk score with documented thresholds: Google Web Risk (Google's live phishing/malware blocklist), VirusTotal (verdicts from 70+ engines), and in-house heuristics with no external call — newly-registered domains via WHOIS, leetspeak-aware typosquatting by edit distance, raw-IP hosts, excessive subdomains, expanded URL shorteners, abused TLDs, punycode/homograph characters, embedded-credential tricks, and invalid HTTPS certs. When the user pastes the surrounding message, a fourth AI source flags social-engineering patterns. The defining design choice is the guardrail: AI can only escalate risk, never downgrade it — enforced mechanically through the scoring math (AI findings carry non-negative weights and the model never emits a standalone 'safe' verdict), not by trusting the model. Sources that are down or rate-limited are reported as unavailable rather than failing the request, and a clean result says 'no known threats found,' never 'this link is safe.'",
+    result:
+      "A working, deployed consumer tool that proves out a multi-source detection pipeline with a genuinely safe AI integration — one where the LLM adds insight and plain-language explanation without ever being able to overrule the deterministic threat data. It demonstrates applied LLM engineering with hard guardrails, real third-party API integration, and production-grade abuse and cost protection, not a prompt-wrapper demo.",
+    skills: [
+      "React 18 + Vite",
+      "TypeScript",
+      "FastAPI (async)",
+      "Anthropic Claude (Haiku 4.5 + Sonnet 4.6)",
+      "Google Web Risk API",
+      "VirusTotal API",
+      "Upstash Redis",
+      "Threat heuristics (WHOIS, homograph, typosquatting)",
+      "Vercel serverless",
+    ],
+    proofPoints: [
+      "Safe-by-design AI: the escalate-only invariant is enforced through the scoring math, not by trusting the model — a concrete, demonstrable guardrail.",
+      "Concurrent multi-source aggregation with graceful degradation — combines Google Web Risk, VirusTotal, heuristics, and AI in parallel, and still returns a useful verdict when a source is down.",
+      "Production abuse and cost engineering: per-IP rate limits, free-tier caps, and a global AI-spend interlock on a serverless-friendly Redis store, with a deliberate fail-open (user limits) vs. fail-closed (AI budget) split.",
+    ],
+  },
+  {
     slug: "finally",
     title: "FinAlly",
     category: "AI Trading Workstation",

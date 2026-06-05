@@ -57,6 +57,11 @@ const workHistoryAnswers = [
 
 const projectAnswers = [
   {
+    terms: ["scamcheck", "scam", "phishing", "link check", "link safe"],
+    answer:
+      "ScamCheck is an AI scam and phishing detector — paste a suspicious link, or the whole message it arrived in, and you get back a plain-language verdict (Safe, Suspicious, or Dangerous), a 0–100 risk score, and a breakdown of each finding with a non-technical explanation and a 'what to look for next time' tip.\n\nUnder the hood, three deterministic sources run concurrently and aggregate into the score: Google Web Risk, VirusTotal (70+ engines), and my own heuristics — newly-registered domains via WHOIS, typosquatting by edit distance, raw-IP hosts, expanded URL shorteners, punycode/homograph characters, embedded-credential tricks, and invalid certs. If you paste the surrounding message, a fourth AI source flags social-engineering patterns. React + Vite frontend, Python/FastAPI backend, Anthropic Claude (Haiku 4.5 and Sonnet 4.6), Upstash Redis for abuse and cost controls, on Vercel.\n\nThe part I'm proudest of is the guardrail: the AI can only escalate risk, never downgrade it — enforced through the scoring math, not by trusting the model — and a clean result says 'no known threats found,' never 'this link is safe.' It's a solo personal project, built outside the curriculum and live in production.\n\nLive site: https://scamcheck-three.vercel.app/",
+  },
+  {
     terms: ["finally", "finally", "trading", "stock"],
     answer:
       "FinAlly is a real-time AI trading workstation — a Bloomberg-style portfolio screen where you manage holdings by talking to the system.\n\nIt streams live prices over SSE, visualises a portfolio as a heatmap and P&L chart, and adds an LLM assistant that analyses positions and executes simulated trades from natural-language instructions. Next.js and FastAPI run together in a single Docker container, with structured-output LLM calls driving the trade logic. Built as a course capstone, entirely via agentic coding workflows.\n\nThe useful signal is end-to-end agentic product delivery: real-time data, a stateful simulated portfolio, and an LLM wired safely into actions rather than just chat.\n\nLive site: https://finally-beryl.vercel.app/",
@@ -100,7 +105,7 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
     return [
       "My portfolio is a mix of live product builds, service sites, workflow tools, and digital transformation work.",
       "",
-      "The public AI product case studies are FinAlly (a real-time AI trading workstation and AI Builder capstone) and PreLegal (an AI legal document builder built during the AI Coder track). The wider portfolio also includes The Abbotsford, RenoClean SA, and Clinical Emergencies across property, specialist services, and medical support.",
+      "The public AI product case studies are FinAlly (a real-time AI trading workstation and AI Builder capstone), PreLegal (an AI legal document builder built during the AI Coder track), and ScamCheck (an AI scam/phishing link checker, a solo personal project live in production). The wider portfolio also includes The Abbotsford, RenoClean SA, and Clinical Emergencies across property, specialist services, and medical support.",
       "",
       "Each portfolio entry links to the live project and to a short write-up that walks through the problem, the approach, and the result.",
       "",
