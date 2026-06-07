@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { portfolioProjects } from "@/lib/portfolio-projects";
 import { DigitalTwinChat } from "./components/digital-twin-chat";
@@ -191,38 +192,51 @@ export default function Home() {
 
       <main className="shell" id="top">
         <section className="hero" aria-labelledby="hero-name">
-          <div className="section-content">
-            <span className="label">{"// signal"}</span>
-            <h1 id="hero-name">Justin Underhill</h1>
-            <p className="hero-role">
-              Applied AI & Automation Consultant
-            </p>
-            <p className="hero-lede">
-              I build practical AI tools and agent workflows that fit inside real
-              business environments — LLM applications, retrieval-backed assistants,
-              and automation that connects to existing processes.
-            </p>
-            <p className="hero-detail">
-              Based in Johannesburg. Background spans senior software development,
-              digital strategy, and enterprise project delivery, now focused on
-              applied AI: grounded outputs, sensible guardrails, and tools the
-              business will actually use.
-            </p>
-            <div className="hero-actions">
-              <a
-                className="button button-primary"
-                href="https://www.linkedin.com/in/justinunderhill"
-                target="_blank"
-                rel="noreferrer"
-              >
-                View LinkedIn
-              </a>
-              <a
-                className="button button-ghost"
-                href="#contact"
-              >
-                Get in touch
-              </a>
+          <div className="hero-grid">
+            <div className="section-content">
+              <span className="label">{"// signal"}</span>
+              <h1 id="hero-name">Justin Underhill</h1>
+              <p className="hero-role">
+                Applied AI & Automation Consultant
+              </p>
+              <p className="hero-lede">
+                I build practical AI tools and agent workflows that fit inside real
+                business environments — LLM applications, retrieval-backed assistants,
+                and automation that connects to existing processes.
+              </p>
+              <p className="hero-detail">
+                Based in Johannesburg. Background spans senior software development,
+                digital strategy, and enterprise project delivery, now focused on
+                applied AI: grounded outputs, sensible guardrails, and tools the
+                business will actually use.
+              </p>
+              <div className="hero-actions">
+                <a
+                  className="button button-primary"
+                  href="https://www.linkedin.com/in/justinunderhill"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View LinkedIn
+                </a>
+                <a
+                  className="button button-ghost"
+                  href="#contact"
+                >
+                  Get in touch
+                </a>
+              </div>
+            </div>
+            <div className="hero-portrait">
+              <Image
+                className="hero-portrait-img"
+                src="/justin-underhill.webp"
+                alt="Justin Underhill"
+                width={1000}
+                height={1250}
+                sizes="(max-width: 760px) 70vw, (max-width: 900px) 50vw, 22rem"
+                priority
+              />
             </div>
           </div>
         </section>
