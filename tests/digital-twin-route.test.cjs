@@ -120,7 +120,7 @@ test("POST returns an OpenAI response with the configured default model", async 
   assert.equal(response.status, 200);
   assert.equal(body.mode, "openai");
   assert.equal(body.message, "Live answer");
-  assert.equal(MockOpenAI.lastPayload.model, "gpt-4o-mini");
+  assert.equal(MockOpenAI.lastPayload.model, "gpt-5.4-mini");
   assert.equal("reasoning" in MockOpenAI.lastPayload, false);
   assert.equal(MockOpenAI.lastPayload.input.some((message) => "phase" in message), false);
 });

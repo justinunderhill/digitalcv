@@ -57,6 +57,11 @@ const workHistoryAnswers = [
 
 const projectAnswers = [
   {
+    terms: ["fanbrain", "fan brain", "football", "soccer", "prediction", "world cup"],
+    answer:
+      "FanBrain AI is a mobile-first football prediction game built around the 2026 World Cup — you predict match scorelines, earn points, and get back AI verdicts, safe (non-abusive) roasts, match debriefs, and an evolving fan-personality profile. No betting, just bragging rights.\n\nIt's a Next.js App Router app with TypeScript and Tailwind, Supabase for auth (magic link / email-password), the Postgres schema, row-level security and seed data, and four purpose-built OpenAI route handlers — verdict, roast, debrief, and fan profile — all on Vercel.\n\nThe design choice I care about most is the separation of concerns: AI never awards points. Scoring is fully deterministic in scoring.ts (5 for an exact score, 3 for the right outcome, 0 for wrong), so the model only adds colour and personality and can never move the standings — the same discipline as ScamCheck's escalate-only AI. It's a solo personal project, a working MVP deployed with a seeded fixture set and a documented path to a live fixture API.\n\nLive site: https://fanbrainai.vercel.app/",
+  },
+  {
     terms: ["scamcheck", "scam", "phishing", "link check", "link safe"],
     answer:
       "ScamCheck is an AI scam and phishing detector — paste a suspicious link, or the whole message it arrived in, and you get back a plain-language verdict (Safe, Suspicious, or Dangerous), a 0–100 risk score, and a breakdown of each finding with a non-technical explanation and a 'what to look for next time' tip.\n\nUnder the hood, three deterministic sources run concurrently and aggregate into the score: Google Web Risk, VirusTotal (70+ engines), and my own heuristics — newly-registered domains via WHOIS, typosquatting by edit distance, raw-IP hosts, expanded URL shorteners, punycode/homograph characters, embedded-credential tricks, and invalid certs. If you paste the surrounding message, a fourth AI source flags social-engineering patterns. React + Vite frontend, Python/FastAPI backend, Anthropic Claude (Haiku 4.5 and Sonnet 4.6), Upstash Redis for abuse and cost controls, on Vercel.\n\nThe part I'm proudest of is the guardrail: the AI can only escalate risk, never downgrade it — enforced through the scoring math, not by trusting the model — and a clean result says 'no known threats found,' never 'this link is safe.' It's a solo personal project, built outside the curriculum and live in production.\n\nLive site: https://scamcheck-three.vercel.app/",
@@ -105,7 +110,7 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
     return [
       "My portfolio is a mix of live product builds, service sites, workflow tools, and digital transformation work.",
       "",
-      "The public AI product case studies are FinAlly (a real-time AI trading workstation and AI Builder capstone), PreLegal (an AI legal document builder built during the AI Coder track), and ScamCheck (an AI scam/phishing link checker, a solo personal project live in production). The wider portfolio also includes The Abbotsford, RenoClean SA, and Clinical Emergencies across property, specialist services, and medical support.",
+      "The public AI product case studies are FinAlly (a real-time AI trading workstation and AI Builder capstone), PreLegal (an AI legal document builder built during the AI Coder track), ScamCheck (an AI scam/phishing link checker, a solo personal project live in production), and FanBrain AI (an AI football prediction game built around the 2026 World Cup, a solo MVP deployed on Vercel). The wider portfolio also includes The Abbotsford, RenoClean SA, and Clinical Emergencies across property, specialist services, and medical support.",
       "",
       "Each portfolio entry links to the live project and to a short write-up that walks through the problem, the approach, and the result.",
       "",

@@ -17,6 +17,36 @@ export type PortfolioProject = {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    slug: "fanbrain",
+    title: "FanBrain AI",
+    category: "AI Football Prediction Game",
+    detail:
+      "Predict match scores and AI hands back a verdict, a safe roast, and a read on what kind of fan you really are — no betting, just bragging rights.",
+    liveUrl: "https://fanbrainai.vercel.app/",
+    overview:
+      "A mobile-first football prediction game built around the 2026 World Cup. Fans predict scorelines, earn points on a deterministic scoring system, and get back AI-generated verdicts, playful (non-abusive) roasts, match debriefs, and an evolving fan-personality profile. Auth, a leaderboard, and a fixture model sit behind it. A solo personal project — a working MVP deployed on Vercel with a seeded starter fixture set and a documented path to a live fixture API.",
+    problem:
+      "There's a gap between casually watching football and actually engaging with it, and the apps that fill that gap mostly do it with gambling. FanBrain gamifies match predictions without money on the line — turning a scoreline guess into AI analysis, banter, and bragging rights.",
+    approach:
+      "Next.js App Router + TypeScript + Tailwind front end, with Supabase handling auth (magic link / email-password), the Postgres schema, row-level security, and seed data. Four purpose-built OpenAI route handlers turn a single prediction into distinct outputs — a verdict, a safe roast, a match debrief, and a fan-personality profile. The defining design choice: AI never awards points. Scoring is fully deterministic in scoring.ts (5 for an exact score, 3 for the right outcome, 0 for wrong), so the model only ever adds colour and personality and can never move the standings. Provider secrets stay server-side and match data is cached in Supabase rather than called from the client.",
+    result:
+      "A working, deployed MVP that wires an LLM into a real product loop with clear separation of concerns — the AI entertains and characterises, while a deterministic engine owns the competitive truth. Demonstrates a full auth + leaderboard + RLS data model on Supabase and multiple task-specific AI outputs from one user action, not a single chat box.",
+    skills: [
+      "Next.js (App Router)",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase (Auth, Postgres, RLS)",
+      "OpenAI API",
+      "Deterministic scoring engine",
+      "Vercel",
+    ],
+    proofPoints: [
+      "AI stays in its lane: scoring is deterministic and the LLM can never award or change points — the same separation-of-concerns discipline as ScamCheck's escalate-only AI.",
+      "Four task-specific AI outputs (verdict, safe roast, debrief, fan-personality profile) from one prediction — purpose-built generation, not a generic chatbot.",
+      "Full auth + leaderboard on a Supabase RLS data model, with provider secrets kept server-side and match data cached rather than called from the client.",
+    ],
+  },
+  {
     slug: "scamcheck",
     title: "ScamCheck",
     category: "AI Scam / Phishing Detector",
