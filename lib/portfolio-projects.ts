@@ -8,6 +8,9 @@ export type PortfolioProject = {
   problem?: string;
   approach?: string;
   result?: string;
+  architecture?: string;
+  deepDives?: { title: string; body: string }[];
+  nextSteps?: string[];
   catalog?: string[];
   processNote?: string;
   buildFocus?: string[];
@@ -24,30 +27,68 @@ export const portfolioProjects: PortfolioProject[] = [
       "Predict World Cup scores, track your picks, join private leagues, and let AI reveal what kind of fan you really are — no betting, just bragging rights.",
     liveUrl: "https://fanbrainai.com/",
     overview:
-      "A mobile-first football prediction game built around the 2026 World Cup, now live on its production domain at fanbrainai.com. Fans browse upcoming fixtures, make and manage predictions, earn points on a deterministic scoring system, climb a public leaderboard, create private leagues, and get AI-generated verdicts, playful non-abusive roasts, post-match debriefs, and an evolving fan-personality profile. The current build has moved beyond the original MVP into a fuller product surface: responsive app navigation, mobile bottom tabs, PWA install/update support, shareable leaderboard metadata, match lock states, auth-gated My Picks and Profile areas, and production social cards.",
+      "A mobile-first prediction game for the 2026 World Cup, live in production at fanbrainai.com. Fans call scorelines before kickoff, get an AI football pundit's verdict (and an optional roast), earn points when the real result lands, climb a global leaderboard, compete in private leagues with friends, and unlock a shareable \"fan personality\" profile generated from how they actually predict. I designed, built, and shipped the entire product solo — product thinking, data model, AI system, full-stack app, auth and security, background jobs, push notifications, PWA, and the viral share loop — and run it as a live, continuously-deployed service. This write-up goes deep on the engineering, because the engineering is the point.",
     problem:
-      "There's a gap between casually watching football and actually engaging with it, and the apps that fill that gap mostly do it with gambling. FanBrain gamifies match predictions without money on the line — turning a scoreline guess into AI analysis, banter, and bragging rights.",
+      "Big tournaments generate enormous fan energy, but most of the apps that channel it are gambling products. FanBrain is the opposite: a prediction game built for entertainment, where the AI does something genuinely useful — it interprets, explains, classifies, and entertains — instead of being a chatbot bolted onto a CRUD app. That framing drove one hard architectural principle that shows up everywhere in the code: the AI is never the source of truth. Structured facts come from the database; AI is commentary layered on top.",
     approach:
-      "Next.js App Router + TypeScript + Tailwind front end, with Supabase handling auth (magic link / email-password), the Postgres schema, row-level security, predictions, leaderboard data, and private league membership. Four purpose-built OpenAI route handlers turn a single prediction into distinct outputs — a verdict, a safe roast, a match debrief, and a fan-personality profile. The defining design choice: AI never awards points. Scoring is fully deterministic in scoring.ts (5 for an exact score, 3 for the right outcome, 0 for wrong), so the model only ever adds colour and personality and can never move the standings. The public app now includes fixture browsing, locked/locking match states, editable user picks behind auth, private leagues, mobile-first navigation, PWA service-worker support via Serwist, and canonical/open-graph metadata for shareable public pages.",
+      "Next.js App Router (TypeScript, strict) + Tailwind on the front, Supabase (Postgres, Auth, row-level security) for data and identity, OpenAI for all generative text, and Vercel for hosting and cron — continuously deployed on main. Match data is imported from a real fixtures API (football-data.org); points are awarded by deterministic, testable code; and the LLM is explicitly forbidden from inventing scores, fixtures, injuries, or odds. Every AI call runs server-side through its own route handler, and all prompts live in one reviewable file so the safety rules sit in a single place rather than scattered through components.",
     result:
-      "A working, production-deployed football engagement product that wires an LLM into a real game loop with clear separation of concerns — the AI entertains and characterises, while a deterministic engine owns the competitive truth. The live leaderboard is populated with real users and predictions, private leagues give the product a social loop, and the PWA/mobile polish makes it feel like an app rather than a prototype.",
+      "A live, production product that wires an LLM into a real game loop with a clean separation of concerns — the AI entertains and characterises while a deterministic engine owns the competitive truth. The global leaderboard is populated with real users and predictions, private leagues give it a social loop, web push brings people back when their result lands, and the PWA plus mobile polish make it feel like a native app rather than a prototype.",
+    architecture:
+      "The app runs on Next.js App Router — server components for data and auth, dedicated server route handlers for every AI call, and a Serwist service worker for the PWA layer. Supabase Postgres holds the data behind row-level security; OpenAI (gpt-4.1-mini) is called server-side only; and a single Vercel Cron endpoint imports fixtures and results from football-data.org, settles points deterministically, and fires batched push notifications. The boundary is deliberate: facts flow from Postgres and the fixtures API, never from the model.",
+    deepDives: [
+      {
+        title: "Security designed at the database layer, not the app layer",
+        body: "Authorization lives in Postgres, not in hand-written if-checks scattered through route handlers. Every table has row-level security enabled with deliberately narrow grants — users can only read and write their own predictions and profile. Operations that can't be expressed as a simple row policy run through SECURITY DEFINER functions: joining a private league by invite, creating one, transferring ownership, and the members-only leaderboard all route through definer functions with explicit checks inside, so there's intentionally no blanket insert grant on league membership. The membership check is itself a definer function so its RLS policy can't recurse into itself. Share tokens are unguessable UUIDs read only via the service-role client server-side, and the kickoff lock-out is enforced by a BEFORE trigger — you physically cannot write a prediction after kickoff, no matter how you craft the request. The principle: make the wrong thing impossible at the lowest layer, not merely discouraged at the highest.",
+      },
+      {
+        title: "Deterministic scoring, generative commentary — strictly separated",
+        body: "scorePrediction() is about ten lines of pure, testable logic: an exact score is worth 5, the right outcome 3, otherwise 0. The AI never awards points — it only ever produces text. That keeps scoring auditable and reproducible while leaving the LLM free to be creative without ever being load-bearing for correctness. It's the single most important design decision in the product, and the same discipline as ScamCheck's escalate-only AI.",
+      },
+      {
+        title: "Prompt engineering as a guardrail surface",
+        body: "All prompts live in one file so the safety rules are reviewable in one place. Each one pins the persona and a word budget, and hard-codes its prohibitions inline: no betting or odds language, no fabricated team news or match events, no claims of certainty. The roast prompt is told to roast the pick, not the person — no profanity, no slurs, no protected-class insults. The personality classifier returns structured JSON (an archetype plus four 0–100 scores and a summary) and is instructed to use only prediction behaviour, never sensitive personal traits. The constraints are part of the contract, not an afterthought.",
+      },
+      {
+        title: "An idempotent background job that does four things safely",
+        body: "A single Vercel Cron endpoint imports fixtures and results (upsert on a stable external ID, safe to re-run), settles points for newly-final matches but only writes when the computed points actually differ, sends \"your result is in\" push notifications guarded by an idempotency column, and sends deadline reminders guarded by a log table keyed on user-and-match. The notification steps are wrapped in try/catch so a push-delivery hiccup can never fail the sync that already settled the points, and the endpoint is auth'd with a shared secret and accepts both the scheduled trigger and manual runs. Idempotent, partially-degradable, and re-runnable without fear — production-grade job design.",
+      },
+      {
+        title: "The viral loop: dynamic Open Graph image generation",
+        body: "Growth was a first-class feature, not an afterthought. Every shareable artifact — your fan profile, an individual prediction, your leaderboard rank — has a public, token-gated page and a server-rendered Open Graph image generated on the fly from your real data. Drop the link in a group chat and it unfurls into a rich, branded card. (I also tracked down a real gotcha here: ImageResponse routes need connection() or they 404 under next start — the kind of sharp edge you only find by shipping.)",
+      },
+      {
+        title: "Pragmatic, honestly-documented trade-offs",
+        body: "The in-memory rate limiter is my favourite example of judgement over dogma. It's a sliding-window limiter living in process memory, and the code documents exactly what that means in serverless: it's per-instance, not a strict global guarantee, so it reliably blunts naive request loops but isn't a hard cross-region cap. The comment even names the upgrade path — back it with Upstash/Vercel KV, and the call sites won't change. Shipping the right-sized solution and being honest about its limits is worth more than gold-plating under time pressure.",
+      },
+    ],
+    nextSteps: [
+      "Back the rate limiter with a shared store (Upstash) to make it a strict global cap.",
+      "A lightweight test harness around the scoring and streak logic — already pure functions, built to be tested.",
+      "AI match previews and team-form context fed as structured input, preserving the no-fabrication rule.",
+      "Server-side analytics on the share loop to measure k-factor and tune the Open Graph cards.",
+    ],
+    processNote:
+      "Designed and built solo, from blank repo to live product. It's continuously deployed on main — private leagues, push notifications, the share loop, and the PWA were layered onto a working core loop rather than big-banged, and I deploy and check the running product, not just the test suite. The codebase is heavily commented with the why behind each decision, not just the what.",
     skills: [
       "Next.js (App Router)",
-      "TypeScript",
+      "TypeScript (strict)",
       "Tailwind CSS",
       "Supabase (Auth, Postgres, RLS)",
+      "Postgres (RLS, SECURITY DEFINER, triggers)",
       "OpenAI API",
       "Deterministic scoring engine",
-      "PWA / service worker support",
-      "Private leagues",
-      "Open Graph metadata",
-      "Vercel",
+      "Idempotent cron jobs",
+      "Web push (VAPID)",
+      "Dynamic Open Graph images",
+      "PWA / Serwist service worker",
+      "Vercel (hosting + cron)",
     ],
     proofPoints: [
-      "AI stays in its lane: scoring is deterministic and the LLM can never award or change points — the same separation-of-concerns discipline as ScamCheck's escalate-only AI.",
-      "Four task-specific AI outputs (verdict, safe roast, debrief, fan-personality profile) from one prediction — purpose-built generation, not a generic chatbot.",
-      "Production custom domain at fanbrainai.com with app-style mobile navigation, install/update support, canonical metadata, and share-ready social cards.",
-      "Full auth + leaderboard + private-league surface on a Supabase RLS data model, with provider secrets kept server-side and match data cached rather than called from the client.",
+      "Ambiguity to product, solo: started from a one-line ambition and made every call myself — the no-betting positioning, the seven fan archetypes, the points scheme, and the retention mechanics (streaks, leagues, push).",
+      "AI integrated responsibly: the LLM is treated as a component with a contract and guardrails, kept strictly non-load-bearing for correctness, with a fact/commentary boundary that makes it safe to put in front of real users.",
+      "Full-stack ownership end to end: data modelling, row-level security, auth, background jobs, push infrastructure, PWA, and front-end polish — no layer handed off.",
+      "Ship, observe, iterate: continuously deployed and live, with real users on the leaderboard, and growth engineered in through token-gated share pages and dynamic Open Graph cards.",
     ],
   },
   {

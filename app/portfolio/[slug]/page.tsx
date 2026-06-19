@@ -89,6 +89,36 @@ export default async function PortfolioProjectPage({ params }: ProjectPageProps)
         </section>
       ) : null}
 
+      {project.architecture ? (
+        <section className="portfolio-detail-band" aria-labelledby="architecture-heading">
+          <div>
+            <span className="label">{"// architecture"}</span>
+            <h2 id="architecture-heading">How it fits together</h2>
+          </div>
+          <p className="portfolio-process-note">{project.architecture}</p>
+        </section>
+      ) : null}
+
+      {project.deepDives && project.deepDives.length > 0 ? (
+        <section className="portfolio-detail-band" aria-labelledby="deep-dives-heading">
+          <div>
+            <span className="label">{"// engineering deep-dives"}</span>
+            <h2 id="deep-dives-heading">Decisions I&apos;m proudest of</h2>
+          </div>
+          <div className="portfolio-detail-grid portfolio-deep-dive-grid">
+            {project.deepDives.map((item, index) => (
+              <article className="portfolio-detail-card" key={item.title}>
+                <span className="capability-index">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="portfolio-deep-dive-title">{item.title}</h3>
+                <p>{item.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       {project.buildFocus && project.buildFocus.length > 0 ? (
         <section className="portfolio-detail-band" aria-labelledby="build-focus-heading">
           <div>
@@ -155,6 +185,20 @@ export default async function PortfolioProjectPage({ params }: ProjectPageProps)
               <p key={item}>{item}</p>
             ))}
           </div>
+        </section>
+      ) : null}
+
+      {project.nextSteps && project.nextSteps.length > 0 ? (
+        <section className="portfolio-detail-band" aria-labelledby="next-steps-heading">
+          <div>
+            <span className="label">{"// roadmap"}</span>
+            <h2 id="next-steps-heading">What I&apos;d build next</h2>
+          </div>
+          <ul className="project-skill-list">
+            {project.nextSteps.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </section>
       ) : null}
 
