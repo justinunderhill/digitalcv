@@ -175,10 +175,10 @@ export default function Home() {
     <>
       <header className="top-nav">
         <div className="shell top-nav-inner">
-          <a className="brand" href="/" aria-label="Justin Underhill homepage">
+          <Link className="brand" href="/" aria-label="Justin Underhill homepage">
             <span className="brand-mark">JU</span>
             <span className="brand-name">Justin Underhill</span>
-          </a>
+          </Link>
           <nav aria-label="Primary">
             <a href="#about">about</a>
             <a href="#skills">skills</a>

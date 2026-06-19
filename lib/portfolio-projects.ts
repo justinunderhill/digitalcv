@@ -21,16 +21,16 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "FanBrain AI",
     category: "AI Football Prediction Game",
     detail:
-      "Predict match scores and AI hands back a verdict, a safe roast, and a read on what kind of fan you really are — no betting, just bragging rights.",
-    liveUrl: "https://fanbrainai.vercel.app/",
+      "Predict World Cup scores, track your picks, join private leagues, and let AI reveal what kind of fan you really are — no betting, just bragging rights.",
+    liveUrl: "https://fanbrainai.com/",
     overview:
-      "A mobile-first football prediction game built around the 2026 World Cup. Fans predict scorelines, earn points on a deterministic scoring system, and get back AI-generated verdicts, playful (non-abusive) roasts, match debriefs, and an evolving fan-personality profile. Auth, a leaderboard, and a fixture model sit behind it. A solo personal project — a working MVP deployed on Vercel with a seeded starter fixture set and a documented path to a live fixture API.",
+      "A mobile-first football prediction game built around the 2026 World Cup, now live on its production domain at fanbrainai.com. Fans browse upcoming fixtures, make and manage predictions, earn points on a deterministic scoring system, climb a public leaderboard, create private leagues, and get AI-generated verdicts, playful non-abusive roasts, post-match debriefs, and an evolving fan-personality profile. The current build has moved beyond the original MVP into a fuller product surface: responsive app navigation, mobile bottom tabs, PWA install/update support, shareable leaderboard metadata, match lock states, auth-gated My Picks and Profile areas, and production social cards.",
     problem:
       "There's a gap between casually watching football and actually engaging with it, and the apps that fill that gap mostly do it with gambling. FanBrain gamifies match predictions without money on the line — turning a scoreline guess into AI analysis, banter, and bragging rights.",
     approach:
-      "Next.js App Router + TypeScript + Tailwind front end, with Supabase handling auth (magic link / email-password), the Postgres schema, row-level security, and seed data. Four purpose-built OpenAI route handlers turn a single prediction into distinct outputs — a verdict, a safe roast, a match debrief, and a fan-personality profile. The defining design choice: AI never awards points. Scoring is fully deterministic in scoring.ts (5 for an exact score, 3 for the right outcome, 0 for wrong), so the model only ever adds colour and personality and can never move the standings. Provider secrets stay server-side and match data is cached in Supabase rather than called from the client.",
+      "Next.js App Router + TypeScript + Tailwind front end, with Supabase handling auth (magic link / email-password), the Postgres schema, row-level security, predictions, leaderboard data, and private league membership. Four purpose-built OpenAI route handlers turn a single prediction into distinct outputs — a verdict, a safe roast, a match debrief, and a fan-personality profile. The defining design choice: AI never awards points. Scoring is fully deterministic in scoring.ts (5 for an exact score, 3 for the right outcome, 0 for wrong), so the model only ever adds colour and personality and can never move the standings. The public app now includes fixture browsing, locked/locking match states, editable user picks behind auth, private leagues, mobile-first navigation, PWA service-worker support via Serwist, and canonical/open-graph metadata for shareable public pages.",
     result:
-      "A working, deployed MVP that wires an LLM into a real product loop with clear separation of concerns — the AI entertains and characterises, while a deterministic engine owns the competitive truth. Demonstrates a full auth + leaderboard + RLS data model on Supabase and multiple task-specific AI outputs from one user action, not a single chat box.",
+      "A working, production-deployed football engagement product that wires an LLM into a real game loop with clear separation of concerns — the AI entertains and characterises, while a deterministic engine owns the competitive truth. The live leaderboard is populated with real users and predictions, private leagues give the product a social loop, and the PWA/mobile polish makes it feel like an app rather than a prototype.",
     skills: [
       "Next.js (App Router)",
       "TypeScript",
@@ -38,12 +38,16 @@ export const portfolioProjects: PortfolioProject[] = [
       "Supabase (Auth, Postgres, RLS)",
       "OpenAI API",
       "Deterministic scoring engine",
+      "PWA / service worker support",
+      "Private leagues",
+      "Open Graph metadata",
       "Vercel",
     ],
     proofPoints: [
       "AI stays in its lane: scoring is deterministic and the LLM can never award or change points — the same separation-of-concerns discipline as ScamCheck's escalate-only AI.",
       "Four task-specific AI outputs (verdict, safe roast, debrief, fan-personality profile) from one prediction — purpose-built generation, not a generic chatbot.",
-      "Full auth + leaderboard on a Supabase RLS data model, with provider secrets kept server-side and match data cached rather than called from the client.",
+      "Production custom domain at fanbrainai.com with app-style mobile navigation, install/update support, canonical metadata, and share-ready social cards.",
+      "Full auth + leaderboard + private-league surface on a Supabase RLS data model, with provider secrets kept server-side and match data cached rather than called from the client.",
     ],
   },
   {
