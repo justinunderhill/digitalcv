@@ -1,10 +1,28 @@
 import type { Metadata } from "next";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans-loaded",
+  display: "swap",
+});
+const display = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display-loaded",
+  display: "swap",
+});
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono-loaded",
+  display: "swap",
+});
+
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://justinunderhill.com";
-const title = "Justin Underhill | Applied AI & Automation Consultant";
+const title = "Justin Underhill | AI Engineer & Builder";
 const description =
-  "Johannesburg-based Applied AI & Automation Consultant building practical AI tools, agent workflows, and automation that connects to real business processes.";
+  "Johannesburg-based AI engineer who builds and ships production AI end-to-end — from ambiguous problem to deployed product. Full-stack (Next.js · Python/FastAPI) with a delivery background.";
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -19,14 +37,14 @@ const personJsonLd = {
     addressCountry: "ZA",
   },
   sameAs: ["https://www.linkedin.com/in/justinunderhill"],
-  jobTitle: "Applied AI & Automation Consultant",
+  jobTitle: "AI Engineer & Builder",
   knowsAbout: [
+    "AI engineering",
     "Applied AI",
-    "AI automation",
     "LLM applications",
     "Agent workflows",
+    "Full-stack development",
     "Project delivery",
-    "Digital strategy",
   ],
 };
 
@@ -51,7 +69,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Justin Underhill — Applied AI & Automation Consultant",
+        alt: "Justin Underhill — AI Engineer & Builder",
       },
     ],
   },
@@ -73,7 +91,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${sans.variable} ${display.variable} ${mono.variable}`}
+    >
       <body>
         <script
           type="application/ld+json"

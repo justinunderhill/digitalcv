@@ -1,4 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="32" fill="#101820"/>
-  <text x="32" y="33" fill="#ffffff" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="30" font-weight="700" text-anchor="middle" dominant-baseline="central" letter-spacing="-1">JU</text>
+  <rect width="64" height="64" rx="15" fill="#0a0e13"/>
+  <rect x="1.25" y="1.25" width="61.5" height="61.5" rx="13.75" fill="none" stroke="#43d9bd" stroke-opacity="0.55" stroke-width="1.5"/>
+  <text x="29" y="34" fill="#e6edf3" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="27" font-weight="700" text-anchor="middle" dominant-baseline="central" letter-spacing="-1">ju</text>
+  <rect x="44" y="38" width="11" height="4" rx="1" fill="#43d9bd"/>
 </svg>

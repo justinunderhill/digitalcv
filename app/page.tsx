@@ -176,7 +176,7 @@ export default function Home() {
       <header className="top-nav">
         <div className="shell top-nav-inner">
           <Link className="brand" href="/" aria-label="Justin Underhill homepage">
-            <span className="brand-mark">JU</span>
+            <span className="brand-mark">ju</span>
             <span className="brand-name">Justin Underhill</span>
           </Link>
           <nav aria-label="Primary">
@@ -196,19 +196,18 @@ export default function Home() {
             <div className="section-content">
               <span className="label">{"// signal"}</span>
               <h1 id="hero-name">Justin Underhill</h1>
-              <p className="hero-role">
-                Applied AI & Automation Consultant
-              </p>
+              <p className="hero-role">AI Engineer &amp; Builder</p>
               <p className="hero-lede">
-                I build practical AI tools and agent workflows that fit inside real
-                business environments — LLM applications, retrieval-backed assistants,
-                and automation that connects to existing processes.
+                I build and ship AI products end-to-end, and I&apos;m comfortable doing
+                it close to the customer — turning a vague business problem into a
+                deployed, working system. Full-stack across Next.js and Python/FastAPI,
+                with a delivery background behind it.
               </p>
               <p className="hero-detail">
-                Based in Johannesburg. Background spans senior software development,
-                digital strategy, and enterprise project delivery, now focused on
-                applied AI: grounded outputs, sensible guardrails, and tools the
-                business will actually use.
+                Based in Johannesburg. The thread across my builds: AI is commentary,
+                never the source of truth — the load-bearing logic stays deterministic.
+                Behind the engineering is years of client-facing delivery: scoping,
+                stakeholder alignment, QA, launch, and handover.
               </p>
               <div className="hero-actions">
                 <a
@@ -480,10 +479,11 @@ export default function Home() {
         <section id="contact" aria-labelledby="contact-heading">
           <div className="section-content contact">
             <span className="label">{"// contact"}</span>
-            <h2 id="contact-heading">Available for AI and delivery engagements</h2>
+            <h2 id="contact-heading">Open to AI engineering roles and build engagements</h2>
             <p>
-              Based in Johannesburg, available for consulting engagements across
-              applied AI builds, automation workflows, and delivery-led programs.
+              Based in Johannesburg, open to forward-deployed and AI engineering roles,
+              plus build engagements across applied AI products, automation workflows,
+              and delivery-led programs.
             </p>
             <div className="contact-grid">
               <div className="contact-item">

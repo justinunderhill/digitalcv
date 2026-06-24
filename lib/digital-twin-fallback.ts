@@ -122,9 +122,9 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
     return [
       "The strongest AI training signal is the applied AI engineering curriculum I completed through Ed Donner.",
       "",
-      "I completed two tracks: AI Builder - Agents, Voice Agents & Automation (n8n), and AI Coder - Claude Code & Coding Agents. The AI Builder track covered autonomous agents, RAG-powered voice agents, a multi-agent go-to-market system, LLM integration, Supabase vector RAG, MCP, webhooks, and JSON data pipelines. FinAlly was the capstone build.",
+      "I completed three tracks: AI Builder - Agents, Voice Agents & Automation (n8n), AI Coder - Claude Code & Coding Agents, and AI Leadership - Strategy, Decision-Making & Governance. The AI Builder track covered autonomous agents, RAG-powered voice agents, a multi-agent go-to-market system, LLM integration, Supabase vector RAG, MCP, webhooks, and JSON data pipelines. FinAlly was the capstone build.",
       "",
-      "The AI Coder track covered Claude Code, MCP, skills, sub-agents, multi-agent orchestration, and the Claude Agent SDK. Through that track I built and shipped live curriculum projects with agentic coding workflows, including this portfolio site and its digital twin, and the PreLegal assistant.",
+      "The AI Coder track covered Claude Code, MCP, skills, sub-agents, multi-agent orchestration, and the Claude Agent SDK. Through that track I built and shipped live curriculum projects with agentic coding workflows, including this portfolio site and its digital twin, and the PreLegal assistant. The AI Leadership track covered AI strategy, investment frameworks, governance, and architecture decisions from a commercial perspective.",
       "",
       "I describe that honestly as curriculum and training-grade AI work, not as production-scale client AI deployments.",
     ].join("\n");
@@ -255,6 +255,6 @@ export function generateFallbackTwinAnswer(userPrompt: string): string {
   return [
     "I can answer that best if we keep it tied to Justin's career, AI focus, delivery background, work style, certifications, or education.",
     "",
-    "The useful summary is this: Justin is an Applied AI & Automation Consultant, GenAI Workflow Builder, Digital Transformation Project Manager, and Senior Software Developer based in Johannesburg. His edge is the blend of software development, backend/API experience, AI-assisted engineering with tools like Claude Code and Codex, digital strategy, project delivery, and practical AI implementation.",
+    "The useful summary is this: Justin is an AI Engineer & Builder based in Johannesburg who builds and ships production AI end-to-end, comfortable working close to the customer from an ambiguous problem to a deployed product. His edge is the blend of full-stack software development, backend/API experience, AI-assisted engineering with tools like Claude Code and Codex, plus client-facing delivery and practical AI implementation.",
   ].join("\n");
 }

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Justin Underhill — Applied AI & Automation Consultant";
+export const alt = "Justin Underhill — AI Engineer & Builder";
 export const size = {
   width: 1200,
   height: 630,
@@ -18,15 +18,15 @@ export default function Image() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
-          background: "#0b0d10",
-          color: "#f4f4f3",
+          background: "#0a0e13",
+          color: "#e6edf3",
           fontFamily: "Arial",
         }}
       >
         <div
           style={{
             display: "flex",
-            color: "#e9a23b",
+            color: "#43d9bd",
             fontSize: 22,
             letterSpacing: 0,
           }}
@@ -50,14 +50,14 @@ export default function Image() {
             style={{
               display: "flex",
               maxWidth: 920,
-              color: "#a4a8af",
+              color: "#9fb1c0",
               fontSize: 32,
               fontWeight: 400,
               lineHeight: 1.25,
             }}
           >
-            Applied AI & Automation Consultant — practical AI tools, agent
-            workflows, and automation for real business environments.
+            AI engineer & builder — I ship production AI end-to-end, from an
+            ambiguous problem to a deployed product.
           </div>
         </div>
 
@@ -66,12 +66,12 @@ export default function Image() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-end",
-            color: "#6b7280",
+            color: "#67788a",
             fontSize: 22,
             letterSpacing: 0,
           }}
         >
-          <span style={{ color: "#e9a23b" }}>Applied AI · automation · delivery</span>
+          <span style={{ color: "#43d9bd" }}>AI engineering · full-stack · delivery</span>
           <span>Johannesburg · ZA</span>
         </div>
       </div>
