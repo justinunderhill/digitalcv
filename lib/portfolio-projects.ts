@@ -124,6 +124,69 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
   },
   {
+    slug: "medical-aid-navigator",
+    title: "Medical Aid Navigator",
+    category: "Medical Aid Navigator",
+    detail:
+      "Pick your medical-aid situation — an emergency, a specialist referral, registering a chronic condition, a rejected claim — and get a plain-English checklist of exactly what to ask, which codes and documents to request, and what to watch out for before you use your benefits.",
+    liveUrl: "https://medical-aid-navigator.vercel.app/",
+    overview:
+      "An educational, AI-assisted tool that helps South African medical-aid members understand what to ask, check, and document before, during, and after using their benefits. A member picks one of ten real situations (or describes their own and lets an AI classifier route them), answers a few guided questions, and gets a tailored, plain-English checklist — the questions to put to their scheme, the ICD-10 and tariff codes and authorisation numbers to request, the co-payment and network risks to watch — which they can export as a PDF. It is deliberately scheme-neutral and explicitly not medical, broker, legal, or financial advice, and not a guarantee of any claim outcome. I designed and built it solo and ship it as a live MVP, currently gathering real-world feedback. This write-up goes deep on the engineering, because in a health-and-money domain the engineering — specifically the safety architecture — is the point.",
+    problem:
+      "Medical-aid documents are detailed, technical, and hard to interpret in the moment — and most people only go looking for answers when they're already stressed, sick, injured, or trying to help a family member. That's exactly the moment to not drop a chatbot that confidently invents benefit limits or tells someone a claim \"will be covered.\" The hard problem isn't generating helpful text; it's building an AI tool for a high-stakes domain that stays safe even when the AI is wrong, down, or manipulated.",
+    approach:
+      "A safety-first request pipeline where the AI is the last and least-trusted component. Every request runs: rate limit → deterministic emergency detection that never calls the AI → grounded AI generation fed only my own curated knowledge base → an output validator that scans and softens forbidden phrasing → a disclaimer appended to every result. The LLM is explicitly forbidden from inventing scheme rules, plan names, benefit limits, codes, or PMB status, and the app is scheme-neutral by design — it teaches the right questions to ask rather than encoding any named scheme's plan data. Stack: Next.js 15 (App Router, TypeScript) on Vercel, a provider-agnostic AI layer defaulting to Anthropic Claude Sonnet 4.6 (OpenAI swappable), an editable markdown knowledge base, optional anonymous Supabase feedback, and client-side PDF export. Stateless and POPIA-aware: no accounts, no member or ID numbers.",
+    result:
+      "A live MVP that demonstrates how to put an LLM into a health-and-money context responsibly — where it explains and asks good questions but is mechanically prevented from diagnosing, guaranteeing claims, giving broker advice, or burying an emergency. The same fact/commentary discipline as my other AI work, applied where the stakes are highest: structured safety guidance comes from deterministic code, and AI is layered on top, never load-bearing for the parts that could hurt someone.",
+    architecture:
+      "The app runs on Next.js App Router on Vercel serverless (Node runtime). POST /api/navigate is the spine: rate limit, then detectEmergency() (pure, no network), then grounded generation through the AIProvider interface, then JSON parse with a safe fallback checklist, then validateOutput() on every field, then the standard disclaimer. A second route, /api/classify-scenario, routes free-text \"I'm not sure\" input to a scenario — but checks for emergencies deterministically first, so a crisis is never routed through the LLM. Content (scenarios, concept explainers, the system prompt, emergency keywords) lives in editable files separate from logic, so the knowledge base can be tuned without touching code.",
+    deepDives: [
+      {
+        title: "Safety that does not depend on the AI",
+        body: "The single most important design decision. Emergency detection is fully deterministic — keyword, scenario, and structured-flag matching with no network call — and runs before the AI is ever invoked. If someone describes chest pain or a child not breathing, they get static, hard-coded urgent-care guidance (call 10177 / 112, don't delay for benefits) even if the AI provider is down, slow, rate-limited, or manipulated by injected input. The layer is deliberately tuned to allow false positives (a needless emergency notice is cheap) but never false negatives (missing a real one). Even the AI's fallback path — when generation fails or returns unparseable output — leads with an always-safe urgent-care message, because a fallback can't know whether the keyword scan missed something.",
+      },
+      {
+        title: "Grounded generation, scheme-neutral by design",
+        body: "The LLM is fed only my own curated /content knowledge base and is forbidden from inventing scheme rules, plan names, benefit limits, prices, codes, or formulary details — if it isn't grounded, it must say so and tell the user to confirm with their scheme. I deliberately don't encode any named scheme's plan limits: they change yearly, vary by plan, and can't be reliably guaranteed from public information, so encoding them is both an accuracy risk and a legal one. Instead the tool teaches the right questions to ask your own scheme. That's a judgement call to ship less and be correct, rather than more and be wrong.",
+      },
+      {
+        title: "Output validation as a second wall",
+        body: "Never trust the prompt alone. After generation, every field is scanned by a rules layer for phrasing that would turn educational navigation into something dangerous: claim guarantees (\"will be covered\" becomes \"may be covered — confirm with your scheme\"), self-declared PMB status, telling someone they don't need care, broker or scheme-switching advice, and accusatory scheme-blaming. Hard violations are auto-softened and flagged for monitoring; softer cautions are logged. The system prompt forbids these and this layer catches anything that slips through — belt and braces. It's the same escalate-only discipline as ScamCheck, enforced in code rather than trusted to the model.",
+      },
+      {
+        title: "A provider-agnostic AI layer behind a clean interface",
+        body: "All AI sits behind a single AIProvider interface; the rest of the app never knows which model is active. Anthropic Claude Sonnet 4.6 is the default because it adheres more reliably to the refusal and guardrail instructions that matter here, with OpenAI swappable via one env var. User free text is wrapped in explicit delimiters and treated as data, not instructions, and the system prompt is told to ignore any embedded attempt to change its rules — a pragmatic prompt-injection posture for an MVP.",
+      },
+    ],
+    nextSteps: [
+      "Broaden and deepen the grounding knowledge base, and add structured per-scheme question sets while keeping the no-fabrication rule.",
+      "Act on real-world feedback from the live MVP to decide what's genuinely useful before expanding scope.",
+      "Back the in-memory rate limiter with a shared store (Upstash / Vercel KV) for a strict cross-instance cap.",
+      "Expand the automated safety test suite around emergency detection and the output validator.",
+    ],
+    processNote:
+      "Designed and built solo as a live MVP, and shipped to gather real feedback before deciding what to build next. Safety, knowledge, AI, and data are cleanly separated layers, and the entire knowledge base — scenarios, explainers, the system prompt, even the emergency keyword list — lives in editable content files so the guidance can be tuned without touching application logic. The code is heavily commented with the why behind each safety decision.",
+    skills: [
+      "Next.js (App Router)",
+      "TypeScript",
+      "Anthropic Claude (Sonnet 4.6)",
+      "Provider-agnostic AI abstraction",
+      "Deterministic safety layer",
+      "Prompt engineering as guardrails",
+      "Output validation / content filtering",
+      "Grounded generation (RAG-style)",
+      "Supabase",
+      "PDF generation (jsPDF)",
+      "Vercel serverless",
+      "POPIA-aware / stateless design",
+    ],
+    proofPoints: [
+      "Safety-first AI architecture: the LLM is the last and least-trusted component — emergency guidance is deterministic and AI-independent, so the tool stays safe even if the model is down, wrong, or manipulated.",
+      "Guardrails enforced in code, not hoped for in a prompt: grounded generation plus a post-generation validator that mechanically softens claim guarantees, diagnosis, and broker advice.",
+      "Judgement in a regulated domain: scheme-neutral by deliberate choice, explicitly not advice, POPIA-aware and stateless — shipping the correct-and-honest thing over the impressive-but-risky one.",
+    ],
+  },
+  {
     slug: "finally",
     title: "FinAlly",
     category: "AI Trading Workstation",

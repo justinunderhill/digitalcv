@@ -64,6 +64,35 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Pointer-following brand glow. Sits behind page content (negative z-index)
+   so it lights up the background and grid without touching readability.
+   Position is driven by --mx/--my, set from JS in CursorGlow. */
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  background: radial-gradient(
+    26rem 26rem at var(--mx, 50%) var(--my, 50%),
+    rgba(67, 217, 189, 0.12),
+    rgba(67, 217, 189, 0.05) 38%,
+    transparent 64%
+  );
+}
+
+.cursor-glow[data-active="true"] {
+  opacity: 1;
+}
+
+/* No hovering cursor on touch devices — keep it off there. */
+@media (hover: none), (pointer: coarse) {
+  .cursor-glow {
+    display: none;
+  }
+}
+
 a {
   color: var(--ink);
   text-decoration: none;

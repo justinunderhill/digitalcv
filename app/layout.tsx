@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import CursorGlow from "./components/cursor-glow";
 import "./globals.css";
 
 const sans = Inter({
@@ -100,6 +101,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
+        <CursorGlow />
         {children}
         <a className="back-to-top" href="#top" aria-label="Back to top">
           <span aria-hidden="true">↑</span>
