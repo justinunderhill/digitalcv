@@ -155,6 +155,26 @@ const journey = [
   },
 ];
 
+const anthropicCerts = [
+  {
+    title: "AI Fluency: Framework & Foundations",
+    note: "Academic program co-badged with University College Cork, Ringling College, and Ireland's Higher Education Authority & National Forum.",
+    flagship: true,
+  },
+  {
+    title: "Claude Code 101",
+    note: "Agentic coding with Claude Code — the workflow behind the builds in this portfolio.",
+  },
+  {
+    title: "Claude Platform 101",
+    note: "Building on the Claude developer platform and API.",
+  },
+  {
+    title: "Claude 101",
+    note: "Core foundations of working effectively with Claude.",
+  },
+];
+
 const certifications = [
   "PRINCE2 Foundation",
   "Generative AI for Project Managers",
@@ -444,6 +464,32 @@ export default function Home() {
                 The FinAlly and PreLegal portfolio projects above were built as
                 part of it.
               </p>
+            </div>
+            <div className="curriculum-block">
+              <div className="curriculum-header">
+                <h3>Anthropic certified</h3>
+                <span className="curriculum-source">Anthropic</span>
+              </div>
+              <ul className="anthropic-cert-grid">
+                {anthropicCerts.map((cert) => (
+                  <li
+                    className={
+                      cert.flagship
+                        ? "anthropic-cert anthropic-cert-flagship"
+                        : "anthropic-cert"
+                    }
+                    key={cert.title}
+                  >
+                    <span className="anthropic-cert-badge" aria-hidden="true">
+                      ✓
+                    </span>
+                    <div>
+                      <strong>{cert.title}</strong>
+                      <p>{cert.note}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
             <div className="split">
               <div>
