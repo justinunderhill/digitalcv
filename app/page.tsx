@@ -242,6 +242,14 @@ export default function Home() {
                 </a>
                 <a
                   className="button button-ghost"
+                  href="https://github.com/justinunderhill"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                </a>
+                <a
+                  className="button button-ghost"
                   href="#contact"
                 >
                   Get in touch
@@ -564,6 +572,16 @@ export default function Home() {
                 <span className="contact-item-label">linkedin</span>
                 <a
                   href="https://www.linkedin.com/in/justinunderhill"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  justinunderhill
+                </a>
+              </div>
+              <div className="contact-item">
+                <span className="contact-item-label">github</span>
+                <a
+                  href="https://github.com/justinunderhill"
                   target="_blank"
                   rel="noreferrer"
                 >
