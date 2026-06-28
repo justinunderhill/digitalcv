@@ -124,6 +124,33 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
   },
   {
+    slug: "finally",
+    title: "FinAlly",
+    category: "AI Trading Workstation",
+    detail:
+      "A real-time trading workstation where you manage a portfolio by talking to it.",
+    liveUrl: "https://finally-beryl.vercel.app/",
+    overview:
+      "A Bloomberg-style trading workstation that streams live prices and lets an LLM assistant analyse holdings and execute trades from natural-language instructions. Built as a course capstone, entirely via agentic coding workflows.",
+    problem:
+      "Trading interfaces are dense and intimidating, and the gap between 'seeing your positions' and 'acting on them' usually means menus, forms, and manual order entry.",
+    approach:
+      "Built a Bloomberg-style workstation that streams live prices over SSE, visualises a portfolio as a heatmap and P&L chart, and adds an LLM assistant that analyses holdings and executes trades from natural-language instructions — Next.js + FastAPI in a single Docker container, with structured-output LLM calls driving the trade logic.",
+    result:
+      "Demonstrates end-to-end agentic product delivery — real-time data streaming, a stateful simulated portfolio, and an LLM wired safely into actions rather than just chat. Built entirely via coding agents as a course capstone.",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "FastAPI",
+      "SQLite",
+      "SSE streaming",
+      "LiteLLM / OpenRouter",
+      "Docker",
+      "Structured-output LLM calls",
+    ],
+  },
+  {
     slug: "medical-aid-navigator",
     title: "Medical Aid Navigator",
     category: "Medical Aid Navigator",
@@ -184,33 +211,6 @@ export const portfolioProjects: PortfolioProject[] = [
       "Safety-first AI architecture: the LLM is the last and least-trusted component — emergency guidance is deterministic and AI-independent, so the tool stays safe even if the model is down, wrong, or manipulated.",
       "Guardrails enforced in code, not hoped for in a prompt: grounded generation plus a post-generation validator that mechanically softens claim guarantees, diagnosis, and broker advice.",
       "Judgement in a regulated domain: scheme-neutral by deliberate choice, explicitly not advice, POPIA-aware and stateless — shipping the correct-and-honest thing over the impressive-but-risky one.",
-    ],
-  },
-  {
-    slug: "finally",
-    title: "FinAlly",
-    category: "AI Trading Workstation",
-    detail:
-      "A real-time trading workstation where you manage a portfolio by talking to it.",
-    liveUrl: "https://finally-beryl.vercel.app/",
-    overview:
-      "A Bloomberg-style trading workstation that streams live prices and lets an LLM assistant analyse holdings and execute trades from natural-language instructions. Built as a course capstone, entirely via agentic coding workflows.",
-    problem:
-      "Trading interfaces are dense and intimidating, and the gap between 'seeing your positions' and 'acting on them' usually means menus, forms, and manual order entry.",
-    approach:
-      "Built a Bloomberg-style workstation that streams live prices over SSE, visualises a portfolio as a heatmap and P&L chart, and adds an LLM assistant that analyses holdings and executes trades from natural-language instructions — Next.js + FastAPI in a single Docker container, with structured-output LLM calls driving the trade logic.",
-    result:
-      "Demonstrates end-to-end agentic product delivery — real-time data streaming, a stateful simulated portfolio, and an LLM wired safely into actions rather than just chat. Built entirely via coding agents as a course capstone.",
-    skills: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind",
-      "FastAPI",
-      "SQLite",
-      "SSE streaming",
-      "LiteLLM / OpenRouter",
-      "Docker",
-      "Structured-output LLM calls",
     ],
   },
   {
