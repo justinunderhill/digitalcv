@@ -173,6 +173,10 @@ const anthropicCerts = [
     title: "Claude 101",
     note: "Core foundations of working effectively with Claude.",
   },
+  {
+    title: "Introduction to Claude Cowork",
+    note: "Delegating multi-step work to Claude as an autonomous coworker.",
+  },
 ];
 
 const certifications = [
